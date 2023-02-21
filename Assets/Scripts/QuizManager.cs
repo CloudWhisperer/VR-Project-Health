@@ -5,44 +5,39 @@ using TMPro;
 
 public class QuizManager : MonoBehaviour
 {
-    public TextMeshProUGUI anxietytext;
-    public TextMeshProUGUI depressiontext;
-    public TextMeshProUGUI stresstext;
+    public GameObject ScreenQuestion;
+    public GameObject AnswerA;
+    public GameObject AnswerB;
+    public GameObject AnswerC;
 
-    public int Anxietylevel = 0;
-    public int Depressionlevel = 0;
-    public int Stresslevel = 0;
+    public static int Anxietylevel = 0;
+    public static int Depressionlevel = 0;
+    public static int Stresslevel = 0;
 
-    public void anxadd()
-    {
-        anxietytext.text = "Anxietylevel = " + Anxietylevel.ToString();
-        Anxietylevel += 1;
-        Debug.Log(Anxietylevel);
-    }
+    public static string NewQuestion;
+    public static string NewA;
+    public static string NewB;
+    public static string NewC;
 
-    public void depadd()
-    {
-        depressiontext.text = "Depressionlevel = " + Depressionlevel.ToString();
-        Depressionlevel += 1;
-        Debug.Log(Depressionlevel);
-    }
-
-    public void stradd()
-    {
-        stresstext.text = "Stresslevel = " + Stresslevel.ToString();
-        Stresslevel += 1;
-        Debug.Log(Stresslevel);
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(TextonScreen());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator TextonScreen()
+    {
+        yield return new WaitForSeconds(0.25f);
+        ScreenQuestion.GetComponent<TextMeshProUGUI>().text = NewQuestion;
+        AnswerA.GetComponent<TextMeshProUGUI>().text = NewA;
+        AnswerB.GetComponent<TextMeshProUGUI>().text = NewB;
+        AnswerC.GetComponent<TextMeshProUGUI>().text = NewC;
     }
 }

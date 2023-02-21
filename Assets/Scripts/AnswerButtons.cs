@@ -1,0 +1,73 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class AnswerButtons : MonoBehaviour
+{
+    public TextMeshProUGUI anxietytext;
+    public TextMeshProUGUI depressiontext;
+    public TextMeshProUGUI stresstext;
+
+    public GameObject answerAbutton;
+    public GameObject answerBbutton;
+    public GameObject answerCbutton;
+
+    private void Start()
+    {
+
+    }
+
+    public void AnswerA()
+    {
+        if(QuestionGenerator.Answer_Increase_Stress_score == "A")
+        {
+            Debug.Log("answer is a");
+            QuizManager.Stresslevel += 1;
+            stresstext.text = "Stresslevel = " + QuizManager.Stresslevel.ToString();
+        }
+        else
+        {
+            Debug.Log("answer is not A");
+        }
+
+        answerAbutton.GetComponent<Button>().enabled = false;
+        answerBbutton.GetComponent<Button>().enabled = false;
+        answerCbutton.GetComponent<Button>().enabled = false;
+    }
+
+    public void AnswerB()
+    {
+        if (QuestionGenerator.Answer_Increase_Stress_score == "B")
+        {
+            Debug.Log("answer is B");
+        }
+
+        else
+        {
+            Debug.Log("answer is not B");
+        }
+
+        answerAbutton.GetComponent<Button>().enabled = false;
+        answerBbutton.GetComponent<Button>().enabled = false;
+        answerCbutton.GetComponent<Button>().enabled = false;
+    }
+
+    public void AnswerC()
+    {
+        if (QuestionGenerator.Answer_Increase_Stress_score == "C")
+        {
+            Debug.Log("answer is C");
+        }
+
+        else
+        {
+            Debug.Log("answer is not C");
+        }
+
+        answerAbutton.GetComponent<Button>().enabled = false;
+        answerBbutton.GetComponent<Button>().enabled = false;
+        answerCbutton.GetComponent<Button>().enabled = false;
+    }
+}
