@@ -14,11 +14,6 @@ public class AnswerButtons : MonoBehaviour
     public GameObject answerBbutton;
     public GameObject answerCbutton;
 
-    private void Start()
-    {
-
-    }
-
     public void AnswerA()
     {
         if(QuestionGenerator.Answer_Increase_Stress_score == "A")
@@ -35,6 +30,7 @@ public class AnswerButtons : MonoBehaviour
         answerAbutton.GetComponent<Button>().enabled = false;
         answerBbutton.GetComponent<Button>().enabled = false;
         answerCbutton.GetComponent<Button>().enabled = false;
+        StartCoroutine(Nextquestion());
     }
 
     public void AnswerB()
@@ -42,6 +38,8 @@ public class AnswerButtons : MonoBehaviour
         if (QuestionGenerator.Answer_Increase_Stress_score == "B")
         {
             Debug.Log("answer is B");
+            QuizManager.Stresslevel += 1;
+            stresstext.text = "Stresslevel = " + QuizManager.Stresslevel.ToString();
         }
 
         else
@@ -52,6 +50,7 @@ public class AnswerButtons : MonoBehaviour
         answerAbutton.GetComponent<Button>().enabled = false;
         answerBbutton.GetComponent<Button>().enabled = false;
         answerCbutton.GetComponent<Button>().enabled = false;
+        StartCoroutine(Nextquestion());
     }
 
     public void AnswerC()
@@ -59,6 +58,8 @@ public class AnswerButtons : MonoBehaviour
         if (QuestionGenerator.Answer_Increase_Stress_score == "C")
         {
             Debug.Log("answer is C");
+            QuizManager.Stresslevel += 1;
+            stresstext.text = "Stresslevel = " + QuizManager.Stresslevel.ToString();
         }
 
         else
@@ -69,5 +70,20 @@ public class AnswerButtons : MonoBehaviour
         answerAbutton.GetComponent<Button>().enabled = false;
         answerBbutton.GetComponent<Button>().enabled = false;
         answerCbutton.GetComponent<Button>().enabled = false;
+        StartCoroutine(Nextquestion());
+    }
+
+    IEnumerator Nextquestion()
+    {
+
+        yield return new WaitForSeconds(0.3f);
+
+        QuestionGenerator.questionnumber += 1;
+        QuestionGenerator.Displaying_Question = false;
+        answerAbutton.GetComponent<Button>().enabled = true;
+        answerBbutton.GetComponent<Button>().enabled = true;
+        answerCbutton.GetComponent<Button>().enabled = true;
+
+
     }
 }

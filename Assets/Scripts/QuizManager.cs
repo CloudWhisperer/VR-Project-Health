@@ -19,22 +19,21 @@ public class QuizManager : MonoBehaviour
     public static string NewB;
     public static string NewC;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(TextonScreen());
-    }
+    public static bool UpdateQuestion = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (UpdateQuestion == false)
+        {
+            UpdateQuestion = true;
+            StartCoroutine(TextonScreen());
+        }
     }
 
     IEnumerator TextonScreen()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         ScreenQuestion.GetComponent<TextMeshProUGUI>().text = NewQuestion;
         AnswerA.GetComponent<TextMeshProUGUI>().text = NewA;
         AnswerB.GetComponent<TextMeshProUGUI>().text = NewB;

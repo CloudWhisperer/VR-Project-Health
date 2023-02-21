@@ -23,10 +23,10 @@ public class GameMenuManager : MonoBehaviour
         {
             Menu.SetActive(!Menu.activeSelf);
 
-            Menu.transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * spawndistance;
+            //Menu.transform.position = head.position + new Vector3(head.forward.x, head.forward.y, head.forward.z).normalized * spawndistance;
         }
 
-        Menu.transform.LookAt(new Vector3(head.position.x, Menu.transform.position.y, head.position.z));
-        Menu.transform.forward *= -1;
+        //Menu.transform.LookAt(new Vector3(head.position.x, head.position.y, head.position.z));
+        //Menu.transform.forward *= -1;
     }
 }
