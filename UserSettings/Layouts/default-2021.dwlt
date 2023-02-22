@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 31
+  controlID: 90
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -962,22 +962,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Materials
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\User\VR Project Health
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: aa730000
-    m_LastClickedID: 29610
-    m_ExpandedIDs: 000000009c73000000ca9a3b
+    m_SelectedIDs: b8730000
+    m_LastClickedID: 29624
+    m_ExpandedIDs: 00000000b873000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1005,7 +1005,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009c730000
+    m_ExpandedIDs: 00000000b8730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1120,8 +1120,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -1134,18 +1134,18 @@ MonoBehaviour:
       y: 21
       width: 1068
       height: 443
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 534, y: 221.5}
+    m_Scale: {x: 1.1930392, y: 1.1930392}
+    m_Translation: {x: 508.10867, y: 216.41862}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -534
-      y: -221.5
-      width: 1068
-      height: 443
+      x: -425.89438
+      y: -181.40111
+      width: 895.19275
+      height: 371.3206
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1068, y: 464}
@@ -1380,9 +1380,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.19064005, y: -0.09202088, z: 0.8921019}
+    m_Target: {x: -0.19018333, y: 0.89142334, z: 0.14418212}
     speed: 2
-    m_Value: {x: -0.19064005, y: -0.09202088, z: 0.8921019}
+    m_Value: {x: -0.19018333, y: 0.89142334, z: 0.14418212}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1429,20 +1429,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.11445829, y: -0.059945483, z: 0.0068634017, w: 0.99171275}
+    m_Target: {x: 0.085636236, y: 0.42729428, z: -0.0417666, w: 0.8992679}
     speed: 2
-    m_Value: {x: 0.11444483, y: -0.05993843, z: 0.0068625943, w: 0.9915961}
+    m_Value: {x: 0.08562163, y: 0.42722142, z: -0.041759476, w: 0.89911455}
   m_Size:
-    m_Target: 0.7765628
+    m_Target: 0.065941334
     speed: 2
-    m_Value: 0.7765628
+    m_Value: 0.065941334
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 0.5473
-    m_SpeedNormalized: 0.26999998
+    m_Speed: 0.1294
+    m_SpeedNormalized: 0.06
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1492,9 +1492,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 266f0000
-      m_LastClickedID: 28454
-      m_ExpandedIDs: 2c21fdff1287ffff0a8fffff5895ffff9c99ffff2afbffff226f0000266f0000fe6f00001c70000028700000
+      m_SelectedIDs: 82fafeff
+      m_LastClickedID: -66942
+      m_ExpandedIDs: 7c87fcff265afeff82fafeff205cffff2afbffff1a6f0000266f0000d06f00000a700000287000003470000058700000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1510,7 +1510,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 11}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
