@@ -19,7 +19,7 @@ public class AnswerButtons : MonoBehaviour
     public void AnswerA()
     {
         //if the user picks a...
-        if(QuestionGenerator.Answer_Increase_Stress_score == "A")
+        if(QuestionGenerator.Answer_that_increases_score == "A")
         {
             //and its a stressquestion...
             if (QuestionGenerator.stressquestion == true)
@@ -70,7 +70,7 @@ public class AnswerButtons : MonoBehaviour
     //same thing as A
     public void AnswerB()
     {
-        if (QuestionGenerator.Answer_Increase_Stress_score == "B")
+        if (QuestionGenerator.Answer_that_increases_score == "B")
         {
             if (QuestionGenerator.stressquestion == true)
             {
@@ -109,7 +109,7 @@ public class AnswerButtons : MonoBehaviour
 
     public void AnswerC()
     {
-        if (QuestionGenerator.Answer_Increase_Stress_score == "C")
+        if (QuestionGenerator.Answer_that_increases_score == "C")
         {
             if(QuestionGenerator.stressquestion == true)
             {
@@ -157,8 +157,8 @@ public class AnswerButtons : MonoBehaviour
         //wait 0.3 seconds, stoppppp
         yield return new WaitForSeconds(0.3f);
 
-        //checks if the quiz is done or not
-        if(QuestionGenerator.questionnumber == 9)
+        //checks if the quiz is done or not CHANGE THE NUMBER EQUAL TO HOW MNAY QUESTIONS THERE ARE + 1.
+        if(QuestionGenerator.questionnumber == 37)
         {
             Debug.Log("DONE WITH QUIZZZZZZZZZ");
         }

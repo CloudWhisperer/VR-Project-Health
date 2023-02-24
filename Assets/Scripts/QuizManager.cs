@@ -31,13 +31,12 @@ public class QuizManager : MonoBehaviour
         //this triggers after the question is answered in the question generator
         if (UpdateQuestion == false)
         {
-
             UpdateQuestion = true;
             StartCoroutine(TextonScreen());
         }
     }
 
-    //a function that replaces the text with the new question ans answer
+    //a function that replaces the text with the new question and answer
     IEnumerator TextonScreen()
     {
         yield return new WaitForSeconds(0.1f);
