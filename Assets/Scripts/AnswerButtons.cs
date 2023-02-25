@@ -16,6 +16,16 @@ public class AnswerButtons : MonoBehaviour
     public GameObject answerBbutton;
     public GameObject answerCbutton;
 
+    //material colour to change
+    public Material worldmat;
+    public Renderer myrenderer;
+
+    void Start()
+    {
+        myrenderer = gameObject.GetComponent<Renderer>();
+    }
+
+
     public void AnswerA()
     {
         //if the user picks a...
@@ -48,7 +58,69 @@ public class AnswerButtons : MonoBehaviour
             //and its a personalquestion...
             if (QuestionGenerator.personalquestion == true)
             {
-                //do personal code here
+                switch (QuestionGenerator.questionnumber)
+                {
+                    case 1:
+                        Debug.Log("RED selected");
+                        worldmat.SetColor("_BaseColor", Color.red);
+                        break;
+
+                    case 2:
+                        Debug.Log("BLUE selected");
+                        worldmat.SetColor("_BaseColor", Color.blue);
+                        break;
+
+                    case 3:
+                        Debug.Log("YELLOW selected");
+                        worldmat.SetColor("_BaseColor", Color.yellow);
+                        break;
+
+                    case 4:
+                        Debug.Log("PINK selected");
+                        Color Pink = new Color32(227, 61, 148, 1);
+                        worldmat.SetColor("_BaseColor", Pink);
+                        myrenderer.material.color = Pink;
+                        break;
+
+                    case 5:
+                        Debug.Log("ORANGE selected");
+                        Color Orange = new Color32(211, 84, 0, 1);
+                        worldmat.SetColor("_BaseColor", Orange);
+                        myrenderer.material.color = Orange;
+                        break;
+
+                    case 6:
+                        Debug.Log("GREEN selected");
+                        worldmat.SetColor("_BaseColor", Color.green);
+                        break;
+
+                    case 7:
+                        Debug.Log("BROWN selected");
+                        Color Brown = new Color32(139, 69, 19, 1);
+                        worldmat.SetColor("_BaseColor", Brown);
+                        myrenderer.material.color = Brown;
+                        break;
+
+                    case 8:
+                        Debug.Log("RAIN selected");
+                        break;
+
+                    case 9:
+                        Debug.Log("SUNNY selected");
+                        break;
+
+                    case 10:
+                        Debug.Log("SNOWY selected");
+                        break;
+
+                    case 11:
+                        Debug.Log("FOGGY selected");
+                        break;
+
+                    case 12:
+                        Debug.Log("CLOUDY selected");
+                        break;
+                }
             }
         }
 
@@ -93,6 +165,7 @@ public class AnswerButtons : MonoBehaviour
             if (QuestionGenerator.personalquestion == true)
             {
                 //do personal code here
+                Debug.Log("NO SELECTED");
             }
         }
 
@@ -132,6 +205,7 @@ public class AnswerButtons : MonoBehaviour
             if (QuestionGenerator.personalquestion == true)
             {
                 //do personal code here
+                Debug.Log("NEXTTTTTT SELECTED");
             }
         }
 
