@@ -20,6 +20,10 @@ public class AnswerButtons : MonoBehaviour
     public Material worldmat;
     public Renderer myrenderer;
 
+    //destroy these
+    public GameObject destroy_this_button;
+    public GameObject destroy_this_canvas;
+
     void Start()
     {
         myrenderer = gameObject.GetComponent<Renderer>();
@@ -232,9 +236,11 @@ public class AnswerButtons : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         //checks if the quiz is done or not CHANGE THE NUMBER EQUAL TO HOW MNAY QUESTIONS THERE ARE + 1.
-        if(QuestionGenerator.questionnumber == 37)
+        if (QuestionGenerator.questionnumber >= 47)
         {
             Debug.Log("DONE WITH QUIZZZZZZZZZ");
+            StartCoroutine("FinishQuiz");
+            
         }
 
         else
@@ -245,5 +251,24 @@ public class AnswerButtons : MonoBehaviour
             answerBbutton.GetComponent<Button>().enabled = true;
             answerCbutton.GetComponent<Button>().enabled = true;
         }
+    }
+
+    IEnumerator FinishQuiz()
+    {
+        //enables the animation for the removing of objects
+        ButtonAnim.buttonanim.enabled = true;
+        CanvasAnim.canvasanim.enabled = true;
+
+        //turns off objects to prevent mashing
+        answerAbutton.GetComponent<Button>().enabled = false;
+        answerBbutton.GetComponent<Button>().enabled = false;
+        answerCbutton.GetComponent<Button>().enabled = false;
+
+        //waits for a second or 2 and destroys it to save memory
+        yield return new WaitForSeconds(1.1f);
+        Destroy(destroy_this_button);
+        Destroy(destroy_this_canvas);
+
+
     }
 }

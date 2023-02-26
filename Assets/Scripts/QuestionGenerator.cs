@@ -745,6 +745,19 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
+            if (questionnumber == 46)
+            {
+                QuizManager.NewQuestion = "Thank you for your honesty, the game will adjust" +
+                                          " upon the answers you have selected, Press any button to continue.";
+
+                QuizManager.NewA = "";
+                QuizManager.NewB = "";
+                QuizManager.NewC = "";
+                Answer_that_increases_score = "C";
+
+                Debug.Log(questionnumber);
+            }
+
             //--end of anxiety questions--
 
 
