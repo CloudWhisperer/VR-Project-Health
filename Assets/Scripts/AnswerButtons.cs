@@ -1,7 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AnswerButtons : MonoBehaviour
@@ -24,6 +28,9 @@ public class AnswerButtons : MonoBehaviour
     public GameObject destroy_this_button;
     public GameObject destroy_this_canvas;
 
+    private int highestvalue;
+    private int randomnumber;
+
     void Start()
     {
         myrenderer = gameObject.GetComponent<Renderer>();
@@ -33,7 +40,7 @@ public class AnswerButtons : MonoBehaviour
     public void AnswerA()
     {
         //if the user picks a...
-        if(QuestionGenerator.Answer_that_increases_score == "A")
+        if (QuestionGenerator.Answer_that_increases_score == "A")
         {
             //and its a stressquestion...
             if (QuestionGenerator.stressquestion == true)
@@ -188,7 +195,7 @@ public class AnswerButtons : MonoBehaviour
     {
         if (QuestionGenerator.Answer_that_increases_score == "C")
         {
-            if(QuestionGenerator.stressquestion == true)
+            if (QuestionGenerator.stressquestion == true)
             {
                 QuizManager.Stresslevel += 1;
                 stresstext.text = "Stresslevel = " + QuizManager.Stresslevel.ToString();
@@ -240,7 +247,46 @@ public class AnswerButtons : MonoBehaviour
         {
             Debug.Log("DONE WITH QUIZZZZZZZZZ");
             StartCoroutine("FinishQuiz");
-            
+
+
+            highestvalue = Mathf.Max(QuizManager.Anxietylevel, QuizManager.Depressionlevel, QuizManager.Stresslevel);
+            Debug.Log(highestvalue);
+
+            if(highestvalue == QuizManager.Stresslevel)
+            {
+                Debug.Log("stresswon");
+            }
+            if (highestvalue == QuizManager.Anxietylevel)
+            {
+                Debug.Log("anxietywon");
+            }
+            if (highestvalue == QuizManager.Depressionlevel)
+            {
+                Debug.Log("depressionwon");
+                SceneManager.LoadScene("Depressionworld");
+            }
+            else
+            {
+                Debug.Log("even,picking random");
+                randomnumber = Random.Range(1, 4);
+                switch(randomnumber)
+                {
+                    case 1:
+                        Debug.Log("1");
+                        break;
+
+                    case 2:
+                        Debug.Log("2");
+                        break;
+
+                    case 3:
+                        Debug.Log("3");
+                        break;
+                }
+            }
+
+
+
         }
 
         else
@@ -271,4 +317,5 @@ public class AnswerButtons : MonoBehaviour
 
 
     }
+
 }
