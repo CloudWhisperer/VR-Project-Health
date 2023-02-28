@@ -220,11 +220,27 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
+            if (questionnumber == 13)
+            {
+                personalquestion = true;
+                QuizManager.NewQuestion = "Would you like to skip this personality quiz?" +
+                                          " Recommended if you haven't done this before";
+
+                QuizManager.NewA = "Yes";
+                QuizManager.NewB = "No";
+                QuizManager.NewC = "";
+                Answer_that_increases_score = "A";
+
+                Debug.Log(questionnumber);
+                Debug.Log("This is a personal question");
+                Debug.Log("And the answer is" + Answer_that_increases_score);
+            }
+
             //--end of personal questions--
 
             //--start of stress questions--
 
-            if (questionnumber == 13)
+            if (questionnumber == 14)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "You are trying to focus on your task in a library," +
@@ -241,7 +257,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 14)
+            if (questionnumber == 15)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "You seem to be stuck in a semi long queue, around" +
@@ -259,7 +275,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 15)
+            if (questionnumber == 16)
             {
                 stressquestion = true;
 
@@ -276,7 +292,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 16)
+            if (questionnumber == 17)
             {
                 stressquestion = true;
 
@@ -294,7 +310,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 17)
+            if (questionnumber == 18)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "Do you think that you overeact to situations a lot?";
@@ -309,7 +325,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 18)
+            if (questionnumber == 19)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "How 'on edge' do you normally feel?";
@@ -324,7 +340,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 19)
+            if (questionnumber == 20)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "How often do you receive Headaches or become dizzy?";
@@ -339,7 +355,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 20)
+            if (questionnumber == 21)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "Do you often get Chest pains?";
@@ -354,7 +370,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 21)
+            if (questionnumber == 22)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "Have you ever felt your heart racing faster recently?";
@@ -369,7 +385,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 22)
+            if (questionnumber == 23)
             {
                 stressquestion = true;
                 QuizManager.NewQuestion = "How often do you worry about things in your life?";
@@ -388,7 +404,7 @@ public class QuestionGenerator : MonoBehaviour
 
             //--start of depression questions--
 
-            if (questionnumber == 23)
+            if (questionnumber == 24)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Are you happy with the way things are going in your life right now?";
@@ -403,7 +419,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 24)
+            if (questionnumber == 25)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Would you say that you have the strength to keep going on in life?";
@@ -418,7 +434,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 25)
+            if (questionnumber == 26)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "And how much Determination would you say you have to push yourself" +
@@ -434,7 +450,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 26)
+            if (questionnumber == 27)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Do you blame all bad things that happen in your life on yourself?";
@@ -449,7 +465,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 27)
+            if (questionnumber == 28)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "How quick are you to get angry at something very small?" +
@@ -465,7 +481,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 28)
+            if (questionnumber == 29)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Have you invested yourself into any hobbies recently?";
@@ -474,21 +490,6 @@ public class QuestionGenerator : MonoBehaviour
                 QuizManager.NewB = "Nope";
                 QuizManager.NewC = "Yes, quite a lot";
                 Answer_that_increases_score = "B";
-
-                Debug.Log(questionnumber);
-                Debug.Log("This is a depression question");
-                Debug.Log("And the answer is" + Answer_that_increases_score);
-            }
-
-            if (questionnumber == 29)
-            {
-                depressionquestion = true;
-                QuizManager.NewQuestion = "have you noticed yourself speaking slower or moving slower than usual?";
-
-                QuizManager.NewA = "I am not sure";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Yes";
-                Answer_that_increases_score = "C";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a depression question");
@@ -513,6 +514,21 @@ public class QuestionGenerator : MonoBehaviour
             if (questionnumber == 31)
             {
                 depressionquestion = true;
+                QuizManager.NewQuestion = "have you noticed yourself speaking slower or moving slower than usual?";
+
+                QuizManager.NewA = "I am not sure";
+                QuizManager.NewB = "No";
+                QuizManager.NewC = "Yes";
+                Answer_that_increases_score = "C";
+
+                Debug.Log(questionnumber);
+                Debug.Log("This is a depression question");
+                Debug.Log("And the answer is" + Answer_that_increases_score);
+            }
+
+            if (questionnumber == 32)
+            {
+                depressionquestion = true;
                 QuizManager.NewQuestion = "Is your appetite suddenly very low or very high?";
 
                 QuizManager.NewA = "Yes";
@@ -525,7 +541,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 32)
+            if (questionnumber == 33)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Do you have difficulty trying to sleep?";
@@ -540,7 +556,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 33)
+            if (questionnumber == 34)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Do you suddenly not have any energy to do any tasks?";
@@ -555,7 +571,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 34)
+            if (questionnumber == 35)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Have you been avoiding your friends and family" +
@@ -571,7 +587,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 35)
+            if (questionnumber == 36)
             {
                 depressionquestion = true;
                 QuizManager.NewQuestion = "Have you stopped doing the hobbies you used to love?";
@@ -590,7 +606,7 @@ public class QuestionGenerator : MonoBehaviour
 
             //--start of anxiety questions--
 
-            if (questionnumber == 36)
+            if (questionnumber == 37)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Do you struggle with taking a break and just resting?";
@@ -605,7 +621,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 37)
+            if (questionnumber == 38)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Were you in a state of fear or dread before playing" +
@@ -621,7 +637,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 38)
+            if (questionnumber == 39)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Are you always worried about bad things happening any second?";
@@ -636,7 +652,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 39)
+            if (questionnumber == 40)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "How difficult is it to focus on a task because you are scared" +
@@ -652,7 +668,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 40)
+            if (questionnumber == 41)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Have you been avoiding people and objects," +
@@ -668,7 +684,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 41)
+            if (questionnumber == 42)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Do you take time off work or studying because it" +
@@ -684,7 +700,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 42)
+            if (questionnumber == 43)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "How often do you get pins and needles?";
@@ -699,7 +715,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 43)
+            if (questionnumber == 44)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Have you noticed yourself with a very dry mouth?";
@@ -714,7 +730,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 44)
+            if (questionnumber == 45)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Do you sweat very excessively?";
@@ -729,7 +745,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 45)
+            if (questionnumber == 46)
             {
                 anxietyquestion = true;
                 QuizManager.NewQuestion = "Do you struggle to sleep because you are scared" +
@@ -745,7 +761,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 46)
+            if (questionnumber == 47)
             {
                 QuizManager.NewQuestion = "Thank you for your honesty, the game will adjust" +
                                           " upon the answers you have selected, Press any button to continue.";

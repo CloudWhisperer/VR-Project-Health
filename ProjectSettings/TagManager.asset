@@ -9,6 +9,8 @@ TagManager:
   - Button
   - Ball
   - Ball2
+  - Break
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Marker
-  - 
-  - 
+  - Buttons
+  - Interactableobjects
   - 
   - 
   - 

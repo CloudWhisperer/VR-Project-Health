@@ -22,7 +22,6 @@ public class AnswerButtons : MonoBehaviour
 
     //material colour to change
     public Material worldmat;
-    public Renderer myrenderer;
 
     //destroy these
     public GameObject destroy_this_button;
@@ -30,12 +29,6 @@ public class AnswerButtons : MonoBehaviour
 
     private int highestvalue;
     private int randomnumber;
-
-    void Start()
-    {
-        myrenderer = gameObject.GetComponent<Renderer>();
-    }
-
 
     public void AnswerA()
     {
@@ -90,14 +83,12 @@ public class AnswerButtons : MonoBehaviour
                         Debug.Log("PINK selected");
                         Color Pink = new Color32(227, 61, 148, 1);
                         worldmat.SetColor("_BaseColor", Pink);
-                        myrenderer.material.color = Pink;
                         break;
 
                     case 5:
                         Debug.Log("ORANGE selected");
                         Color Orange = new Color32(211, 84, 0, 1);
                         worldmat.SetColor("_BaseColor", Orange);
-                        myrenderer.material.color = Orange;
                         break;
 
                     case 6:
@@ -109,7 +100,6 @@ public class AnswerButtons : MonoBehaviour
                         Debug.Log("BROWN selected");
                         Color Brown = new Color32(139, 69, 19, 1);
                         worldmat.SetColor("_BaseColor", Brown);
-                        myrenderer.material.color = Brown;
                         break;
 
                     case 8:
@@ -130,6 +120,11 @@ public class AnswerButtons : MonoBehaviour
 
                     case 12:
                         Debug.Log("CLOUDY selected");
+                        break;
+
+                    case 13:
+                        Debug.Log("skipped quiz");
+                        SceneManager.LoadScene("Depressionworld2");
                         break;
                 }
             }
