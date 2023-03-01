@@ -124,7 +124,7 @@ public class AnswerButtons : MonoBehaviour
 
                     case 13:
                         Debug.Log("skipped quiz");
-                        SceneManager.LoadScene("Depressionworld2");
+                        StartCoroutine("FinishQuiz");
                         break;
                 }
             }
@@ -243,45 +243,8 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("DONE WITH QUIZZZZZZZZZ");
             StartCoroutine("FinishQuiz");
 
-
             highestvalue = Mathf.Max(QuizManager.Anxietylevel, QuizManager.Depressionlevel, QuizManager.Stresslevel);
             Debug.Log(highestvalue);
-
-            if(highestvalue == QuizManager.Stresslevel)
-            {
-                Debug.Log("stresswon");
-            }
-            if (highestvalue == QuizManager.Anxietylevel)
-            {
-                Debug.Log("anxietywon");
-            }
-            if (highestvalue == QuizManager.Depressionlevel)
-            {
-                Debug.Log("depressionwon");
-                SceneManager.LoadScene("Depressionworld");
-            }
-            else
-            {
-                Debug.Log("even,picking random");
-                randomnumber = Random.Range(1, 4);
-                switch(randomnumber)
-                {
-                    case 1:
-                        Debug.Log("1");
-                        break;
-
-                    case 2:
-                        Debug.Log("2");
-                        break;
-
-                    case 3:
-                        Debug.Log("3");
-                        break;
-                }
-            }
-
-
-
         }
 
         else
@@ -310,7 +273,48 @@ public class AnswerButtons : MonoBehaviour
         Destroy(destroy_this_button);
         Destroy(destroy_this_canvas);
 
+        if (highestvalue == QuizManager.Stresslevel)
+        {
+            Debug.Log("stresswon");
+            SceneManager.LoadScene("Coin_Game");
+        }
+        if (highestvalue == QuizManager.Anxietylevel)
+        {
+            Debug.Log("anxietywon");
+            SceneManager.LoadScene("Coin_Game");
+        }
+        if (highestvalue == QuizManager.Depressionlevel)
+        {
+            Debug.Log("depressionwon");
+            SceneManager.LoadScene("Ball_Rolling_Game");
+        }
+        if (highestvalue == (QuizManager.Depressionlevel & QuizManager.Anxietylevel & QuizManager.Stresslevel))
+        {
+            randomgameselect();
+        }
+        else
+        {
+            randomgameselect();
+        }
 
+    }
+
+    void randomgameselect()
+    {
+        Debug.Log("even,picking random");
+        randomnumber = Random.Range(1, 2);
+        switch (randomnumber)
+        {
+            case 1:
+                Debug.Log("1");
+                SceneManager.LoadScene("Coin_Game");
+                break;
+
+            case 2:
+                Debug.Log("2");
+                SceneManager.LoadScene("Ball_Rolling_Game");
+                break;
+        }
     }
 
 }

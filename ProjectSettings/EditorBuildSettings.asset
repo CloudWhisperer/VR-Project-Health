@@ -6,16 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Scene1.unity
+    path: Assets/Scenes/Main_Menu.unity
     guid: 5664067d05608b84fac0ed1219f6cd3e
   - enabled: 1
-    path: Assets/Scenes/Depressionworld.unity
+    path: Assets/Scenes/Ball_Rolling_Game.unity
     guid: 30994473fa9604b4895a6b0ba67e89a1
   - enabled: 1
-    path: Assets/Scenes/Depressionworld2.unity
+    path: Assets/Scenes/Coin_Game.unity
     guid: 314c30a21e2a0af458b82b32e0f66f7e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ed0c9e56f2f92fd468d0af952ab882af,
