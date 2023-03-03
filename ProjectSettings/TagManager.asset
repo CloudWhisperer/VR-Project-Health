@@ -12,6 +12,7 @@ TagManager:
   - Break
   - Bullet
   - ColourBalls
+  - Whiteboard
   layers:
   - Default
   - TransparentFX
