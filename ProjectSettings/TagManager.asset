@@ -13,6 +13,7 @@ TagManager:
   - Bullet
   - ColourBalls
   - Whiteboard
+  - Cube
   layers:
   - Default
   - TransparentFX

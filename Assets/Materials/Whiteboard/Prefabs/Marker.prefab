@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8921121858860169953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.10929999, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalPosition: {x: 0, y: 0.09331, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.0180125, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8921121859557289814}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8921121859557289814}
   - component: {fileID: 8921121859557289833}
   - component: {fileID: 8186484703953761907}
-  - component: {fileID: 635337261648843660}
+  - component: {fileID: 240328902}
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
@@ -162,9 +162,9 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &635337261648843660
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &240328902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,7 +183,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 6
+    m_Bits: 2
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
@@ -244,18 +244,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AttachTransform: {fileID: 8921121860421461208}
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 1
   m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 1
+  m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
   m_TightenPosition: 0.5
-  m_TrackRotation: 0
-  m_SmoothRotation: 1
+  m_TrackRotation: 1
+  m_SmoothRotation: 0
   m_SmoothRotationAmount: 5
   m_TightenRotation: 0.5
   m_ThrowOnDetach: 0
@@ -400,11 +400,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8921121860421461211}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.9766254, y: 0.031371925, z: -0.16431406, w: 0.13497983}
+  m_LocalPosition: {x: -0.0469, y: -0.0758, z: -0.1435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8921121859557289814}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.9, y: 198.96, z: 178.992}
