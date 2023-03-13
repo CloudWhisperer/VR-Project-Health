@@ -15,7 +15,15 @@ public class WhiteboardUnlock : MonoBehaviour
         {
             if (showButton.action.WasPressedThisFrame())
             {
-                whiteboard.SetActive(!whiteboard.activeSelf);
+                if (whiteboardAnimator.GetBool("isopen") == false)
+                {
+                    whiteboardAnimator.SetBool("isopen", true);
+                }
+                else
+                {
+                    whiteboardAnimator.SetBool("isopen", false);
+                }
+
             }
 
         }

@@ -228,7 +228,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";
-                QuizManager.NewC = "";
+                QuizManager.NewC = "Lets start!";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
