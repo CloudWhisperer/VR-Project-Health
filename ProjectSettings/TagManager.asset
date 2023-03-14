@@ -14,6 +14,7 @@ TagManager:
   - ColourBalls
   - Whiteboard
   - Cube
+  - Plane
   layers:
   - Default
   - TransparentFX

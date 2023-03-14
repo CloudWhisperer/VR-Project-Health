@@ -13,6 +13,10 @@ public class whatisbeinggrabbed : MonoBehaviour
         {
             handanimator.SetBool("iscube", true);
         }
+        if (grabCollider.CompareTag("Plane"))
+        {
+            handanimator.SetBool("isplane", true);
+        }
     }
 
     private void OnTriggerExit(Collider grabCollider)
@@ -20,6 +24,10 @@ public class whatisbeinggrabbed : MonoBehaviour
         if (grabCollider.CompareTag("Cube"))
         {
             handanimator.SetBool("iscube", false);
+        }
+        if (grabCollider.CompareTag("Plane"))
+        {
+            handanimator.SetBool("isplane", false);
         }
     }
 
