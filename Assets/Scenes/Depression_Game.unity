@@ -671,7 +671,7 @@ RectTransform:
   m_GameObject: {fileID: 79974624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.47}
-  m_LocalScale: {x: 1, y: 2.5432, z: 1}
+  m_LocalScale: {x: 1, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1405410543}
@@ -679,8 +679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.001, y: -0.769}
-  m_SizeDelta: {x: 8.216, y: 2.07}
+  m_AnchoredPosition: {x: -0.5, y: -0.8}
+  m_SizeDelta: {x: 7.748, y: 2.403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79974626
 MonoBehaviour:
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Text
+  m_text: 'Dialogue Text
 
 '
   m_isRightToLeft: 0
@@ -2527,6 +2527,7 @@ MonoBehaviour:
   dialoguetext: {fileID: 79974626}
   canvasanim: {fileID: 1405410546}
   CBT_charanimator: {fileID: 153911809}
+  speed_of_text: 0.01
 --- !u!4 &633871931
 Transform:
   m_ObjectHideFlags: 0
@@ -3082,19 +3083,111 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Kirb
+    name: CBT_Character
     sentences:
-    - Hello! how are you
-    - my name is kirb and im here to give cbt lessons
-    - im introducing meeeeee
-    - 11111111111111111
-    - im exampling right now
-    - im waving right now
-    - 444444444444444444
-    - 5555555555555555555
-    - 6666666666666666
-    - 77777777777777777
-    sentencenumber: 0
+    - 'Hello! '
+    - My name is CBT_Character.
+    - You must be here for the CBT lessons, right?
+    - 'Come and take a seat next to me! '
+    - Wow look at that view!
+    - Why am I not sitting down?
+    - I can't sit down otherwise I will just roll away. So don't mind me standing
+      while we talk!
+    - So one day I was in a bookstore, and I saw a psychology book that was discounted
+      by 90%! It looked interesting so I read it!
+    - It was then that I learnt about Cognitive Behavioral Therapy. It seemed pretty
+      helpful and I wanted to share that information with everyone else.
+    - Cognitive Behavioural Therapy, or CBT for short, is a techinique that we can
+      use where we apply logic into our thoughts to prevent irrational thinking.
+    - What is happening is that our brain is trying to protect ourselves, but sometimes
+      it overreacts to situations.
+    - This creates irrational and negative thoughts, which can be damaging to our
+      mental health.
+    - And this is the part where CBT come in to save the day!
+    - Don't worry! it's all very simple, I promise.
+    - We can't change how we feel, but we can change how we react.
+    - And if we can change how we can react, we can change how we feel. And just
+      like that it's a full circle, like nature itself!
+    - I want to quickly mention that listening to me by itself will not do you much
+      good. These are actual activities you must try yourself mutiple times to fully
+      see results.
+    - With that out of the way, let's begin!
+    - The first thing I want to tell you about is focused on immediate negative thoughts
+      you may get.
+    - In life things wont go our way, this is completely normal and happens to us
+      all.
+    - But sometimes, we think of the worst possible result, and that creates thoughts
+      that don't match up with reality.
+    - To counter this, we just use logic!
+    - For example, you see your friend across the street and you shout hello!
+    - But oh no, it looks like they ignored you!
+    - Why do you think they ignored you?
+    - It's natural to think that way at first.
+    - As you have demonstrated, it is very easy to jump into a conclusion like that.
+    - You feel as though it's your fault even though you don't know for sure.
+    - Now let's try to challenge your thoughts with logic!
+    - I will give a few examples...
+    - Maybe they were busy with something that caught their attention, and they didn't
+      realise you were there.
+    - Or perhaps they could have thought it was a stranger calling another stranger.
+    - Or they could have been lost in their own thoughts and didn't hear you.
+    - Now it's your turn! Tell me another reason why it looked like they ignored
+      you.
+    - Exactly!
+    - Doesn't it make much more sense to think they didn't hear you, as oppossed
+      to them ignoring you on purpose?
+    - Next time you have a negative thought like that, try to counter it with logic.
+    - Another example I can give you is that if you are scared of needles and you
+      need to take an injection, try to use logic.
+    - Such as the doctor is a professional and fully trained, and they have probably
+      done this same injection hundreds of times. A chance of something going wrong
+      is very small.
+    - I hope that helps you!
+    - Onto the second CBT strategy I want to talk to you about!
+    - This is called thought journals!
+    - A thought journal is when you write down how you are feeling, and trying to
+      identify patterns in your thoughts and challenging them with positive, healthy
+      thoughts.
+    - How you can do this is to begin writing down what is causing you distress.
+      So write down what you are feeling and why. Also give a little rating out of
+      10 if you like!
+    - When you are done writing, start reading what you have written and try to find
+      parts that seem irrational and change them into more logical thoughts.
+    - "This helps you a lot because writing down your thoughts and reading them again
+      gives you a whole \rnew perspective to notice any problems in what you are
+      currently thinking."
+    - Here's an example I made for you!
+    - It involves a bit more effort than the first, but it can help a lot more!
+    - Try to do this a few times to get the hang of it, i hope it helps you out!
+    - The last thing I want to talk to you about is called the belief experimentation.
+    - This is a step further from what you have learned so far.
+    - And it is also the most powerful CBT strategy you can learn!
+    - The belief experimentation is when you act out on something that you think
+      caused you distress, and noting down what actually happened when you acted
+      it out.
+    - This can help you a lot because your negative thoughts aren't using logic,
+      which means it doesn't make sense with reality.
+    - So, how do you do this?
+    - First, write down the experiment you are going to act.
+    - Then underneath, write down what you think will happen when you conduct your
+      experiment.
+    - Once you have written down your prediction, start your experiment. And write
+      down what actually happened.
+    - Here's my example I made for you!
+    - As you can see, it is really helpful!
+    - This is because you are challenging your negative expectations with logic and
+      realism!
+    - Well, that's everything I wanted to teach you! I hope this has helped you a
+      lot!
+    - One more thing I want to mention before I go is that whenever you feel scared
+      or anxious, think about the happy times in your life.
+    - "As I mentioned at the beginning. We can't change\r how we feel, but we can
+      change how we react. Which then changes how we feel. It's a full circle, like
+      nature!"
+    - Anyway, that concludes our talk for today!
+    - Feel free to come back anytime you like if you need a refresher!
+    - I really hope I can see you again soon!
+    - Take care of yourself!
 --- !u!114 &909495540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3300,7 +3393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926965226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14059852, y: 0.279, z: 0.2977872}
+  m_LocalPosition: {x: 0.205, y: 0.306, z: 0.527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4124,7 +4217,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.102
+      value: -0.1045
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
@@ -4261,6 +4354,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5008456200197934581, guid: 38b83835e2c0a7b4782195555e44a7c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b46d104ddd9a014ebc3a93f156c5135, type: 2}
+    - target: {fileID: -4278117495241892106, guid: 38b83835e2c0a7b4782195555e44a7c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b46d104ddd9a014ebc3a93f156c5135, type: 2}
+    - target: {fileID: -1372456973505535881, guid: 38b83835e2c0a7b4782195555e44a7c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b46d104ddd9a014ebc3a93f156c5135, type: 2}
     - target: {fileID: -264430861247414160, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -4275,8 +4383,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 5561349426305759274, guid: 38b83835e2c0a7b4782195555e44a7c6,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 9b46d104ddd9a014ebc3a93f156c5135, type: 2}
     - target: {fileID: 919132149155446097, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_Name
@@ -4340,17 +4447,17 @@ PrefabInstance:
     - target: {fileID: 4518980002003577502, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.08617564
       objectReference: {fileID: 0}
     - target: {fileID: 4518980002003577502, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4518980002003577502, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.99627995
       objectReference: {fileID: 0}
     - target: {fileID: 4518980002003577502, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
@@ -4360,6 +4467,16 @@ PrefabInstance:
     - target: {fileID: 4518980002003577502, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518980002003577502, guid: 38b83835e2c0a7b4782195555e44a7c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -189.887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518980002003577502, guid: 38b83835e2c0a7b4782195555e44a7c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4694512719869544682, guid: 38b83835e2c0a7b4782195555e44a7c6,
@@ -4407,6 +4524,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4899486392329470165, guid: 38b83835e2c0a7b4782195555e44a7c6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b46d104ddd9a014ebc3a93f156c5135, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38b83835e2c0a7b4782195555e44a7c6, type: 3}
 --- !u!1 &1314962953
@@ -6721,8 +6843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.092, y: 2.907}
-  m_SizeDelta: {x: 8.266, y: 0.607}
+  m_AnchoredPosition: {x: -0.261, y: 2.986}
+  m_SizeDelta: {x: 8.224, y: 0.669}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1990136953
 MonoBehaviour:

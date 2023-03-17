@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
 
     public Animator CBT_charanimator;
 
+    [SerializeField] private float speed_of_text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,17 +47,17 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        switch(sentences.Count) //case numbers are dependant on how many sentences are left, remember it
-            //just minus the total number of sentences with the sentence number you want to add onto
-            //also plus 1 after because its the text before
+        switch (sentences.Count) //case numbers are dependant on how many sentences are left, remember it
+                                 //just minus the total number of sentences with the sentence number you want to add onto
+                                 //also plus 1 after because its the text before
         {
             case 8:
                 CBT_charanimator.SetBool("isintroducing", true);
-                    break;
+                break;
 
             case 6:
                 CBT_charanimator.SetBool("isexampling", true);
-                    break;
+                break;
             case 5:
                 CBT_charanimator.SetBool("isexampling", false);
                 CBT_charanimator.SetBool("iswaving", true);
@@ -65,7 +67,7 @@ public class DialogueManager : MonoBehaviour
                 CBT_charanimator.SetBool("iswaving", false);
                 CBT_charanimator.SetBool("isexampling", false);
                 CBT_charanimator.SetBool("isintroducing", false);
-                    break;
+                break;
         }
 
         string sentence = sentences.Dequeue();
@@ -79,12 +81,12 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialoguetext.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(speed_of_text);
         }
     }
 
     void EndDialogue()
     {
-        Debug.Log("end of convo");
+        Debug.Log("End of conversation");
     }
 }
