@@ -8,6 +8,14 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nametext;
     public TextMeshProUGUI dialoguetext;
 
+    public Animator Thought_bubble_animator;
+    public Animator example1_anim;
+    public Animator example2_anim;
+
+    public GameObject Thoughtbubble;
+    public GameObject Example1;
+    public GameObject Example2;
+
     public Animator canvasanim;
     private Queue<string> sentences;
 
@@ -48,18 +56,98 @@ public class DialogueManager : MonoBehaviour
         }
 
         switch (sentences.Count) //case numbers are dependant on how many sentences are left, remember it
-                                 //just minus the total number of sentences with the sentence number you want to add onto
+                                 //just minus the total number of sentences with the sentence number you want
+                                 //to add onto.
                                  //also plus 1 after because its the text before
         {
-            case 8:
+            case 68:
+                CBT_charanimator.SetBool("iswaving", true);
+                break;
+
+            case 67:
+                CBT_charanimator.SetBool("iswaving", false);
                 CBT_charanimator.SetBool("isintroducing", true);
                 break;
 
-            case 6:
+            case 62:
                 CBT_charanimator.SetBool("isexampling", true);
                 break;
-            case 5:
+
+            case 58:
+                CBT_charanimator.SetBool("isintroducing", true);
+                break;
+
+            case 56:
+                CBT_charanimator.SetBool("isexampling", true);
+                break;
+
+            case 51:
+                CBT_charanimator.SetBool("iswaving", true);
+                break;
+
+            case 47:
+                CBT_charanimator.SetBool("isintroducing", true);
+                break;
+
+            case 46:
+                CBT_charanimator.SetBool("isexampling", true);
+                Thoughtbubble.SetActive(true);
+                Thought_bubble_animator.SetBool("isshowing", true);
+                break;
+
+            case 45:
+                CBT_charanimator.SetBool("isexampling", true);
+                break;
+
+            case 41:
+                CBT_charanimator.SetBool("isintroducing", true);
+                break;
+
+            case 34:
+                CBT_charanimator.SetBool("isexampling", true);
+                break;
+
+            case 31:
+                Thought_bubble_animator.SetBool("isshowing", false);
+                break;
+
+            case 29:
+                CBT_charanimator.SetBool("isintroducing", true);
+                break;
+
+            case 22:
+                CBT_charanimator.SetBool("isintroducing", true);
+                Example1.SetActive(true);
+                break;
+
+            case 19:
+                example1_anim.SetBool("isopen", false);
+                break;
+
+            case 17:
+                CBT_charanimator.SetBool("isexampling", true);
+                break;
+
+            case 16:
                 CBT_charanimator.SetBool("isexampling", false);
+                CBT_charanimator.SetBool("isintroducing", true);
+                break;
+
+            case 10:
+                CBT_charanimator.SetBool("isexampling", true);
+                Example2.SetActive(true);
+                break;
+
+            case 7:
+                CBT_charanimator.SetBool("isintroducing", true);
+                example2_anim.SetBool("isopen", false);
+                break;
+
+            case 4:
+                CBT_charanimator.SetBool("isexampling", true);
+                break;
+
+            case 1:
                 CBT_charanimator.SetBool("iswaving", true);
                 break;
 
