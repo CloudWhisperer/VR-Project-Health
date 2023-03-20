@@ -32,8 +32,8 @@ public class raycastcamera : MonoBehaviour
     //    if(collision.gameObject.name == "Ball" || collision.gameObject.name == "Ball2")
     //    {
     //        Debug.Log("staying on ball");
-    //        score += 0.1f;
-    //        Debug.Log(score);
+    //        scorecounter += 0.1f;
+    //        Debug.Log(scorecounter);
     //    }
     //}
 

@@ -23,7 +23,7 @@ public class AnswerButtons : MonoBehaviour
     public GameObject destroy_this_button;
     public GameObject destroy_this_canvas;
 
-    //values to determine final score
+    //values to determine final scorecounter
     private int highestvalue;
     private int randomnumber;
 

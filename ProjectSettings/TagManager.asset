@@ -17,6 +17,7 @@ TagManager:
   - Plane
   - Choice1
   - Choice2
+  - Coin
   layers:
   - Default
   - TransparentFX
