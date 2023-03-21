@@ -18,6 +18,7 @@ TagManager:
   - Choice1
   - Choice2
   - Coin
+  - Box
   layers:
   - Default
   - TransparentFX

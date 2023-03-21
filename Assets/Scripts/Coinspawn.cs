@@ -6,6 +6,13 @@ public class Coinspawn : MonoBehaviour
     public Vector3 oldspawnpoint;
     public Vector3 currentspawnpoint;
 
+    public GameObject minion1;
+    public GameObject minion2;
+    public GameObject minion3;
+    public GameObject minion4;
+
+    cointouchminigamescorescript gamescript;
+
     private void Update()
     {
         gameObject.transform.Rotate(0f, 0f, 1f, Space.Self);
@@ -14,7 +21,7 @@ public class Coinspawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 randomposition = new Vector3(Random.Range(-1, 2), Random.Range(0, 3), 7);
+        Vector3 randomposition = new Vector3(Random.Range(-0.8f, 0.8f), Random.Range(-1, 0.9f), 9);
 
         currentspawnpoint = randomposition;
 
@@ -25,24 +32,23 @@ public class Coinspawn : MonoBehaviour
                 oldspawnpoint = randomposition;
 
                 cointouchminigamescorescript.scorecounter += 1;
-                cointouchminigamescorescript.losecounter -= 1;
 
                 switch (cointouchminigamescorescript.scorecounter)
                 {
                     case 5:
-                        Debug.Log("vignette");
+                        minion1.SetActive(true);
                         break;
 
                     case 10:
-                        Debug.Log("do more cool stuff");
+                        minion2.SetActive(true);
                         break;
 
                     case 15:
-                        Debug.Log("one more cool thing for flow");
+                        minion3.SetActive(true);
                         break;
 
                     case 20:
-                        Debug.Log("done with game");
+                        minion4.SetActive(true);
                         break;
 
                     default:

@@ -4,6 +4,9 @@ public class boxspawnscript : MonoBehaviour
 {
     public Vector3 oldspawnpoint;
     public Vector3 currentspawnpoint;
+    public GameObject line;
+
+    cointouchminigamescorescript gamescript;
 
     public GameObject obstacle;
 
@@ -14,7 +17,7 @@ public class boxspawnscript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 randomposition = new Vector3(Random.Range(-1, 2), Random.Range(0, 3), 7);
+        Vector3 randomposition = new Vector3(Random.Range(-0.8f, 0.8f), Random.Range(-1, 0.9f), 9);
 
         currentspawnpoint = randomposition;
 
@@ -24,25 +27,19 @@ public class boxspawnscript : MonoBehaviour
             {
                 oldspawnpoint = randomposition;
 
-                cointouchminigamescorescript.scorecounter = 0;
-                cointouchminigamescorescript.losecounter = +1;
+                GameObject box = Instantiate(obstacle, randomposition, transform.localRotation);
+
+                cointouchminigamescorescript.losecounter += 1;
 
                 switch (cointouchminigamescorescript.losecounter)
                 {
                     case 5:
-                        obstacle.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                        line.SetActive(true);
                         break;
 
-                    case 10:
-                        Debug.Log("line");
-                        break;
-
-                    case 15:
-                        obstacle.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                    default:
                         break;
                 }
-
-                GameObject box = Instantiate(obstacle, randomposition, transform.localRotation);
 
                 Destroy(obstacle);
             }
@@ -51,22 +48,22 @@ public class boxspawnscript : MonoBehaviour
             {
                 oldspawnpoint = randomposition;
 
-                GameObject coin = Instantiate(obstacle, randomposition, transform.localRotation);
+                GameObject box = Instantiate(obstacle, randomposition, transform.localRotation);
 
                 Destroy(obstacle);
             }
-            if (other.gameObject.tag == "Coin")
+            if (other.gameObject.tag == "Coin" || other.gameObject.tag == "Box")
             {
                 oldspawnpoint = randomposition;
 
-                GameObject coin = Instantiate(obstacle, randomposition, transform.localRotation);
+                GameObject box = Instantiate(obstacle, randomposition, transform.localRotation);
 
                 Destroy(obstacle);
             }
         }
         else if (oldspawnpoint == currentspawnpoint)
         {
-            GameObject coin = Instantiate(obstacle, randomposition, transform.localRotation);
+            GameObject box = Instantiate(obstacle, randomposition, transform.localRotation);
 
             Destroy(obstacle);
         }
