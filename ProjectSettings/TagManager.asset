@@ -19,6 +19,7 @@ TagManager:
   - Choice2
   - Coin
   - Box
+  - Push
   layers:
   - Default
   - TransparentFX

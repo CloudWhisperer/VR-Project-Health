@@ -152,7 +152,4 @@ MonoBehaviour:
   coinprefab: {fileID: 576856182348414440}
   oldspawnpoint: {x: 0, y: 0, z: 0}
   currentspawnpoint: {x: 0, y: 0, z: 0}
-  minion1: {fileID: 0}
-  minion2: {fileID: 0}
-  minion3: {fileID: 0}
-  minion4: {fileID: 0}
+  collect: {fileID: 0}

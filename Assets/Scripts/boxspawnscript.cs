@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class boxspawnscript : MonoBehaviour
@@ -5,10 +6,16 @@ public class boxspawnscript : MonoBehaviour
     public Vector3 oldspawnpoint;
     public Vector3 currentspawnpoint;
     public GameObject line;
+    public Animator boxanim;
 
     cointouchminigamescorescript gamescript;
 
     public GameObject obstacle;
+
+    private void Start()
+    {
+        boxanim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -41,7 +48,7 @@ public class boxspawnscript : MonoBehaviour
                         break;
                 }
 
-                Destroy(obstacle);
+                StartCoroutine(dedbox());
             }
 
             if (other.gameObject.tag == "Break")
@@ -60,12 +67,51 @@ public class boxspawnscript : MonoBehaviour
 
                 Destroy(obstacle);
             }
+
+            if (other.gameObject.tag == "Push")
+            {
+                if (transform.position.x < 0 )
+                {
+                    StartCoroutine(moveleft());
+                }
+                if (transform.position.x >= 0)
+                {
+                    StartCoroutine(moveright());
+                }
+
+            }
         }
         else if (oldspawnpoint == currentspawnpoint)
         {
             GameObject box = Instantiate(obstacle, randomposition, transform.localRotation);
 
             Destroy(obstacle);
+        }
+
+        IEnumerator dedbox()
+        {
+            boxanim.SetTrigger("ded");
+            yield return new WaitForSeconds(1);
+            Destroy(obstacle);
+            boxanim.ResetTrigger("ded");
+        }
+
+        IEnumerator moveleft()
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                transform.position = new Vector3(transform.position.x - 0.01f, transform.position.y, transform.position.z);
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+
+        IEnumerator moveright()
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                transform.position = new Vector3(transform.position.x + 0.01f, transform.position.y, transform.position.z);
+                yield return new WaitForSeconds(0.01f);
+            }
         }
 
 
