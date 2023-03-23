@@ -153,3 +153,5 @@ MonoBehaviour:
   oldspawnpoint: {x: 0, y: 0, z: 0}
   currentspawnpoint: {x: 0, y: 0, z: 0}
   collect: {fileID: 0}
+  coinanim: {fileID: 98526966}
+  spheretrail: {fileID: 0}

@@ -16,6 +16,8 @@ public class QuestionGenerator : MonoBehaviour
 
     public static bool personalquestion = false;
 
+    public static bool levelselectquestion = true;
+
     //int to check what question number use is on
     public static int questionnumber;
 
@@ -35,6 +37,49 @@ public class QuestionGenerator : MonoBehaviour
 
             //Switch cases wont work here because i need it to keep checking
             //when it switches to the next question so the player can take thier time
+
+            //--hidden questions--
+            if (questionnumber == -2)
+            {
+                levelselectquestion = true;
+                QuizManager.NewQuestion = "Would you like to go to the not made yet level?";
+
+                QuizManager.NewA = "Yes";
+                QuizManager.NewB = "No";
+                QuizManager.NewC = "Next Level";
+                Answer_that_increases_score = "A";
+
+                Debug.Log(questionnumber);
+                Debug.Log("This is a levelselect question");
+            }
+
+            if (questionnumber == -1)
+            {
+                levelselectquestion = true;
+                QuizManager.NewQuestion = "Would you like to go to the CBT level?";
+
+                QuizManager.NewA = "Yes";
+                QuizManager.NewB = "No";
+                QuizManager.NewC = "Next Level";
+                Answer_that_increases_score = "A";
+
+                Debug.Log(questionnumber);
+                Debug.Log("This is a levelselect question");
+            }
+
+            if (questionnumber == 0)
+            {
+                levelselectquestion = true;
+                QuizManager.NewQuestion = "Would you like to go to the Coin game level?";
+
+                QuizManager.NewA = "Yes";
+                QuizManager.NewB = "No";
+                QuizManager.NewC = "Next Level";
+                Answer_that_increases_score = "A";
+
+                Debug.Log(questionnumber);
+                Debug.Log("This is a levelselect question");
+            }
 
             //--start of personal questions--
             if (questionnumber == 1)
@@ -224,7 +269,7 @@ public class QuestionGenerator : MonoBehaviour
             {
                 personalquestion = true;
                 QuizManager.NewQuestion = "Would you like to skip this personality quiz?" +
-                                          " Recommended if you haven't done this before";
+                                          " Recommended if you have done this before";
 
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";

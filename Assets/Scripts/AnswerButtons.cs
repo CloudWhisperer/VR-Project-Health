@@ -130,8 +130,24 @@ public class AnswerButtons : MonoBehaviour
                         break;
 
                     case 13:
-                        Debug.Log("skipped quiz");
-                        StartCoroutine("FinishQuiz");
+                        QuestionGenerator.questionnumber = -3;
+                        break;
+                }
+            }
+            if (QuestionGenerator.levelselectquestion == true)
+            {
+                switch(QuestionGenerator.questionnumber)
+                {
+                    case -2:
+                        SceneManager.LoadScene(1);
+                        break;
+
+                    case -1:
+                        SceneManager.LoadScene(2);
+                        break;
+
+                    case 0:
+                        SceneManager.LoadScene(3);
                         break;
                 }
             }
@@ -145,9 +161,9 @@ public class AnswerButtons : MonoBehaviour
 
         //disables the button until the function turns it on
 
-        answerAbutton.GetComponent<Button>().enabled = false;
-        answerBbutton.GetComponent<Button>().enabled = false;
-        answerCbutton.GetComponent<Button>().enabled = false;
+        //answerAbutton.GetComponent<Button>().enabled = false;
+        //answerBbutton.GetComponent<Button>().enabled = false;
+        //answerCbutton.GetComponent<Button>().enabled = false;
         StartCoroutine(Nextquestion());
 
     }
@@ -180,6 +196,11 @@ public class AnswerButtons : MonoBehaviour
                 //do personal code here
                 Debug.Log("NO SELECTED");
             }
+            if (QuestionGenerator.levelselectquestion == true)
+            {
+                //do personal code here
+                Debug.Log("NO SELECTED");
+            }
         }
 
         else
@@ -187,9 +208,9 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not B");
         }
 
-        answerAbutton.GetComponent<Button>().enabled = false;
-        answerBbutton.GetComponent<Button>().enabled = false;
-        answerCbutton.GetComponent<Button>().enabled = false;
+        //answerAbutton.GetComponent<Button>().enabled = false;
+        //answerBbutton.GetComponent<Button>().enabled = false;
+        //answerCbutton.GetComponent<Button>().enabled = false;
         StartCoroutine(Nextquestion());
     }
 
@@ -220,6 +241,11 @@ public class AnswerButtons : MonoBehaviour
                 //do personal code here
                 Debug.Log("NEXTTTTTT SELECTED");
             }
+            if (QuestionGenerator.levelselectquestion == true)
+            {
+                //do personal code here
+                Debug.Log("NEXTTTTTT SELECTED");
+            }
         }
 
         else
@@ -227,9 +253,9 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not C");
         }
 
-        answerAbutton.GetComponent<Button>().enabled = false;
-        answerBbutton.GetComponent<Button>().enabled = false;
-        answerCbutton.GetComponent<Button>().enabled = false;
+        //answerAbutton.GetComponent<Button>().enabled = false;
+        //answerBbutton.GetComponent<Button>().enabled = false;
+        //answerCbutton.GetComponent<Button>().enabled = false;
         StartCoroutine(Nextquestion());
     }
 
@@ -240,6 +266,8 @@ public class AnswerButtons : MonoBehaviour
         QuestionGenerator.stressquestion = false;
         QuestionGenerator.depressionquestion = false;
         QuestionGenerator.anxietyquestion = false;
+        QuestionGenerator.personalquestion = false;
+        QuestionGenerator.levelselectquestion = false;
 
         //wait 0.3 seconds, stoppppp
         yield return new WaitForSeconds(0.3f);
@@ -258,9 +286,9 @@ public class AnswerButtons : MonoBehaviour
         {
             QuestionGenerator.questionnumber += 1;
             QuestionGenerator.Displaying_Question = false;
-            answerAbutton.GetComponent<Button>().enabled = true;
-            answerBbutton.GetComponent<Button>().enabled = true;
-            answerCbutton.GetComponent<Button>().enabled = true;
+            //answerAbutton.GetComponent<Button>().enabled = true;
+            //answerBbutton.GetComponent<Button>().enabled = true;
+            //answerCbutton.GetComponent<Button>().enabled = true;
         }
     }
 
@@ -271,9 +299,9 @@ public class AnswerButtons : MonoBehaviour
         CanvasAnim.canvasanim.enabled = true;
 
         //turns off objects to prevent mashing
-        answerAbutton.GetComponent<Button>().enabled = false;
-        answerBbutton.GetComponent<Button>().enabled = false;
-        answerCbutton.GetComponent<Button>().enabled = false;
+        //answerAbutton.GetComponent<Button>().enabled = false;
+        //answerBbutton.GetComponent<Button>().enabled = false;
+        //answerCbutton.GetComponent<Button>().enabled = false;
 
         //waits for a second or 2 and destroys it to save memory
         yield return new WaitForSeconds(1.1f);

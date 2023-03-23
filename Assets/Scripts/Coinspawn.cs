@@ -8,12 +8,15 @@ public class Coinspawn : MonoBehaviour
     public Vector3 currentspawnpoint;
     public ParticleSystem collect;
     public Animator coinanim;
+    public TrailRenderer spheretrail;
+    public bool istutorialcoin;
 
-    cointouchminigamescorescript gamescript;
+    public cointouchminigamescorescript gamescript;
 
     private void Start()
     {
         coinanim = GetComponent<Animator>();
+        gamescript = GameObject.FindObjectOfType(typeof(cointouchminigamescorescript)) as cointouchminigamescorescript;
     }
     private void Update()
     {
@@ -36,26 +39,38 @@ public class Coinspawn : MonoBehaviour
 
                 oldspawnpoint = randomposition;
 
-                cointouchminigamescorescript.scorecounter += 1;
- 
+                if (istutorialcoin == false)
+                {
+                    cointouchminigamescorescript.scorecounter += 1;
+                }
+
                 Debug.Log(cointouchminigamescorescript.scorecounter);
 
                 switch (cointouchminigamescorescript.scorecounter)
                 {
                     case 5:
-                        Debug.Log("streak1");
+                        spheretrail.enabled = true;
                         break;
 
                     case 10:
-                        Debug.Log("streak2");
+                        spheretrail.startColor = Color.black;
                         break;
 
                     case 15:
-                        Debug.Log("streak3");
+                        spheretrail.startColor = Color.white;
                         break;
 
                     case 20:
-                        Debug.Log("streak4");
+                        spheretrail.startColor = Color.yellow;
+                        break;
+
+                    case 40:
+                        if (gamescript == null)
+                        {
+                            Debug.Log("its null :(");
+                        }
+                        gamescript.End_Game();
+                        Debug.Log("got 40");
                         break;
 
                     default:
@@ -63,7 +78,10 @@ public class Coinspawn : MonoBehaviour
 
                 }
 
-                GameObject coin = Instantiate(coinprefab, randomposition, transform.localRotation);
+                if (istutorialcoin == false)
+                {
+                    GameObject coin = Instantiate(coinprefab, randomposition, transform.localRotation);
+                }
 
                 StartCoroutine(killcoin());
 

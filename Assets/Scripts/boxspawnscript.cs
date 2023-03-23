@@ -8,8 +8,6 @@ public class boxspawnscript : MonoBehaviour
     public GameObject line;
     public Animator boxanim;
 
-    cointouchminigamescorescript gamescript;
-
     public GameObject obstacle;
 
     private void Start()
@@ -70,7 +68,7 @@ public class boxspawnscript : MonoBehaviour
 
             if (other.gameObject.tag == "Push")
             {
-                if (transform.position.x < 0 )
+                if (transform.position.x < 0)
                 {
                     StartCoroutine(moveleft());
                 }

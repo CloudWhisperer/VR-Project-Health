@@ -19,7 +19,7 @@ RenderSettings:
   m_FogMode: 1
   m_FogDensity: 0.06
   m_LinearFogStart: 10
-  m_LinearFogEnd: 40
+  m_LinearFogEnd: 30
   m_AmbientSkyColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -5009,7 +5009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24045950}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.15100002, z: 1.883}
+  m_LocalPosition: {x: 0, y: -0.225, z: 1.883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5465,6 +5465,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 127238013}
     m_Modifications:
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: collect
+      value: 
+      objectReference: {fileID: 323238619}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: gamescript
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: spheretrail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: istutorialcoin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -5493,7 +5509,7 @@ PrefabInstance:
     - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.523
+      value: 10.303
       objectReference: {fileID: 0}
     - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
@@ -6916,6 +6932,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 127238013}
     m_Modifications:
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: collect
+      value: 
+      objectReference: {fileID: 323238619}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: gamescript
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: spheretrail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: istutorialcoin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -6928,23 +6960,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.009999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.4233725
       objectReference: {fileID: 0}
     - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.03
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.534
+      value: 8.757
       objectReference: {fileID: 0}
     - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
@@ -7988,7 +8015,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 300
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -12452,10 +12479,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersphere: {fileID: 1170519389}
+  sphereanim: {fileID: 1170519396}
   objects: {fileID: 996615835}
   tutorialobjects: {fileID: 127238012}
   backwall: {fileID: 995501048}
   starttext: {fileID: 1794249424}
+  textanim: {fileID: 1794249426}
   breathin: {fileID: 24045952}
   breathout: {fileID: 747936021}
 --- !u!4 &430110942
@@ -17572,6 +17601,14 @@ PrefabInstance:
       propertyPath: coinanim
       value: 
       objectReference: {fileID: 529264965}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: gamescript
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: spheretrail
+      value: 
+      objectReference: {fileID: 1170519395}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -19836,25 +19873,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 323238619}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion1
+      propertyPath: gamescript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 430110941}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion2
+      propertyPath: spheretrail
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion3
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion4
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: coinanim
-      value: 
-      objectReference: {fileID: 2058906490}
+      objectReference: {fileID: 1170519395}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -19864,21 +19889,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.009999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2135188208400702357, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
@@ -25253,7 +25263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747936019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.151, z: 0}
+  m_LocalPosition: {x: 0, y: -0.22499987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29541,6 +29551,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 127238013}
     m_Modifications:
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: collect
+      value: 
+      objectReference: {fileID: 323238619}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: gamescript
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: spheretrail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: istutorialcoin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -29818,6 +29844,7 @@ GameObject:
   - component: {fileID: 1170519391}
   - component: {fileID: 1170519394}
   - component: {fileID: 1170519395}
+  - component: {fileID: 1170519396}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
@@ -29928,11 +29955,11 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170519389}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -30028,6 +30055,26 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!95 &1170519396
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170519389}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f798c99ec5f0fea4fa254729053ae8ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1172117610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5186735023777053022, guid: ac8efb728f1fb9b4092c4df591c827ca,
@@ -34433,6 +34480,7 @@ GameObject:
   - component: {fileID: 1794249423}
   - component: {fileID: 1794249425}
   - component: {fileID: 1794249424}
+  - component: {fileID: 1794249426}
   m_Layer: 5
   m_Name: StartText
   m_TagString: Untagged
@@ -34557,12 +34605,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794249422}
   m_CullTransparentMesh: 1
---- !u!95 &1794988483 stripped
+--- !u!95 &1794249426
 Animator:
-  m_CorrespondingSourceObject: {fileID: 98526966, guid: e22f685b9e191de4e99bfe2ca881fa36,
-    type: 3}
-  m_PrefabInstance: {fileID: 9100439326173825872}
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794249422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4708900e9817f844596d3fc60191e2e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1796771124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953,
@@ -35812,12 +35874,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 669601487}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2058906490 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 98526966, guid: e22f685b9e191de4e99bfe2ca881fa36,
-    type: 3}
-  m_PrefabInstance: {fileID: 669601487}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2073141608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36241,25 +36297,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 323238619}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion1
+      propertyPath: gamescript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 430110941}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion2
+      propertyPath: spheretrail
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion3
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: minion4
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
-      propertyPath: coinanim
-      value: 
-      objectReference: {fileID: 1794988483}
+      objectReference: {fileID: 1170519395}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
