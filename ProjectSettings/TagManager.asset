@@ -20,6 +20,11 @@ TagManager:
   - Coin
   - Box
   - Push
+  - Paperplane
+  - Pingpongball
+  - Pingpongpaddle
+  - Marker
+  - Balls
   layers:
   - Default
   - TransparentFX
@@ -31,7 +36,7 @@ TagManager:
   - Buttons
   - Interactableobjects
   - Floor
-  - 
+  - Stars
   - 
   - 
   - 

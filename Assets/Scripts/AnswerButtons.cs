@@ -139,7 +139,7 @@ public class AnswerButtons : MonoBehaviour
                 switch(QuestionGenerator.questionnumber)
                 {
                     case -2:
-                        SceneManager.LoadScene(1);
+                        SceneManager.LoadScene(3);
                         break;
 
                     case -1:
@@ -147,7 +147,7 @@ public class AnswerButtons : MonoBehaviour
                         break;
 
                     case 0:
-                        SceneManager.LoadScene(3);
+                        SceneManager.LoadScene(1);
                         break;
                 }
             }
@@ -311,17 +311,17 @@ public class AnswerButtons : MonoBehaviour
         if (highestvalue == QuizManager.Stresslevel)
         {
             Debug.Log("stresswon");
-            SceneManager.LoadScene("Coin_Game");
+            SceneManager.LoadScene(2);
         }
         if (highestvalue == QuizManager.Anxietylevel)
         {
             Debug.Log("anxietywon");
-            SceneManager.LoadScene("Coin_Game");
+            SceneManager.LoadScene(1);
         }
         if (highestvalue == QuizManager.Depressionlevel)
         {
             Debug.Log("depressionwon");
-            SceneManager.LoadScene("Ball_Rolling_Game");
+            SceneManager.LoadScene(3);
         }
         if (highestvalue == (QuizManager.Depressionlevel & QuizManager.Anxietylevel & QuizManager.Stresslevel))
         {
@@ -342,12 +342,12 @@ public class AnswerButtons : MonoBehaviour
         {
             case 1:
                 Debug.Log("1");
-                SceneManager.LoadScene("Coin_Game");
+                SceneManager.LoadScene(2);
                 break;
 
             case 2:
                 Debug.Log("2");
-                SceneManager.LoadScene("Ball_Rolling_Game");
+                SceneManager.LoadScene(3);
                 break;
         }
     }

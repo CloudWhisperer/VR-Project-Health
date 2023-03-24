@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionGenerator : MonoBehaviour
 {
@@ -20,6 +21,23 @@ public class QuestionGenerator : MonoBehaviour
 
     //int to check what question number use is on
     public static int questionnumber;
+
+    public Image CBTImage, Coingameimage, anxietylevelimage;
+
+    public GameObject balls, cubes, pingpong,pingpongball, whiteboard,marker, paperplane;
+
+    public TextMeshProUGUI unlocktext;
+
+    public void Allenable()
+    {
+        balls.SetActive(true);
+        cubes.SetActive(true);
+        pingpong.SetActive(true);
+        pingpongball.SetActive(true);
+        whiteboard.SetActive(true);
+        marker.SetActive(true);
+        paperplane.SetActive(true);
+    }
 
     private void Start()
     {
@@ -42,7 +60,10 @@ public class QuestionGenerator : MonoBehaviour
             if (questionnumber == -2)
             {
                 levelselectquestion = true;
-                QuizManager.NewQuestion = "Would you like to go to the not made yet level?";
+                QuizManager.NewQuestion = "Would you like to go to the CBT level?";
+                CBTImage.enabled = true;
+                Coingameimage.enabled = false;
+                anxietylevelimage.enabled = false;
 
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";
@@ -51,12 +72,17 @@ public class QuestionGenerator : MonoBehaviour
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a levelselect question");
+
+                Allenable();
             }
 
             if (questionnumber == -1)
             {
                 levelselectquestion = true;
-                QuizManager.NewQuestion = "Would you like to go to the CBT level?";
+                QuizManager.NewQuestion = "Would you like to go to the coin game level?";
+                CBTImage.enabled = false;
+                Coingameimage.enabled = true;
+                anxietylevelimage.enabled = false;
 
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";
@@ -70,7 +96,10 @@ public class QuestionGenerator : MonoBehaviour
             if (questionnumber == 0)
             {
                 levelselectquestion = true;
-                QuizManager.NewQuestion = "Would you like to go to the Coin game level?";
+                QuizManager.NewQuestion = "Would you like to go to the 'nOt fOuNd' level?";
+                CBTImage.enabled = false;
+                Coingameimage.enabled = false;
+                anxietylevelimage.enabled = true;
 
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";
@@ -84,6 +113,10 @@ public class QuestionGenerator : MonoBehaviour
             //--start of personal questions--
             if (questionnumber == 1)
             {
+                CBTImage.enabled = false;
+                Coingameimage.enabled = false;
+                anxietylevelimage.enabled = false;
+
                 personalquestion = true;
                 QuizManager.NewQuestion = "Would you like your world to be Red?";
 
@@ -218,6 +251,9 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log(questionnumber);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
+
+                cubes.SetActive(true);
+                unlocktext.text = "You have unlocked the cubes, try to stack them!";
             }
 
             if (questionnumber == 10)
@@ -368,6 +404,9 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log(questionnumber);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
+
+                balls.SetActive(true);
+                unlocktext.text = "You have unlocked the balls, try rolling them around!";
             }
 
             if (questionnumber == 19)
@@ -508,6 +547,10 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log(questionnumber);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
+
+                pingpong.SetActive(true);
+                pingpongball.SetActive(true);
+                unlocktext.text = "You have unlocked the Ping Pong paddle and ball, try to get a good hit!";
             }
 
             if (questionnumber == 28)
@@ -645,6 +688,10 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log(questionnumber);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
+
+                whiteboard.SetActive(true);
+                marker.SetActive(true);
+                unlocktext.text = "You have unlocked the Whiteboard and marker, try to draw a star!";
             }
 
             //--end of depression questions--
@@ -743,6 +790,9 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log(questionnumber);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
+
+                paperplane.SetActive(true);
+                unlocktext.text = "You have unlocked the Paper Airplanes, try to throw them far!";
             }
 
             if (questionnumber == 43)
