@@ -161,9 +161,9 @@ public class AnswerButtons : MonoBehaviour
 
         //disables the button until the function turns it on
 
-        //answerAbutton.GetComponent<Button>().enabled = false;
-        //answerBbutton.GetComponent<Button>().enabled = false;
-        //answerCbutton.GetComponent<Button>().enabled = false;
+        answerAbutton.SetActive(false);
+        answerBbutton.SetActive(false);
+        answerCbutton.SetActive(false);
         StartCoroutine(Nextquestion());
 
     }
@@ -208,9 +208,9 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not B");
         }
 
-        //answerAbutton.GetComponent<Button>().enabled = false;
-        //answerBbutton.GetComponent<Button>().enabled = false;
-        //answerCbutton.GetComponent<Button>().enabled = false;
+        answerAbutton.SetActive(false);
+        answerBbutton.SetActive(false);
+        answerCbutton.SetActive(false);
         StartCoroutine(Nextquestion());
     }
 
@@ -253,9 +253,9 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not C");
         }
 
-        //answerAbutton.GetComponent<Button>().enabled = false;
-        //answerBbutton.GetComponent<Button>().enabled = false;
-        //answerCbutton.GetComponent<Button>().enabled = false;
+        answerAbutton.SetActive(false);
+        answerBbutton.SetActive(false);
+        answerCbutton.SetActive(false);
         StartCoroutine(Nextquestion());
     }
 
@@ -269,7 +269,7 @@ public class AnswerButtons : MonoBehaviour
         QuestionGenerator.personalquestion = false;
         QuestionGenerator.levelselectquestion = false;
 
-        //wait 0.3 seconds, stoppppp
+        //Questionanim 0.3 seconds, stoppppp
         yield return new WaitForSeconds(0.3f);
 
         //checks if the quiz is done or not CHANGE THE NUMBER EQUAL TO HOW MNAY QUESTIONS THERE ARE + 1.
@@ -286,9 +286,9 @@ public class AnswerButtons : MonoBehaviour
         {
             QuestionGenerator.questionnumber += 1;
             QuestionGenerator.Displaying_Question = false;
-            //answerAbutton.GetComponent<Button>().enabled = true;
-            //answerBbutton.GetComponent<Button>().enabled = true;
-            //answerCbutton.GetComponent<Button>().enabled = true;
+            answerAbutton.SetActive(true);
+            answerBbutton.SetActive(true);
+            answerCbutton.SetActive(true);
         }
     }
 
@@ -299,9 +299,9 @@ public class AnswerButtons : MonoBehaviour
         CanvasAnim.canvasanim.enabled = true;
 
         //turns off objects to prevent mashing
-        //answerAbutton.GetComponent<Button>().enabled = false;
-        //answerBbutton.GetComponent<Button>().enabled = false;
-        //answerCbutton.GetComponent<Button>().enabled = false;
+        answerAbutton.SetActive(false);
+        answerBbutton.SetActive(false);
+        answerCbutton.SetActive(false);
 
         //waits for a second or 2 and destroys it to save memory
         yield return new WaitForSeconds(1.1f);
