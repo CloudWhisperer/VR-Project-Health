@@ -2,10 +2,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class AnswerButtons : MonoBehaviour
 {
+    Levelchangefade levelfadescript;
+
     //the DEBUG text tracker of the 3 scores
     public TextMeshProUGUI anxietytext;
     public TextMeshProUGUI depressiontext;
@@ -47,8 +48,18 @@ public class AnswerButtons : MonoBehaviour
     public Material brownspace;
     public Material sunskybox;
 
+    //particle effect to play when pushed button
+    public ParticleSystem buttonparticleA, buttonparticleB, buttonparticleC;
+
+    private void Start()
+    {
+        levelfadescript = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+    }
+
     public void AnswerA()
     {
+        buttonparticleA.Play();
+
         //if the user picks a...
         if (QuestionGenerator.Answer_that_increases_score == "A")
         {
@@ -136,18 +147,24 @@ public class AnswerButtons : MonoBehaviour
             }
             if (QuestionGenerator.levelselectquestion == true)
             {
-                switch(QuestionGenerator.questionnumber)
+                switch (QuestionGenerator.questionnumber)
                 {
                     case -2:
-                        SceneManager.LoadScene(3);
+                        StartCoroutine(levelisselected());
+                        Levelchangefade.leveltoload = 3;
+                        levelfadescript.fadetolevel();
                         break;
 
                     case -1:
-                        SceneManager.LoadScene(2);
+                        StartCoroutine(levelisselected());
+                        Levelchangefade.leveltoload = 2;
+                        levelfadescript.fadetolevel();
                         break;
 
                     case 0:
-                        SceneManager.LoadScene(1);
+                        StartCoroutine(levelisselected());
+                        Levelchangefade.leveltoload = 1;
+                        levelfadescript.fadetolevel();
                         break;
                 }
             }
@@ -159,11 +176,6 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not A");
         }
 
-        //disables the button until the function turns it on
-
-        answerAbutton.SetActive(false);
-        answerBbutton.SetActive(false);
-        answerCbutton.SetActive(false);
         StartCoroutine(Nextquestion());
 
     }
@@ -171,6 +183,8 @@ public class AnswerButtons : MonoBehaviour
     //same thing as A
     public void AnswerB()
     {
+        buttonparticleB.Play();
+
         if (QuestionGenerator.Answer_that_increases_score == "B")
         {
             if (QuestionGenerator.stressquestion == true)
@@ -208,14 +222,13 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not B");
         }
 
-        answerAbutton.SetActive(false);
-        answerBbutton.SetActive(false);
-        answerCbutton.SetActive(false);
         StartCoroutine(Nextquestion());
     }
 
     public void AnswerC()
     {
+        buttonparticleC.Play();
+
         if (QuestionGenerator.Answer_that_increases_score == "C")
         {
             if (QuestionGenerator.stressquestion == true)
@@ -253,9 +266,6 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not C");
         }
 
-        answerAbutton.SetActive(false);
-        answerBbutton.SetActive(false);
-        answerCbutton.SetActive(false);
         StartCoroutine(Nextquestion());
     }
 
@@ -551,5 +561,16 @@ public class AnswerButtons : MonoBehaviour
         cloudyweather.SetActive(true);
     }
 
+    IEnumerator levelisselected()
+    {
+        //enables the animation for the removing of objects
+        ButtonAnim.buttonanim.enabled = true;
+        CanvasAnim.canvasanim.enabled = true;
+
+        //waits for a second or 2 and destroys it to save memory
+        yield return new WaitForSeconds(1.1f);
+        Destroy(destroy_this_button);
+        Destroy(destroy_this_canvas);
+    }
 
 }

@@ -6,7 +6,7 @@ public class WhiteboardUnlock : MonoBehaviour
     public GameObject whiteboard;
     public Animator whiteboardAnimator;
     public InputActionProperty showButton;
-    private bool isUnlocked = true;
+    public static bool isUnlocked = false;
 
     // Update is called once per frame
     void Update()

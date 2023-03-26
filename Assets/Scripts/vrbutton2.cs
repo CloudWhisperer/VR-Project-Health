@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class vrbutton2 : MonoBehaviour
 {
-    public float deadtime = 1.0f;
+    public float deadtime;
     private bool deadtimeactivated = false;
 
     public UnityEvent onPressed, onReleased;

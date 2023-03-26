@@ -25,6 +25,7 @@ TagManager:
   - Pingpongpaddle
   - Marker
   - Balls
+  - Fade
   layers:
   - Default
   - TransparentFX

@@ -28,6 +28,7 @@ public class QuestionGenerator : MonoBehaviour
     public static int questionnumber;
 
     public Image CBTImage, Coingameimage, anxietylevelimage;
+    public Animator CBTimageanim, Coinimageanim, Anxietyimageanim;
 
     public GameObject balls, cubes, pingpong,pingpongball, whiteboard,marker, paperplane;
 
@@ -65,13 +66,26 @@ public class QuestionGenerator : MonoBehaviour
         answer3.SetBool("show", true);
 
         yield return new WaitForSeconds(0.4f);
-        answer1.SetBool("show", false);
+
+        if(answer1 != null)
+        {
+            answer1.SetBool("show", false);
+        }
 
         yield return new WaitForSeconds(0.4f);
-        answer2.SetBool("show", false);
+
+        if(answer2 != null)
+        {
+            answer2.SetBool("show", false);
+        }
 
         yield return new WaitForSeconds(0.4f);
-        answer3.SetBool("show", false);
+
+        if(answer3 != null)
+        {
+            answer3.SetBool("show", false);
+        }
+
     }
 
     IEnumerator Unlockcube()
@@ -108,6 +122,7 @@ public class QuestionGenerator : MonoBehaviour
     IEnumerator UnlockWhiteboard()
     {
         whiteboard.SetActive(true);
+        WhiteboardUnlock.isUnlocked = true;
         marker.SetActive(true);
         unlocktext.text = "You have unlocked the Whiteboard and marker, try to draw a star!";
         unlocktextanim.SetBool("zoom", true);
@@ -148,6 +163,10 @@ public class QuestionGenerator : MonoBehaviour
                 Coingameimage.enabled = false;
                 anxietylevelimage.enabled = false;
 
+                CBTimageanim.SetBool("isshow", true);
+                Coinimageanim.SetBool("isshow", false);
+                Anxietyimageanim.SetBool("isshow", false);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";
@@ -171,6 +190,10 @@ public class QuestionGenerator : MonoBehaviour
                 Coingameimage.enabled = true;
                 anxietylevelimage.enabled = false;
 
+                CBTimageanim.SetBool("isshow", false);
+                Coinimageanim.SetBool("isshow", true);
+                Anxietyimageanim.SetBool("isshow", false);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";
@@ -191,6 +214,10 @@ public class QuestionGenerator : MonoBehaviour
                 CBTImage.enabled = false;
                 Coingameimage.enabled = false;
                 anxietylevelimage.enabled = true;
+
+                CBTimageanim.SetBool("isshow", false);
+                Coinimageanim.SetBool("isshow", false);
+                Anxietyimageanim.SetBool("isshow", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";

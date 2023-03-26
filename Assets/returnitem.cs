@@ -11,6 +11,7 @@ public class returnitem : MonoBehaviour
 
     public Quaternion markerrotation;
     public Quaternion paddlerotation;
+    public Quaternion planerotation;
 
     private Vector3 ballspawn;
     private Vector3 markerspawn;
@@ -78,6 +79,7 @@ public class returnitem : MonoBehaviour
         if (otherobject.CompareTag("Paperplane"))
         {
             otherobject.transform.position = paperplanespawn;
+            otherobject.transform.rotation = planerotation;
             otherobject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
     }
