@@ -7,6 +7,7 @@ public class boxspawnscript : MonoBehaviour
     public Vector3 currentspawnpoint;
     public GameObject line;
     public Animator boxanim;
+    public AudioSource boxsound;
 
     public GameObject obstacle;
 
@@ -30,6 +31,7 @@ public class boxspawnscript : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
+                boxsound.Play();
                 oldspawnpoint = randomposition;
 
                 GameObject box = Instantiate(obstacle, randomposition, transform.localRotation);

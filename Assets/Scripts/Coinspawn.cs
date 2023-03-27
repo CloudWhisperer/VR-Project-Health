@@ -10,6 +10,7 @@ public class Coinspawn : MonoBehaviour
     public Animator coinanim;
     public TrailRenderer spheretrail;
     public bool istutorialcoin;
+    public AudioSource coinsound;
 
     public cointouchminigamescorescript gamescript;
 
@@ -34,6 +35,7 @@ public class Coinspawn : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
+                coinsound.Play();
                 collect.Play();
                 coinanim.SetTrigger("dead");
 

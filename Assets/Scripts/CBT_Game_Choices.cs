@@ -13,6 +13,8 @@ public class CBT_Game_Choices : MonoBehaviour
     public Animator anim1;
     public Animator anim2;
 
+    public AudioSource selectchoicesound;
+
     //choices
     public SphereCollider touchCollider;
 
@@ -81,6 +83,7 @@ public class CBT_Game_Choices : MonoBehaviour
 
     IEnumerator forwardtext()
     {
+        selectchoicesound.Play();
         selectingtimer1 = 0;
         selectingtimer2 = 0;
         choice1slidervalue.value = selectingtimer1;

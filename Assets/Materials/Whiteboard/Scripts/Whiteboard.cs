@@ -6,6 +6,7 @@ public class Whiteboard : MonoBehaviour
 {
     public Texture2D texture;
     public Vector2 texturesize = new Vector2 (2048,2048);
+    public AudioSource clearwhiteboardsound;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class Whiteboard : MonoBehaviour
 
     public void ResetWhiteboard()
     {
+        clearwhiteboardsound.Play();
         var r = GetComponent<Renderer>();
         texture = new Texture2D((int)texturesize.x, (int)texturesize.y);
         r.material.mainTexture = texture;

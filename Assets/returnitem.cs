@@ -19,6 +19,8 @@ public class returnitem : MonoBehaviour
     private Vector3 pongballspawn;
     private Vector3 cubespawn;
     private Vector3 paperplanespawn;
+    public AudioSource returnitemsound;
+    public AudioSource planesound;
 
     private void Start()
     {
@@ -43,6 +45,7 @@ public class returnitem : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         GameObject otherobject = col.gameObject;
+        returnitemsound.Play();
 
         if (otherobject.CompareTag("Balls"))
         {
@@ -78,6 +81,7 @@ public class returnitem : MonoBehaviour
 
         if (otherobject.CompareTag("Paperplane"))
         {
+            planesound.Stop();
             otherobject.transform.position = paperplanespawn;
             otherobject.transform.rotation = planerotation;
             otherobject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);

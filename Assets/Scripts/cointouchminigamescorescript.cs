@@ -16,6 +16,8 @@ public class cointouchminigamescorescript : MonoBehaviour
 
     public ParticleSystem breathin;
     public ParticleSystem breathout;
+    public AudioSource breathinsound;
+    public AudioSource breathoutsound;
 
     public static int scorecounter;
     public static int losecounter;
@@ -87,6 +89,7 @@ public class cointouchminigamescorescript : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         breathin.Play();
+        breathinsound.Play();
         yield return new WaitForSeconds(3f);
         breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
@@ -104,6 +107,7 @@ public class cointouchminigamescorescript : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         breathout.Play();
+        breathoutsound.Play();
         yield return new WaitForSeconds(3f);
         breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
@@ -121,10 +125,12 @@ public class cointouchminigamescorescript : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
             breathin.Play();
+            breathinsound.Play();
             yield return new WaitForSeconds(3f);
             breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             yield return new WaitForSeconds(2f);
             breathout.Play();
+            breathoutsound.Play();
             yield return new WaitForSeconds(3f);
             breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }

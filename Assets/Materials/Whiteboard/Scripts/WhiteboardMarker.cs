@@ -19,6 +19,7 @@ public class WhiteboardMarker : MonoBehaviour
     private Vector2 touchpos, lasttouchpos;
     private bool touchedlastframe;
     private Quaternion lasttouchrot;
+    [SerializeField] private AudioSource drawingsound;
 
     // Start is called before the first frame update
     void Start()
@@ -61,9 +62,14 @@ public class WhiteboardMarker : MonoBehaviour
                 var x = (int)(touchpos.x * _whiteboard.texturesize.x - (pensize / 2));
                 var y = (int)(touchpos.y * _whiteboard.texturesize.y - (pensize / 2));
 
+                //play drawing sound when drawing
+                drawingsound.Play();
+
                 //if the drawing is not on the whiteboard then exit otherwise lag
                 if (y < 0 || y > _whiteboard.texturesize.y || x < 0 || x > _whiteboard.texturesize.x)
                 {
+                    //pause sound if not drawing
+                    drawingsound.Pause();
                     return;
                 }
 

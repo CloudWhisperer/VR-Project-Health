@@ -12,6 +12,9 @@ public class AnswerButtons : MonoBehaviour
     public TextMeshProUGUI depressiontext;
     public TextMeshProUGUI stresstext;
 
+    //soundeffects for buttons
+    public AudioSource buttonsound;
+
     //the answer buttons
     public GameObject answerAbutton;
     public GameObject answerBbutton;
@@ -59,6 +62,7 @@ public class AnswerButtons : MonoBehaviour
     public void AnswerA()
     {
         buttonparticleA.Play();
+        buttonsound.Play();
 
         //if the user picks a...
         if (QuestionGenerator.Answer_that_increases_score == "A")
@@ -184,6 +188,7 @@ public class AnswerButtons : MonoBehaviour
     public void AnswerB()
     {
         buttonparticleB.Play();
+        buttonsound.Play();
 
         if (QuestionGenerator.Answer_that_increases_score == "B")
         {
@@ -228,6 +233,7 @@ public class AnswerButtons : MonoBehaviour
     public void AnswerC()
     {
         buttonparticleC.Play();
+        buttonsound.Play();
 
         if (QuestionGenerator.Answer_that_increases_score == "C")
         {

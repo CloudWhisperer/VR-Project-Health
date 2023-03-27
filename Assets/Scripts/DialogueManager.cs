@@ -7,11 +7,23 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
+    Levelchangefade fadelevelscript;
+
     public TextMeshProUGUI nametext;
     public TextMeshProUGUI dialoguetext;
 
     public InputActionProperty ContinueButton;
     private bool canpress = true;
+
+    public AudioSource textsound;
+    public AudioSource choiceshowsound;
+    public AudioSource choiceshowsound2;
+    public AudioSource thoughtbubbleaudio;
+    public AudioSource thoughtbubbleaudiofadeoff;
+
+    public AudioSource wavingaudio;
+    public AudioSource introducingaudio;
+    public AudioSource examplingaudio;
 
     public Animator Thought_bubble_animator;
     public Animator example1_anim;
@@ -36,9 +48,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float speed_of_text;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         sentences = new Queue<string>();
+        fadelevelscript = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
 
     }
 
@@ -69,6 +82,8 @@ public class DialogueManager : MonoBehaviour
 
     public void Displaynextsentence()
     {
+        textsound.Play();
+
         if (sentences.Count == 0)
         {
             canvasanim.SetBool("isopen", false);
@@ -83,11 +98,13 @@ public class DialogueManager : MonoBehaviour
         {
             case 68:
                 CBT_charanimator.SetBool("iswaving", true);
+                wavingaudio.Play();
                 break;
 
             case 67:
                 CBT_charanimator.SetBool("iswaving", false);
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 break;
 
             case 64:
@@ -98,41 +115,53 @@ public class DialogueManager : MonoBehaviour
                 choice2.SetActive(true);
                 choice1anim.SetBool("isopen", true);
                 choice2anim.SetBool("isopen", true);
+                choiceshowsound.Play();
+                choiceshowsound2.PlayDelayed(1f);
                 break;
 
             case 62:
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 break;
 
             case 58:
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 break;
 
             case 56:
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 canpress = false;
                 textchoice1.text = "This sounds like a lot of work...";
                 textchoice2.text = "This might be a lot to take in...";
                 choice1anim.SetBool("isopen", true);
                 choice2anim.SetBool("isopen", true);
+                choiceshowsound.Play();
+                choiceshowsound2.PlayDelayed(1f);
                 break;
 
             case 51:
                 CBT_charanimator.SetBool("iswaving", true);
+                wavingaudio.Play();
                 break;
 
             case 47:
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 break;
 
             case 46:
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 Thoughtbubble.SetActive(true);
+                thoughtbubbleaudio.Play();
                 Thought_bubble_animator.SetBool("isshowing", true);
                 break;
 
             case 45:
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 break;
 
             case 44:
@@ -141,10 +170,13 @@ public class DialogueManager : MonoBehaviour
                 textchoice2.text = "Because they are trying to avoid me";
                 choice1anim.SetBool("isopen", true);
                 choice2anim.SetBool("isopen", true);
+                choiceshowsound.Play();
+                choiceshowsound2.PlayDelayed(1f);
                 break;
 
             case 41:
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 break;
 
             case 35:
@@ -153,23 +185,29 @@ public class DialogueManager : MonoBehaviour
                 textchoice2.text = "They could have been deep in their own thought";
                 choice1anim.SetBool("isopen", true);
                 choice2anim.SetBool("isopen", true);
+                choiceshowsound.Play();
+                choiceshowsound2.PlayDelayed(1f);
                 break;
 
             case 34:
                 canpress = true;
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 break;
 
             case 31:
                 Thought_bubble_animator.SetBool("isshowing", false);
+                thoughtbubbleaudiofadeoff.Play();
                 break;
 
             case 29:
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 break;
 
             case 22:
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 Example1.SetActive(true);
                 break;
 
@@ -179,6 +217,8 @@ public class DialogueManager : MonoBehaviour
                 textchoice2.text = "Thank you!";
                 choice1anim.SetBool("isopen", true);
                 choice2anim.SetBool("isopen", true);
+                choiceshowsound.Play();
+                choiceshowsound2.PlayDelayed(1f);
                 break;
 
             case 19:
@@ -188,34 +228,42 @@ public class DialogueManager : MonoBehaviour
 
             case 17:
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 break;
 
             case 16:
                 CBT_charanimator.SetBool("isexampling", false);
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 break;
 
             case 10:
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 Example2.SetActive(true);
                 break;
 
             case 7:
                 CBT_charanimator.SetBool("isintroducing", true);
+                introducingaudio.Play();
                 example2_anim.SetBool("isopen", false);
                 canpress = false;
                 textchoice1.text = "This helped me a lot!";
                 textchoice2.text = "Thank you so much!";
                 choice1anim.SetBool("isopen", true);
                 choice2anim.SetBool("isopen", true);
+                choiceshowsound.Play();
+                choiceshowsound2.PlayDelayed(1f);
                 break;
 
             case 4:
                 CBT_charanimator.SetBool("isexampling", true);
+                examplingaudio.Play();
                 break;
 
             case 1:
                 CBT_charanimator.SetBool("iswaving", true);
+                wavingaudio.Play();
                 canpress = false;
                 textchoice1.text = "Goodbye!";
                 textchoice2.text = "Thank you again!";
@@ -223,12 +271,13 @@ public class DialogueManager : MonoBehaviour
                 choice2.SetActive(true);
                 choice1anim.SetBool("isopen", true);
                 choice2anim.SetBool("isopen", true);
+                choiceshowsound.Play();
+                choiceshowsound2.PlayDelayed(1f);
                 break;
 
             case 0:
                 canvasanim.SetBool("isopen", false);
                 EndDialogue();
-                SceneManager.LoadScene("putscenehere");
                 break;
 
 
@@ -259,5 +308,8 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         Debug.Log("End of conversation");
+        Levelchangefade.leveltoload = 0;
+        fadelevelscript.fadetolevel();
+
     }
 }

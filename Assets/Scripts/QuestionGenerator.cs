@@ -35,6 +35,8 @@ public class QuestionGenerator : MonoBehaviour
     public TextMeshProUGUI unlocktext;
     public Animator unlocktextanim;
 
+    public AudioSource unlocksound;
+
     public void Allenable()
     {
         balls.SetActive(true);
@@ -90,6 +92,7 @@ public class QuestionGenerator : MonoBehaviour
 
     IEnumerator Unlockcube()
     {
+        unlocksound.Play();
         cubes.SetActive(true);
         unlocktext.text = "You have unlocked the cubes, try to stack them!";
         unlocktextanim.SetBool("zoom", true);
@@ -100,6 +103,7 @@ public class QuestionGenerator : MonoBehaviour
 
     IEnumerator Unlockballs()
     {
+        unlocksound.Play();
         balls.SetActive(true);
         unlocktext.text = "You have unlocked the balls, try rolling them around!";
         unlocktextanim.SetBool("zoom", true);
@@ -110,6 +114,7 @@ public class QuestionGenerator : MonoBehaviour
 
     IEnumerator UnlockPingpong()
     {
+        unlocksound.Play();
         pingpong.SetActive(true);
         pingpongball.SetActive(true);
         unlocktext.text = "You have unlocked the Ping Pong paddle and ball, try to get a good hit!";
@@ -121,6 +126,7 @@ public class QuestionGenerator : MonoBehaviour
 
     IEnumerator UnlockWhiteboard()
     {
+        unlocksound.Play();
         whiteboard.SetActive(true);
         WhiteboardUnlock.isUnlocked = true;
         marker.SetActive(true);
@@ -133,6 +139,7 @@ public class QuestionGenerator : MonoBehaviour
 
     IEnumerator UnlockPaperplane()
     {
+        unlocksound.Play();
         paperplane.SetActive(true);
         unlocktext.text = "You have unlocked the Paper Airplanes, try to throw them far!";
         unlocktextanim.SetBool("zoom", true);
