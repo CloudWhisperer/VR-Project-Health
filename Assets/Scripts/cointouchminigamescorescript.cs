@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class cointouchminigamescorescript : MonoBehaviour
 {
+    Levelchangefade fadelevelscript;
+
     public GameObject playersphere;
     public Animator sphereanim;
 
@@ -31,6 +33,7 @@ public class cointouchminigamescorescript : MonoBehaviour
     {
         StartCoroutine(beginningtext());
         textanim.GetComponent<Animator>();
+        fadelevelscript = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
     }
 
     IEnumerator beginningtext()
@@ -225,7 +228,8 @@ public class cointouchminigamescorescript : MonoBehaviour
         textanim.SetBool("fadeout", false);
 
         yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene(0);
+        Levelchangefade.leveltoload = 0;
+        fadelevelscript.fadetolevel();
 
     }
 }

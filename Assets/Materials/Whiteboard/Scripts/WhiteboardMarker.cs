@@ -55,6 +55,12 @@ public class WhiteboardMarker : MonoBehaviour
                     _whiteboard = touch.transform.GetComponent<Whiteboard>();
                 }
 
+                //play drawing sound when drawing
+                if (!drawingsound.isPlaying)
+                {
+                    drawingsound.Play();
+                }
+
                 //gets touch position from world coordinates
                 touchpos = new Vector2(touch.textureCoord.x, touch.textureCoord.y);
 
@@ -62,14 +68,10 @@ public class WhiteboardMarker : MonoBehaviour
                 var x = (int)(touchpos.x * _whiteboard.texturesize.x - (pensize / 2));
                 var y = (int)(touchpos.y * _whiteboard.texturesize.y - (pensize / 2));
 
-                //play drawing sound when drawing
-                drawingsound.Play();
-
                 //if the drawing is not on the whiteboard then exit otherwise lag
                 if (y < 0 || y > _whiteboard.texturesize.y || x < 0 || x > _whiteboard.texturesize.x)
                 {
-                    //pause sound if not drawing
-                    drawingsound.Pause();
+                    drawingsound.Stop();
                     return;
                 }
 

@@ -26,6 +26,7 @@ TagManager:
   - Marker
   - Balls
   - Fade
+  - Table
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - Interactableobjects
   - Floor
   - Stars
-  - 
+  - Hands
   - 
   - 
   - 
