@@ -16,6 +16,8 @@ public class AnxietyGameScript : MonoBehaviour
     public Animator closeeyesanim;
     public AudioSource openeyesound;
 
+    public GameObject armsoutcollision;
+
     public GameObject exercise_slider_with_text;
     public TextMeshProUGUI slidernumber;
     private float timeremaining;
@@ -48,7 +50,7 @@ public class AnxietyGameScript : MonoBehaviour
     private void Start()
     {
         //change when done with game
-        StartCoroutine(appliedrelaxation());
+        StartCoroutine(BreathingexerciseStart());
         screentextanim.GetComponent<Animator>();
         fadelevelscript = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
 
@@ -74,9 +76,14 @@ public class AnxietyGameScript : MonoBehaviour
         }
     }
 
+    private void armsouttest()
+    {
+        armsoutcollision.SetActive(true);
+    }
+
     private IEnumerator exersicesliderspawn()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         backgroundslider.enabled = true;
         fillslider.enabled = true;
         slidernumber.enabled = true;
@@ -115,6 +122,8 @@ public class AnxietyGameScript : MonoBehaviour
         breathinsound.Play();
         yield return new WaitForSeconds(2f);
         breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+        yield return new WaitForSeconds(1f);
         //shows the countdowntimer
         StartCoroutine(exersicesliderspawn());
 
@@ -136,6 +145,37 @@ public class AnxietyGameScript : MonoBehaviour
 
     IEnumerator BreathingexerciseStart()
     {
+        //intro
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "Welcome!";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "Sometimes we feel anxious or worried, and it affects our daily lives.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(6f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "It is important to give ourselves a break and try and avoid situations that make us anxious.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "We will do a series of activites to help relax your mind.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "Let us begin with some breathing.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(6f);
+
         //start breathing part  //1
 
         screentextanim.SetBool("fadeout", true);
@@ -326,7 +366,7 @@ public class AnxietyGameScript : MonoBehaviour
         imagecanvasanim.SetBool("opencanvas", false);
     }
 
-    IEnumerator appliedrelaxation()
+    public IEnumerator appliedrelaxation()
     {
 
         //intro
@@ -492,6 +532,8 @@ public class AnxietyGameScript : MonoBehaviour
 
 
 
+
+
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
         screentext.text = "Hold your arms out in front of you, with your palms facing the ground.";
@@ -510,6 +552,12 @@ public class AnxietyGameScript : MonoBehaviour
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(2f);
 
+        armsouttest();
+
+    }
+
+    public IEnumerator Relaxationpart2()
+    {
         //plays breathing function
         StartCoroutine(shortbreathing());
         yield return shortbreathing();
@@ -611,35 +659,64 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         screentext.text = "Did you feel the difference in your body between the tense and relaxed states?";
         screentextanim.SetBool("fadeout", false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
         screentext.text = "And how relaxed the whole of your body feels now?";
         screentextanim.SetBool("fadeout", false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "That concludes the activity. You did very well!";
+        screentext.text = "Well done if you did!";
         screentextanim.SetBool("fadeout", false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Come back anytime you like if you would like to do the activity again";
+        screentext.text = "There are a few things I would like to mention before you go.";
         screentextanim.SetBool("fadeout", false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Goodbye!";
+        screentext.text = "Firstly, please do not try to do everything at once, set small targets you can acheive instead.";
         screentextanim.SetBool("fadeout", false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "Secondly, do not focus on the things you cannot change. Focus on yourself instead.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "And finally, do not tell yourself you are alone. Most people experience anxiety or fear in thier life.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "That concludes the activity. Congratulations! You did very well!";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(6f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "Come back anytime if you would like to partake in the activities again";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(6f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "Take care of yourself, Goodbye!";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(6f);
 
         //fade to main menu
         Levelchangefade.leveltoload = 0;
         fadelevelscript.fadetolevel();
-
     }
 }
