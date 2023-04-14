@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +29,17 @@ public class QuestionGenerator : MonoBehaviour
     public Image CBTImage, Coingameimage, anxietylevelimage;
     public Animator CBTimageanim, Coinimageanim, Anxietyimageanim;
 
-    public GameObject balls, cubes, pingpong,pingpongball, whiteboard,marker, paperplane;
+    public Image yellowworldimage, redworldimage, brownworldimage,
+                 blueworldimage, pinkworldimage, greenworldimage, orangeworldimage;
+
+    public Animator yellowworldimageanim, redworldimageanim, brownworldimageanim,
+             blueworldimageanim, pinkworldimageanim, greenworldimageanim, orangeworldimageanim;
+
+    public Image cloudimage, fogimage, rainimage, snowimage, sunimage;
+
+    public Animator cloudimageanim, fogimageanim, rainimageanim, snowimageanim, sunimageanim;
+
+    public GameObject balls, cubes, pingpong, pingpongball, whiteboard, marker, paperplane;
 
     public TextMeshProUGUI unlocktext;
     public Animator unlocktextanim;
@@ -69,21 +78,21 @@ public class QuestionGenerator : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
 
-        if(answer1 != null)
+        if (answer1 != null)
         {
             answer1.SetBool("show", false);
         }
 
         yield return new WaitForSeconds(0.4f);
 
-        if(answer2 != null)
+        if (answer2 != null)
         {
             answer2.SetBool("show", false);
         }
 
         yield return new WaitForSeconds(0.4f);
 
-        if(answer3 != null)
+        if (answer3 != null)
         {
             answer3.SetBool("show", false);
         }
@@ -148,6 +157,27 @@ public class QuestionGenerator : MonoBehaviour
 
     }
 
+    public void Turnoffallimages()
+    {
+        CBTimageanim.SetBool("isshow", false);
+        Coinimageanim.SetBool("isshow", false);
+        Anxietyimageanim.SetBool("isshow", false);
+
+        yellowworldimageanim.SetBool("fadein", false);
+        redworldimageanim.SetBool("fadein", false);
+        brownworldimageanim.SetBool("fadein", false);
+        blueworldimageanim.SetBool("fadein", false);
+        pinkworldimageanim.SetBool("fadein", false);
+        greenworldimageanim.SetBool("fadein", false);
+        orangeworldimageanim.SetBool("fadein", false);
+
+        cloudimageanim.SetBool("fadein", false);
+        fogimageanim.SetBool("fadein", false);
+        rainimageanim.SetBool("fadein", false);
+        snowimageanim.SetBool("fadein", false);
+        sunimageanim.SetBool("fadein", false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -156,7 +186,9 @@ public class QuestionGenerator : MonoBehaviour
             Displaying_Question = true;
 
             //Switch cases wont work here because i need it to keep checking
-            //when it switches to the next question so the player can take thier time
+            //when it switches to the next question so the player doesnt have to answer immediatly
+            //i could just use a switch and check once the player presses a button...
+            //check unity profile if it affects performance too much, if it does then change it to switch
 
             //--start of hidden questions--
             if (questionnumber == -2)
@@ -164,20 +196,16 @@ public class QuestionGenerator : MonoBehaviour
                 levelselectquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to go to the CBT level?";
+                QuizManager.NewQuestion = "Would you like to go into the CBT level?";
 
+                Turnoffallimages();
                 CBTImage.enabled = true;
-                Coingameimage.enabled = false;
-                anxietylevelimage.enabled = false;
-
                 CBTimageanim.SetBool("isshow", true);
-                Coinimageanim.SetBool("isshow", false);
-                Anxietyimageanim.SetBool("isshow", false);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Level";
+                QuizManager.NewB = "Next level";
+                QuizManager.NewC = "Skip level selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -191,20 +219,16 @@ public class QuestionGenerator : MonoBehaviour
                 levelselectquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to go to the coin game level?";
+                QuizManager.NewQuestion = "Would you like to go into the coin mini-game level?";
 
-                CBTImage.enabled = false;
+                Turnoffallimages();
                 Coingameimage.enabled = true;
-                anxietylevelimage.enabled = false;
-
-                CBTimageanim.SetBool("isshow", false);
                 Coinimageanim.SetBool("isshow", true);
-                Anxietyimageanim.SetBool("isshow", false);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Level";
+                QuizManager.NewB = "Next level";
+                QuizManager.NewC = "Skip level selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -216,20 +240,16 @@ public class QuestionGenerator : MonoBehaviour
                 levelselectquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to go to the 'nOt fOuNd' level?";
+                QuizManager.NewQuestion = "Would you like to go into the applied relaxation level?";
 
-                CBTImage.enabled = false;
-                Coingameimage.enabled = false;
+                Turnoffallimages();
                 anxietylevelimage.enabled = true;
-
-                CBTimageanim.SetBool("isshow", false);
-                Coinimageanim.SetBool("isshow", false);
                 Anxietyimageanim.SetBool("isshow", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Level";
+                QuizManager.NewB = "Next level";
+                QuizManager.NewC = "Skip level selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -241,19 +261,19 @@ public class QuestionGenerator : MonoBehaviour
             //--start of personal questions--
             if (questionnumber == 1)
             {
-                CBTImage.enabled = false;
-                Coingameimage.enabled = false;
-                anxietylevelimage.enabled = false;
-
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Would you like your world to be Red?";
 
+                Turnoffallimages();
+                redworldimage.enabled = true;
+                redworldimageanim.SetBool("fadein", true);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Colour";
+                QuizManager.NewB = "Next colour";
+                QuizManager.NewC = "Keep default";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -268,10 +288,14 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Would you like your world to be Blue?";
 
+                Turnoffallimages();
+                blueworldimage.enabled = true;
+                blueworldimageanim.SetBool("fadein", true);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Colour";
+                QuizManager.NewB = "Next colour";
+                QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -286,10 +310,14 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Would you like your world to be Yellow?";
 
+                Turnoffallimages();
+                yellowworldimage.enabled = true;
+                yellowworldimageanim.SetBool("fadein", true);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Colour";
+                QuizManager.NewB = "Next colour";
+                QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -304,10 +332,14 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Would you like your world to be Pink?";
 
+                Turnoffallimages();
+                pinkworldimage.enabled = true;
+                pinkworldimageanim.SetBool("fadein", true);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Colour";
+                QuizManager.NewB = "Next colour";
+                QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -322,10 +354,14 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Would you like your world to be Orange?";
 
+                Turnoffallimages();
+                orangeworldimage.enabled = true;
+                orangeworldimageanim.SetBool("fadein", true);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Colour";
+                QuizManager.NewB = "Next colour";
+                QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -340,10 +376,14 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Would you like your world to be Green?";
 
+                Turnoffallimages();
+                greenworldimage.enabled = true;
+                greenworldimageanim.SetBool("fadein", true);
+
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Colour";
+                QuizManager.NewB = "Next colour";
+                QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -356,13 +396,17 @@ public class QuestionGenerator : MonoBehaviour
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Last one for colours, Would you like your world to be Brown?" +
-                                          " Picking no or skipping will use the default white colour";
+                QuizManager.NewQuestion = "Would you like your world to be Brown?" +
+                                          " If you have not chosen a colour, it will stay as white.";
+
+                Turnoffallimages();
+                brownworldimage.enabled = true;
+                brownworldimageanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next question";
+                QuizManager.NewB = "Next colour";
+                QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -377,12 +421,16 @@ public class QuestionGenerator : MonoBehaviour
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Rainy?";
+                QuizManager.NewQuestion = "Would you like the weather to be Rainy?";
+
+                Turnoffallimages();
+                rainimage.enabled = true;
+                rainimageanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Weather";
+                QuizManager.NewB = "Next weather";
+                QuizManager.NewC = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -395,12 +443,16 @@ public class QuestionGenerator : MonoBehaviour
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Sunny?";
+                QuizManager.NewQuestion = "Would you like the weather to be Sunny?";
+
+                Turnoffallimages();
+                sunimage.enabled = true;
+                sunimageanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Weather";
+                QuizManager.NewB = "Next weather";
+                QuizManager.NewC = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -415,12 +467,16 @@ public class QuestionGenerator : MonoBehaviour
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Snowy?";
+                QuizManager.NewQuestion = "Would you like the weather to be Snowy?";
+
+                Turnoffallimages();
+                snowimage.enabled = true;
+                snowimageanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Weather";
+                QuizManager.NewB = "Next weather";
+                QuizManager.NewC = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -433,12 +489,16 @@ public class QuestionGenerator : MonoBehaviour
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Foggy?";
+                QuizManager.NewQuestion = "Would you like the weather to be Foggy?";
+
+                Turnoffallimages();
+                fogimage.enabled = true;
+                fogimageanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Weather";
+                QuizManager.NewB = "Next weather";
+                QuizManager.NewC = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -451,12 +511,16 @@ public class QuestionGenerator : MonoBehaviour
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Last one for Weather, Would you like your world to be Cloudy?";
+                QuizManager.NewQuestion = "Would you like the weather to be Cloudy?";
+
+                Turnoffallimages();
+                cloudimage.enabled = true;
+                cloudimageanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Next Question";
+                QuizManager.NewB = "Next weather";
+                QuizManager.NewC = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -469,13 +533,15 @@ public class QuestionGenerator : MonoBehaviour
                 personalquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to skip this personality quiz?" +
-                                          " Recommended if you have done this before";
+                QuizManager.NewQuestion = "Would you like to skip the personality quiz and choose a level?" +
+                                          " Not recommended for first time players";
+
+                Turnoffallimages();
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "No";
-                QuizManager.NewC = "Lets start!";
+                QuizManager.NewC = "Customize colour and weather again";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -492,13 +558,13 @@ public class QuestionGenerator : MonoBehaviour
                 stressquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "You are trying to focus on your task in a library," +
-                                           " and you can hear someone chewing from somewhere" +
+                QuizManager.NewQuestion = "You are trying to focus on your work in the library," +
+                                           " but you can hear someone chewing loudly" +
                                            " across the library, how irritated would you be?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "I wouldnt mind";
-                QuizManager.NewB = "A little";
+                QuizManager.NewA = "Not irritated";
+                QuizManager.NewB = "Slightly irritated";
                 QuizManager.NewC = "Very irritated";
                 Answer_that_increases_score = "C";
 
@@ -512,15 +578,15 @@ public class QuestionGenerator : MonoBehaviour
                 stressquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "You seem to be stuck in a semi long queue, around" +
-                                          " 6 people in front of you, And the progress of the" +
+                QuizManager.NewQuestion = "You are stuck in a queue, there are around" +
+                                          " 6 people in front of you and the progress of the" +
                                           " queue seems to be moving slowly, how tempted are" +
-                                          " you to leave the queue?";
+                                          " you to leave?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Its taking too long, i cant be bothered";
-                QuizManager.NewB = "I can stay just for a little longer";
-                QuizManager.NewC = "I can stay, i have time";
+                QuizManager.NewA = "It's taking too long, i'm leaving";
+                QuizManager.NewB = "I can stay for a little bit longer";
+                QuizManager.NewC = "I can wait, I have time";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -534,13 +600,13 @@ public class QuestionGenerator : MonoBehaviour
 
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "someone or something has made you upset," +
-                                          " how long would it take you to calm down?";
+                QuizManager.NewQuestion = "Someone or something has made you upset," +
+                                          " how long would it take for you to calm down?";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Not That long";
                 QuizManager.NewB = "Just a bit of time";
-                QuizManager.NewC = "It takes a while for me to relax";
+                QuizManager.NewC = "It takes a while for me to calm down";
                 Answer_that_increases_score = "C";
 
                 Debug.Log(questionnumber);
@@ -555,12 +621,12 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "You are trying to study in your room, but" +
-                                          " someone keeps texting you on your phone every" +
+                                          " someone keeps texting you every" +
                                           " few minutes, how annoyed would you be in this situation?";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "A little";
-                QuizManager.NewB = "Very, Just let me study already...";
+                QuizManager.NewB = "Very annoyed, Just let me study already...";
                 QuizManager.NewC = "I wouldn't mind";
                 Answer_that_increases_score = "B";
 
@@ -574,12 +640,12 @@ public class QuestionGenerator : MonoBehaviour
                 stressquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you think that you overeact to situations a lot?";
+                QuizManager.NewQuestion = "Do you think you overeact to situations a lot?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Somewhat, i guess";
-                QuizManager.NewB = "i think so";
-                QuizManager.NewC = "Nope :)";
+                QuizManager.NewA = "Somewhat";
+                QuizManager.NewB = "I think so";
+                QuizManager.NewC = "Nope";
                 Answer_that_increases_score = "B";
 
                 Debug.Log(questionnumber);
@@ -597,9 +663,9 @@ public class QuestionGenerator : MonoBehaviour
                 QuizManager.NewQuestion = "How 'on edge' do you normally feel?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Not that often";
-                QuizManager.NewB = "Sometimes, when it gets really busy";
-                QuizManager.NewC = "A lot, its like i can never relax";
+                QuizManager.NewA = "Not as much";
+                QuizManager.NewB = "Slightly, when it gets really busy";
+                QuizManager.NewC = "A lot, I feel like I can never relax";
                 Answer_that_increases_score = "C";
 
                 Debug.Log(questionnumber);
@@ -630,13 +696,13 @@ public class QuestionGenerator : MonoBehaviour
                 stressquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you often get Chest pains?";
+                QuizManager.NewQuestion = "Do you often get chest pains?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Sometimes";
-                QuizManager.NewB = "Almost Everyday";
-                QuizManager.NewC = "Nope";
-                Answer_that_increases_score = "B";
+                QuizManager.NewA = "Almost Everyday";
+                QuizManager.NewB = "Rarely";
+                QuizManager.NewC = "Never";
+                Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a stress question");
@@ -651,7 +717,7 @@ public class QuestionGenerator : MonoBehaviour
                 QuizManager.NewQuestion = "Have you ever felt your heart racing faster recently?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, wierdly";
+                QuizManager.NewA = "Yes";
                 QuizManager.NewB = "Rarely";
                 QuizManager.NewC = "Not at all";
                 Answer_that_increases_score = "A";
@@ -666,10 +732,10 @@ public class QuestionGenerator : MonoBehaviour
                 stressquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How often do you worry about things in your life?";
+                QuizManager.NewQuestion = "How often do you worry about things?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "All.The.Time";
+                QuizManager.NewA = "All the time";
                 QuizManager.NewB = "Sometimes";
                 QuizManager.NewC = "Not that much";
                 Answer_that_increases_score = "A";
@@ -688,12 +754,12 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Are you happy with the way things are going in your life right now?";
+                QuizManager.NewQuestion = "Are you happy with the way things are going in your life?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Very happy";
-                QuizManager.NewB = "Could be worse";
-                QuizManager.NewC = "Not happy at all";
+                QuizManager.NewA = "I'm very happy";
+                QuizManager.NewB = "It could be worse";
+                QuizManager.NewC = "I'm not happy at all";
                 Answer_that_increases_score = "C";
 
                 Debug.Log(questionnumber);
@@ -706,10 +772,10 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you say that you have the strength to keep going on in life?";
+                QuizManager.NewQuestion = "Do you think you have the strength to keep going in your life?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Nope";
+                QuizManager.NewA = "I don't think so";
                 QuizManager.NewB = "Maybe a little bit of strength";
                 QuizManager.NewC = "I can keep going";
                 Answer_that_increases_score = "A";
@@ -724,13 +790,13 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "And how much Determination would you say you have to push yourself" +
+                QuizManager.NewQuestion = "And how much determination would you say you have to push yourself" +
                                           " forward and become stronger?";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "A little bit";
                 QuizManager.NewB = "None at all";
-                QuizManager.NewC = "A lot, I am very determined";
+                QuizManager.NewC = "A lot, I feel very determined";
                 Answer_that_increases_score = "B";
 
                 Debug.Log(questionnumber);
@@ -743,10 +809,10 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you blame all bad things that happen in your life on yourself?";
+                QuizManager.NewQuestion = "Do you blame the bad things that happen in your life on yourself?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, because it is all my fault";
+                QuizManager.NewA = "Yes, because it's all my fault";
                 QuizManager.NewB = "Only if it actually is my fault";
                 QuizManager.NewC = "Sometimes";
                 Answer_that_increases_score = "A";
@@ -763,8 +829,7 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How quick are you to get angry at something very small?" +
-                                          "(After saying quick so much, the word sounds wierd)";
+                QuizManager.NewQuestion = "How quick are you to get angry at something?";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Not quick at all";
@@ -800,12 +865,12 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "have you noticed yourself speaking slower or moving slower than usual?";
+                QuizManager.NewQuestion = "Have you noticed yourself speaking slower or moving slower than usual?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "I am not sure";
+                QuizManager.NewA = "I'm not sure";
                 QuizManager.NewB = "No";
-                QuizManager.NewC = "Yes";
+                QuizManager.NewC = "I think so";
                 Answer_that_increases_score = "C";
 
                 Debug.Log(questionnumber);
@@ -818,13 +883,13 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "have you noticed yourself speaking slower or moving slower than usual?";
+                QuizManager.NewQuestion = "Is your appetite suddenly very low or very high?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "I am not sure";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Yes";
-                Answer_that_increases_score = "C";
+                QuizManager.NewA = "Yes";
+                QuizManager.NewB = "I can't tell";
+                QuizManager.NewC = "No";
+                Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a depression question");
@@ -836,13 +901,13 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Is your appetite suddenly very low or very high?";
+                QuizManager.NewQuestion = "Do you have difficulty trying to sleep?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "I dont know";
-                QuizManager.NewC = "No";
-                Answer_that_increases_score = "A";
+                QuizManager.NewA = "No";
+                QuizManager.NewB = "Yes";
+                QuizManager.NewC = "Slightly";
+                Answer_that_increases_score = "B";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a depression question");
@@ -854,25 +919,7 @@ public class QuestionGenerator : MonoBehaviour
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you have difficulty trying to sleep?";
-
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "No";
-                QuizManager.NewB = "Yes";
-                QuizManager.NewC = "Kind of";
-                Answer_that_increases_score = "B";
-
-                Debug.Log(questionnumber);
-                Debug.Log("This is a depression question");
-                Debug.Log("And the answer is" + Answer_that_increases_score);
-            }
-
-            if (questionnumber == 34)
-            {
-                depressionquestion = true;
-
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you suddenly not have any energy to do any tasks?";
+                QuizManager.NewQuestion = "Do you feel like you don't have any energy to do tasks?";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -885,18 +932,18 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 35)
+            if (questionnumber == 34)
             {
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you been avoiding your friends and family" +
+                QuizManager.NewQuestion = "Have you recently been avoiding your friends and family," +
                                           " or withholding from social events?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "No, i love talking to people";
-                QuizManager.NewB = "Yes, I dont feel like interacting with anyone";
-                QuizManager.NewC = "Sometimes, when im not in the mood";
+                QuizManager.NewA = "No, I like to spend time with people";
+                QuizManager.NewB = "Yes, I don't feel like interacting with anyone";
+                QuizManager.NewC = "Sometimes, when i'm not in the mood";
                 Answer_that_increases_score = "B";
 
                 Debug.Log(questionnumber);
@@ -904,16 +951,16 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 36)
+            if (questionnumber == 35)
             {
                 depressionquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you stopped doing the hobbies you used to love?";
+                QuizManager.NewQuestion = "Have you suddenly stopped doing the hobbies you used to love?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, i dont feel like doing it anymore";
-                QuizManager.NewB = "Yes, because I physically cant do it anymore";
+                QuizManager.NewA = "Yes, I dont feel like doing them anymore";
+                QuizManager.NewB = "Yes, because I physically can't do it anymore";
                 QuizManager.NewC = "No";
                 Answer_that_increases_score = "A";
 
@@ -928,18 +975,36 @@ public class QuestionGenerator : MonoBehaviour
 
             //--start of anxiety questions--
 
+            if (questionnumber == 36)
+            {
+                anxietyquestion = true;
+
+                StartCoroutine(Questionanim());
+                QuizManager.NewQuestion = "Do you struggle with taking a break or relaxing?";
+
+                StartCoroutine(Answeranim());
+                QuizManager.NewA = "Yes, I feel unproductive";
+                QuizManager.NewB = "Sometimes, it depends how much work I have";
+                QuizManager.NewC = "No, I want more breaks";
+                Answer_that_increases_score = "A";
+
+                Debug.Log(questionnumber);
+                Debug.Log("This is a anxiety question");
+                Debug.Log("And the answer is" + Answer_that_increases_score);
+            }
+
             if (questionnumber == 37)
             {
                 anxietyquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you struggle with taking a break and just resting?";
+                QuizManager.NewQuestion = "Were you in a state of fear or dread today?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, i feel unproductive";
-                QuizManager.NewB = "Sometimes, it depends how much work i have";
-                QuizManager.NewC = "No, i want more breaks";
-                Answer_that_increases_score = "A";
+                QuizManager.NewA = "A little bit";
+                QuizManager.NewB = "Yes";
+                QuizManager.NewC = "No";
+                Answer_that_increases_score = "B";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a anxiety question");
@@ -951,14 +1016,13 @@ public class QuestionGenerator : MonoBehaviour
                 anxietyquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Were you in a state of fear or dread before playing" +
-                                          " this game?";
+                QuizManager.NewQuestion = "Are you always worried about bad things happening?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "A tiny bit";
-                QuizManager.NewB = "Yes";
-                QuizManager.NewC = "No";
-                Answer_that_increases_score = "B";
+                QuizManager.NewA = "No";
+                QuizManager.NewB = "Sometimes";
+                QuizManager.NewC = "Yes, always";
+                Answer_that_increases_score = "C";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a anxiety question");
@@ -970,13 +1034,14 @@ public class QuestionGenerator : MonoBehaviour
                 anxietyquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Are you always worried about bad things happening any second?";
+                QuizManager.NewQuestion = "How difficult is it to focus on a task because you are scared" +
+                                          " about the result or the future?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "No";
-                QuizManager.NewB = "A little bit";
-                QuizManager.NewC = "Yes, always";
-                Answer_that_increases_score = "C";
+                QuizManager.NewA = "Very diffucult";
+                QuizManager.NewB = "Slightly difficult";
+                QuizManager.NewC = "Not difficult";
+                Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a anxiety question");
@@ -988,14 +1053,14 @@ public class QuestionGenerator : MonoBehaviour
                 anxietyquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How difficult is it to focus on a task because you are scared" +
-                                          " about the result or the future";
+                QuizManager.NewQuestion = "Have you been avoiding people and objects," +
+                                          " in case they bring in more things to be worried about?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Very diffucult";
-                QuizManager.NewB = "Slightly difficult";
-                QuizManager.NewC = "Not difficult, i can focus";
-                Answer_that_increases_score = "A";
+                QuizManager.NewA = "Sometimes";
+                QuizManager.NewB = "Yes, I don't need more things on my plate";
+                QuizManager.NewC = "Nope";
+                Answer_that_increases_score = "B";
 
                 Debug.Log(questionnumber);
                 Debug.Log("This is a anxiety question");
@@ -1007,30 +1072,11 @@ public class QuestionGenerator : MonoBehaviour
                 anxietyquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you been avoiding people and objects," +
-                                          " in case they bring in more things to be worried about?";
-
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Sometimes";
-                QuizManager.NewB = "Yes, I don't need more things on my plate";
-                QuizManager.NewC = "No, I like talking with people";
-                Answer_that_increases_score = "B";
-
-                Debug.Log(questionnumber);
-                Debug.Log("This is a anxiety question");
-                Debug.Log("And the answer is" + Answer_that_increases_score);
-            }
-
-            if (questionnumber == 42)
-            {
-                anxietyquestion = true;
-
-                StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Do you take time off work or studying because it" +
-                                          "Has become much more difficult and scary?";
+                                          " has become much more difficult and scary?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, i need a lot of breaks";
+                QuizManager.NewA = "Yes";
                 QuizManager.NewB = "A little bit";
                 QuizManager.NewC = "No, I can manage";
                 Answer_that_increases_score = "A";
@@ -1042,7 +1088,7 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(UnlockPaperplane());
             }
 
-            if (questionnumber == 43)
+            if (questionnumber == 42)
             {
                 anxietyquestion = true;
 
@@ -1060,7 +1106,7 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 44)
+            if (questionnumber == 43)
             {
                 anxietyquestion = true;
 
@@ -1068,9 +1114,27 @@ public class QuestionGenerator : MonoBehaviour
                 QuizManager.NewQuestion = "Have you noticed yourself with a very dry mouth?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "No, when would that happen?";
+                QuizManager.NewA = "No";
                 QuizManager.NewB = "Sometimes";
-                QuizManager.NewC = "Yes, its very wierd";
+                QuizManager.NewC = "Yes";
+                Answer_that_increases_score = "C";
+
+                Debug.Log(questionnumber);
+                Debug.Log("This is a anxiety question");
+                Debug.Log("And the answer is" + Answer_that_increases_score);
+            }
+
+            if (questionnumber == 44)
+            {
+                anxietyquestion = true;
+
+                StartCoroutine(Questionanim());
+                QuizManager.NewQuestion = "Do you sweat very excessively?";
+
+                StartCoroutine(Answeranim());
+                QuizManager.NewA = "Nope";
+                QuizManager.NewB = "Yes, when I do physical exersise";
+                QuizManager.NewC = "Yes, for no reason";
                 Answer_that_increases_score = "C";
 
                 Debug.Log(questionnumber);
@@ -1083,30 +1147,12 @@ public class QuestionGenerator : MonoBehaviour
                 anxietyquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you sweat very excessively?";
-
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Nope";
-                QuizManager.NewB = "When i do physical exersise";
-                QuizManager.NewC = "Yes, for no reason";
-                Answer_that_increases_score = "C";
-
-                Debug.Log(questionnumber);
-                Debug.Log("This is a anxiety question");
-                Debug.Log("And the answer is" + Answer_that_increases_score);
-            }
-
-            if (questionnumber == 46)
-            {
-                anxietyquestion = true;
-
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you struggle to sleep because you are scared" +
+                QuizManager.NewQuestion = "Do you struggle with sleeping because you are scared" +
                                           " about something coming the next day or down the line?";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes, I can't stop thinking about it";
-                QuizManager.NewB = "A little, but I can sleep after a while";
+                QuizManager.NewB = "A little, but I can still sleep";
                 QuizManager.NewC = "Not at all";
                 Answer_that_increases_score = "A";
 
@@ -1115,12 +1161,12 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 47)
+            if (questionnumber == 46)
             {
 
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Thank you for your honesty, the game will adjust" +
-                                          " upon the answers you have selected, Press any button to continue.";
+                                          " based on your answers, press any button to continue";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "";

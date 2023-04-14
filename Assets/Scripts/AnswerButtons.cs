@@ -34,11 +34,11 @@ public class AnswerButtons : MonoBehaviour
     //value to check whatcolour is being used
     private int colourcheck = 0;
 
-    //weather gameobjects
-    public GameObject rainweather;
-    public GameObject fogweather;
-    public GameObject cloudyweather;
-    public GameObject snowweather;
+    //weather particleeffects
+    public ParticleSystem rainweather;
+    public ParticleSystem fogweather;
+    public ParticleSystem cloudyweather;
+    public ParticleSystem snowweather;
     public GameObject stars;
 
     //skyboxes
@@ -254,17 +254,40 @@ public class AnswerButtons : MonoBehaviour
                 QuizManager.Anxietylevel += 1;
                 anxietytext.text = "Anxietylevel = " + QuizManager.Anxietylevel.ToString();
             }
+        }
 
-            if (QuestionGenerator.personalquestion == true)
+        //and its a personalquestion...
+        if (QuestionGenerator.personalquestion == true)
+        {
+            switch (QuestionGenerator.questionnumber)
             {
-                //do personal code here
-                Debug.Log("NEXTTTTTT SELECTED");
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    QuestionGenerator.questionnumber = 7;
+                    break;
+
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                    QuestionGenerator.questionnumber = 12;
+                    break;
+
+                case 13:
+                    QuestionGenerator.questionnumber = 0;
+                    break;
             }
-            if (QuestionGenerator.levelselectquestion == true)
-            {
-                //do personal code here
-                Debug.Log("NEXTTTTTT SELECTED");
-            }
+        }
+
+        if (QuestionGenerator.levelselectquestion == true)
+        {
+            QuestionGenerator.questionnumber = 1;
         }
 
         else
@@ -431,6 +454,7 @@ public class AnswerButtons : MonoBehaviour
     {
         if (RenderSettings.skybox == sunskybox)
         {
+            Debug.Log("sunison");
             switch (colourcheck)
             {
                 case 1:
@@ -461,19 +485,21 @@ public class AnswerButtons : MonoBehaviour
                     RenderSettings.skybox = brownspace;
                     break;
 
+                default:
+                    RenderSettings.skybox = pinkspace;
+                    break;
+
             }
         }
     }
 
     void Set_weather_to_Rain()
     {
-        if (snowweather.activeInHierarchy == true ||
-            fogweather.activeInHierarchy == true ||
-            cloudyweather.activeInHierarchy == true)
+        if (snowweather.isPlaying ||
+            fogweather.isPlaying)
         {
-            snowweather.SetActive(false);
-            fogweather.SetActive(false);
-            cloudyweather.SetActive(false);
+            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         if (!stars.activeInHierarchy)
@@ -484,20 +510,21 @@ public class AnswerButtons : MonoBehaviour
         Check_colour_of_Skybox();
 
         Debug.Log("RAIN selected");
-        rainweather.SetActive(true);
+        rainweather.Play();
+        cloudyweather.Play();
     }
 
     void Set_weather_to_Sunny()
     {
-        if (rainweather.activeInHierarchy == true ||
-            snowweather.activeInHierarchy == true ||
-            fogweather.activeInHierarchy == true ||
-            cloudyweather.activeInHierarchy == true)
+        if (rainweather.isPlaying ||
+            snowweather.isPlaying ||
+            fogweather.isPlaying ||
+            cloudyweather.isPlaying)
         {
-            rainweather.SetActive(false);
-            snowweather.SetActive(false);
-            fogweather.SetActive(false);
-            cloudyweather.SetActive(false);
+            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            cloudyweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
         Debug.Log("SUNNY selected");
         stars.SetActive(false);
@@ -506,34 +533,27 @@ public class AnswerButtons : MonoBehaviour
 
     void Set_weather_to_Snow()
     {
-        if (rainweather.activeInHierarchy == true ||
-            fogweather.activeInHierarchy == true ||
-            cloudyweather.activeInHierarchy == true)
+        if (rainweather.isPlaying ||
+            fogweather.isPlaying ||
+            cloudyweather.isPlaying)
         {
-            rainweather.SetActive(false);
-            fogweather.SetActive(false);
-            cloudyweather.SetActive(false);
+            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            cloudyweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
-        if (!stars.activeInHierarchy)
-        {
-            stars.SetActive(true);
-        }
-
-        Check_colour_of_Skybox();
-        snowweather.SetActive(true);
+        snowweather.Play();
         Debug.Log("SNOWY selected");
+
     }
 
     void Set_weather_to_Foggy()
     {
-        if (rainweather.activeInHierarchy == true ||
-            snowweather.activeInHierarchy == true ||
-            cloudyweather.activeInHierarchy == true)
+        if (rainweather.isPlaying ||
+            snowweather.isPlaying)
         {
-            rainweather.SetActive(false);
-            snowweather.SetActive(false);
-            cloudyweather.SetActive(false);
+            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         if (!stars.activeInHierarchy)
@@ -543,18 +563,19 @@ public class AnswerButtons : MonoBehaviour
 
         Check_colour_of_Skybox();
         Debug.Log("FOGGY selected");
-        fogweather.SetActive(true);
+        fogweather.Play();
+        cloudyweather.Play();
     }
 
     void Set_weather_to_Cloudy()
     {
-        if (rainweather.activeInHierarchy == true ||
-            snowweather.activeInHierarchy == true ||
-            fogweather.activeInHierarchy == true)
+        if (rainweather.isPlaying ||
+            snowweather.isPlaying ||
+            fogweather.isPlaying)
         {
-            rainweather.SetActive(false);
-            snowweather.SetActive(false);
-            fogweather.SetActive(false);
+            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         if (!stars.activeInHierarchy)
@@ -564,7 +585,7 @@ public class AnswerButtons : MonoBehaviour
 
         Check_colour_of_Skybox();
         Debug.Log("CLOUDY selected");
-        cloudyweather.SetActive(true);
+        cloudyweather.Play();
     }
 
     IEnumerator levelisselected()
