@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class WhiteboardMarker : MonoBehaviour
 {
@@ -20,6 +19,9 @@ public class WhiteboardMarker : MonoBehaviour
     private bool touchedlastframe;
     private Quaternion lasttouchrot;
     [SerializeField] private AudioSource drawingsound;
+
+    public XRBaseController leftcontroller;
+    public XRBaseController rightcontroller;
 
     // Start is called before the first frame update
     void Start()
@@ -47,13 +49,17 @@ public class WhiteboardMarker : MonoBehaviour
         //casting a raycast and checking if it hits the whiteboard or not
         if (Physics.Raycast(tip.position, transform.up, out touch, tipheight))
         {
-            if(touch.transform.CompareTag("Whiteboard"))
+            if (touch.transform.CompareTag("Whiteboard"))
             {
                 //double checks the whiteboard is not null
-                if(_whiteboard == null)
+                if (_whiteboard == null)
                 {
                     _whiteboard = touch.transform.GetComponent<Whiteboard>();
                 }
+
+                //send haptics
+                leftcontroller.SendHapticImpulse(0.1f, 0.1f);
+                rightcontroller.SendHapticImpulse(0.1f, 0.1f);
 
                 //play drawing sound when drawing
                 if (!drawingsound.isPlaying)
@@ -76,7 +82,7 @@ public class WhiteboardMarker : MonoBehaviour
                 }
 
                 //checks if we touched the last frame, if it did then we colour in pixels, small interpolate
-                if(touchedlastframe)
+                if (touchedlastframe)
                 {
                     //setting the point the pen touches
                     _whiteboard.texture.SetPixels(x, y, pensize, pensize, Colours);

@@ -63,6 +63,12 @@ public class QuestionGenerator : MonoBehaviour
         questionnumber = 1;
     }
 
+    private void Awake()
+    {
+        //written here again to counter a bug when loading the level
+        questionnumber = 1;
+    }
+
     IEnumerator Questionanim()
     {
         questionanim.SetBool("isshow", true);
@@ -205,7 +211,7 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "Next level";
-                QuizManager.NewC = "Skip level selection";
+                QuizManager.NewC = "Return to colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -228,7 +234,7 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "Next level";
-                QuizManager.NewC = "Skip level selection";
+                QuizManager.NewC = "Return to colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -248,8 +254,8 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next level";
-                QuizManager.NewC = "Skip level selection";
+                QuizManager.NewB = "";
+                QuizManager.NewC = "Return to colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -273,7 +279,7 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
                 QuizManager.NewB = "Next colour";
-                QuizManager.NewC = "Keep default";
+                QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
                 Debug.Log(questionnumber);
@@ -405,7 +411,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next colour";
+                QuizManager.NewB = "Go to weather selection";
                 QuizManager.NewC = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
@@ -519,7 +525,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next weather";
+                QuizManager.NewB = "";
                 QuizManager.NewC = "Skip weather selection";
                 Answer_that_increases_score = "A";
 

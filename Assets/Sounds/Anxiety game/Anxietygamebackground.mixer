@@ -6,7 +6,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: sfx cbt game
+  m_Name: Anxietygamebackground
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -27,10 +27,10 @@ AudioMixerGroupController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Master
   m_AudioMixer: {fileID: 24100000}
-  m_GroupID: c2cf7fea55c7c5846a988680ac473629
+  m_GroupID: 72a8351a5c3d13d40b04ed93771de0a4
   m_Children: []
-  m_Volume: 7d8e437902df6b4488521863244a6da4
-  m_Pitch: a5d2c08edb982dd488b5fd1861509458
+  m_Volume: 0cb8ebed6ed143e4ab886b5b79be97bd
+  m_Pitch: 9861f70d341239542b204772a9f9b9b4
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
@@ -45,9 +45,9 @@ AudioMixerEffectController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_EffectID: 9eed9ad5c1b2b6a448a1ebc76b6514e3
+  m_EffectID: ed65e46538031264994704469289c9ac
   m_EffectName: Attenuation
-  m_MixLevel: 1a261982bbe035d47b6b4e3f5575a446
+  m_MixLevel: 69533208c5c8c9943b51e4caa4154f59
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -60,6 +60,6 @@ AudioMixerSnapshotController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: 271b006742086b14083ee437452dfffa
+  m_SnapshotID: 40320852eeb81234eb43129b0c11363d
   m_FloatValues: {}
   m_TransitionOverrides: {}

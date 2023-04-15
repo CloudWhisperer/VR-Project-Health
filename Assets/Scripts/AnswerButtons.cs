@@ -262,6 +262,10 @@ public class AnswerButtons : MonoBehaviour
             switch (QuestionGenerator.questionnumber)
             {
                 case 1:
+                    //did it manually here because of a bug
+                    QuestionGenerator.questionnumber = 6;
+                    StartCoroutine(Nextquestion());
+                    break;
                 case 2:
                 case 3:
                 case 4:
@@ -280,14 +284,14 @@ public class AnswerButtons : MonoBehaviour
                     break;
 
                 case 13:
-                    QuestionGenerator.questionnumber = 0;
+                    QuestionGenerator.questionnumber = 1;
                     break;
             }
         }
 
         if (QuestionGenerator.levelselectquestion == true)
         {
-            QuestionGenerator.questionnumber = 1;
+            QuestionGenerator.questionnumber = 0;
         }
 
         else

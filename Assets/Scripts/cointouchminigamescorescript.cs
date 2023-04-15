@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class cointouchminigamescorescript : MonoBehaviour
 {
@@ -44,34 +43,34 @@ public class cointouchminigamescorescript : MonoBehaviour
         starttext.text = "Welcome!";
         textanim.SetBool("fadeout", false);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Life can be stressful sometimes.";
+        starttext.text = "Life can be stressful for us sometimes.";
         textanim.SetBool("fadeout", false);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "That's why it is very important that we take breaks and relax our minds.";
-        textanim.SetBool("fadeout", false);
-
-
-        yield return new WaitForSeconds(4f);
-        textanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        starttext.text = "There are multiple ways to do this.";
+        starttext.text = "That's why it's very important that we take breaks, and relax our minds.";
         textanim.SetBool("fadeout", false);
 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "And we will do them together.";
+        starttext.text = "There are lots of ways to relax our minds.";
         textanim.SetBool("fadeout", false);
 
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
+        textanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        starttext.text = "And we will do a few of them together!";
+        textanim.SetBool("fadeout", false);
+
+
+        yield return new WaitForSeconds(5f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
         starttext.text = "Let's begin by taking a few deep breaths.";
@@ -87,7 +86,7 @@ public class cointouchminigamescorescript : MonoBehaviour
 
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Breath in.";
+        starttext.text = "Breath in...";
         textanim.SetBool("fadeout", false);
 
         yield return new WaitForSeconds(1f);
@@ -96,6 +95,7 @@ public class cointouchminigamescorescript : MonoBehaviour
         yield return new WaitForSeconds(3f);
         breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
+        yield return new WaitForSeconds(2f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
         starttext.text = "Hold your breath...";
@@ -117,7 +117,7 @@ public class cointouchminigamescorescript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Try to match your breathing with the flow";
+        starttext.text = "Try to match your breathing with the flow.";
         textanim.SetBool("fadeout", false);
         yield return StartCoroutine(Breathingexercise());
     }
@@ -131,7 +131,7 @@ public class cointouchminigamescorescript : MonoBehaviour
             breathinsound.Play();
             yield return new WaitForSeconds(3f);
             breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
             breathout.Play();
             breathoutsound.Play();
             yield return new WaitForSeconds(3f);
@@ -151,40 +151,40 @@ public class cointouchminigamescorescript : MonoBehaviour
         textanim.SetBool("fadeout", false);
 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "This game is designed to keep you into a flow state";
+        starttext.text = "This game is designed to keep you into a flow state.";
         textanim.SetBool("fadeout", false);
 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "You control the sphere in front of you";
+        starttext.text = "You control the sphere in front of you.";
         textanim.SetBool("fadeout", false);
 
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Use the movement of your head to touch the rotating coins";
+        starttext.text = "Use the movement of your head to touch the rotating coins.";
         textanim.SetBool("fadeout", false);
 
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
         tutorialobjects.SetActive(true);
         yield return new WaitForSeconds(7f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Now lets add some obstacles in the way";
+        starttext.text = "Now let's add some obstacles in the way.";
         textanim.SetBool("fadeout", false);
 
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Now try to touch the rotating coins while avoiding the obstacles";
+        starttext.text = "Now try to touch the rotating coins while avoiding the obstacles.";
         yield return new WaitForSeconds(1f);
         objects.SetActive(true);
         backwall.SetActive(true);
@@ -203,22 +203,46 @@ public class cointouchminigamescorescript : MonoBehaviour
         yield return new WaitForSeconds(1);
         playersphere.SetActive(false);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Stress most likely leads us towards bad desisions because we dont think straight";
+        starttext.text = "Stress can lead us towards bad decisions because we don't think straight.";
         textanim.SetBool("fadeout", false);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(6f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Try your best to ignore any contraining thoughts, everything is always in motion";
+        starttext.text = "Try your best to ignore any negative thoughts, everything is always in motion.";
+        textanim.SetBool("fadeout", false);
+
+        yield return new WaitForSeconds(6f);
+        textanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        starttext.text = "Some people say that when a door closes, another door opens.";
+        textanim.SetBool("fadeout", false);
+
+        yield return new WaitForSeconds(6f);
+        textanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        starttext.text = "Which means that if something ever goes wrong in your life, another opportunity will arise.";
+        textanim.SetBool("fadeout", false);
+
+        yield return new WaitForSeconds(6f);
+        textanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        starttext.text = "Take care of yourself, and remember to give yourself time to relax!";
+        textanim.SetBool("fadeout", false);
+
+        yield return new WaitForSeconds(6f);
+        textanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        starttext.text = "That concludes our session.";
         textanim.SetBool("fadeout", false);
 
         yield return new WaitForSeconds(3f);
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Feel free to come back anytime to play again";
+        starttext.text = "Feel free to come back anytime to play again.";
         textanim.SetBool("fadeout", false);
 
         yield return new WaitForSeconds(4f);
