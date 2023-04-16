@@ -1,8 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Coinspawn : MonoBehaviour
 {
+    public XRBaseController rightcontroller;
+    public XRBaseController leftcontroller;
+
     public GameObject coinprefab;
     public Vector3 oldspawnpoint;
     public Vector3 currentspawnpoint;
@@ -35,6 +39,9 @@ public class Coinspawn : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
+                leftcontroller.SendHapticImpulse(0.1f, 0.1f);
+                rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+
                 coinsound.Play();
                 collect.Play();
                 coinanim.SetTrigger("dead");
@@ -52,18 +59,26 @@ public class Coinspawn : MonoBehaviour
                 {
                     case 5:
                         spheretrail.enabled = true;
+                        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
+                        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
                         break;
 
                     case 10:
                         spheretrail.startColor = Color.black;
+                        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
+                        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
                         break;
 
                     case 15:
                         spheretrail.startColor = Color.white;
+                        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
+                        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
                         break;
 
                     case 20:
                         spheretrail.startColor = Color.yellow;
+                        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
+                        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
                         break;
 
                     case 40:
@@ -108,7 +123,6 @@ public class Coinspawn : MonoBehaviour
                 {
                     StartCoroutine(moverightcoin());
                 }
-
             }
         }
         else if (oldspawnpoint == currentspawnpoint)

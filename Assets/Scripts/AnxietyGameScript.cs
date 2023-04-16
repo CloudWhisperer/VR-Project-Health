@@ -1,10 +1,15 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class AnxietyGameScript : MonoBehaviour
 {
+    public XRBaseController leftcontroller;
+    public XRBaseController rightcontroller;
+
     Levelchangefade fadelevelscript;
     public TextMeshProUGUI screentext;
     public Animator screentextanim;
@@ -70,6 +75,7 @@ public class AnxietyGameScript : MonoBehaviour
             timeremaining -= Time.deltaTime;
             exerciseslider.value = timeremaining / maxtime;
         }
+
         if (timeremaining <= 0)
         {
             StartCoroutine(exercisesliderclose());
@@ -83,6 +89,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator exersicesliderspawn()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         yield return new WaitForSeconds(2f);
         backgroundslider.enabled = true;
         fillslider.enabled = true;
@@ -98,6 +106,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator exercisesliderclose()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         slidernumber.SetText("0");
         stoptimer = true;
         yield return new WaitForSeconds(0.5f);
@@ -120,10 +130,14 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         breathin.Play();
         breathinsound.Play();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+        rightcontroller.SendHapticImpulse(0.2f, 6f);
+        leftcontroller.SendHapticImpulse(0.2f, 6f);
+        yield return new WaitForSeconds(1.5f);
         breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
         yield return new WaitForSeconds(1f);
+
         //shows the countdowntimer
         StartCoroutine(exersicesliderspawn());
 
@@ -136,6 +150,8 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         breathout.Play();
         breathoutsound.Play();
+        rightcontroller.SendHapticImpulse(0.2f, 6f);
+        leftcontroller.SendHapticImpulse(0.2f, 6f);
         yield return new WaitForSeconds(2f);
         breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         yield return new WaitForSeconds(2f);
@@ -154,19 +170,19 @@ public class AnxietyGameScript : MonoBehaviour
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Sometimes we feel anxious or worried, and it affects our daily lives.";
+        screentext.text = "In life, sometimes we feel anxious or worried. And it affects our daily lives.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "It is important to give ourselves a break and try and avoid situations that make us anxious.";
+        screentext.text = "That's why it is important to give ourselves a break and try and avoid situations that make us anxious.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(7f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "We will do a series of activites to help relax your mind.";
+        screentext.text = "So we will do a series of activites to help relax your mind.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(7f);
 
@@ -176,7 +192,7 @@ public class AnxietyGameScript : MonoBehaviour
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 
-        //start breathing part  //1
+        //start breathing part 1
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
@@ -186,32 +202,38 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         breathin.Play();
         breathinsound.Play();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.5f);
+        rightcontroller.SendHapticImpulse(0.2f, 6f);
+        leftcontroller.SendHapticImpulse(0.2f, 6f);
+        yield return new WaitForSeconds(1.5f);
         breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-
-        screentextanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        screentext.text = "Hold your breath...";
-        screentextanim.SetBool("fadeout", false);
-
 
         yield return new WaitForSeconds(2f);
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Breath out...";
+        screentext.text = "Hold your breath.";
+        screentextanim.SetBool("fadeout", false);
+
+        yield return new WaitForSeconds(2f);
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "And breath out.";
         screentextanim.SetBool("fadeout", false);
 
         yield return new WaitForSeconds(1f);
         breathout.Play();
         breathoutsound.Play();
-        yield return new WaitForSeconds(5f);
+        rightcontroller.SendHapticImpulse(0.2f, 6f);
+        leftcontroller.SendHapticImpulse(0.2f, 6f);
+        yield return new WaitForSeconds(3f);
         breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
         yield return new WaitForSeconds(1f);
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Try to match your breathing with the flow";
+        screentext.text = "Try to match your breathing with the flow of the particles";
         screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(2f);
         yield return StartCoroutine(Breathingexercise());
     }
 
@@ -219,15 +241,20 @@ public class AnxietyGameScript : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             breathin.Play();
             breathinsound.Play();
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(1.5f);
+            rightcontroller.SendHapticImpulse(0.2f, 6f);
+            leftcontroller.SendHapticImpulse(0.2f, 6f);
+            yield return new WaitForSeconds(1.5f);
             breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
             breathout.Play();
             breathoutsound.Play();
-            yield return new WaitForSeconds(5f);
+            rightcontroller.SendHapticImpulse(0.2f, 6f);
+            leftcontroller.SendHapticImpulse(0.2f, 6f);
+            yield return new WaitForSeconds(3f);
             breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
@@ -237,6 +264,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private void Images1()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         imagecanvas.enabled = true;
         imagecanvasanim.SetBool("opencanvas", true);
         eyesclose.enabled = true;
@@ -245,6 +274,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images2()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         eyescloseanim.SetBool("eyesopen", false);
         yield return new WaitForSeconds(1f);
         eyesopen.enabled = true;
@@ -253,6 +284,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images3()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         eyesopenanim.SetBool("isopen", false);
         yield return new WaitForSeconds(1f);
         bodyimage.enabled = true;
@@ -263,6 +296,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images3_1()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         circlejawanim.SetBool("openjaw", false);
         bodyimageanim.SetBool("openbody", false);
         yield return new WaitForSeconds(1f);
@@ -272,6 +307,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images3_2()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         jawclenchanim.SetBool("isopen", false);
         yield return new WaitForSeconds(1f);
         jawopen.enabled = true;
@@ -280,6 +317,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images4()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         jawopenanim.SetBool("isopen", false);
         yield return new WaitForSeconds(1f);
         circleshoulders.enabled = true;
@@ -289,6 +328,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images5()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         circleshouldersanim.SetBool("opencircleshoulder", false);
         bodyimageanim.SetBool("openbody", false);
         yield return new WaitForSeconds(1f);
@@ -298,6 +339,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images6()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         shouldrrupanim.SetBool("openshoulderup", false);
         yield return new WaitForSeconds(1f);
         shoulderdown.enabled = true;
@@ -306,6 +349,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images7()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         shoulderdownanim.SetBool("openshoulderdown", false);
         yield return new WaitForSeconds(1f);
         bodyimageanim.SetBool("openbody", true);
@@ -315,6 +360,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images8()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         bodyimageanim.SetBool("openbody", false);
         circlearmsanim.SetBool("opencirclearms", false);
         yield return new WaitForSeconds(1f);
@@ -324,6 +371,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images9()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         armsoutanim.SetBool("openarmsout", false);
         yield return new WaitForSeconds(1f);
         bodyimageanim.SetBool("openbody", true);
@@ -331,12 +380,16 @@ public class AnxietyGameScript : MonoBehaviour
 
     private void Images10()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         circlelegs.enabled = true;
         circlelegsanim.SetBool("opencirclelegs", true);
     }
 
     private IEnumerator Images11()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         bodyimageanim.SetBool("openbody", false);
         circlelegsanim.SetBool("opencirclelegs", false);
         yield return new WaitForSeconds(1f);
@@ -346,6 +399,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images12()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         footforwardanim.SetBool("openfootforward", false);
         yield return new WaitForSeconds(1f);
         bodyimageanim.SetBool("openbody", true);
@@ -353,6 +408,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images13()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         bodyimageanim.SetBool("openbody", false);
         yield return new WaitForSeconds(1f);
         footup.enabled = true;
@@ -361,6 +418,8 @@ public class AnxietyGameScript : MonoBehaviour
 
     private IEnumerator Images14()
     {
+        rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+        leftcontroller.SendHapticImpulse(0.1f, 0.1f);
         yield return new WaitForSeconds(2f);
         footupanim.SetBool("openfootup", false);
         imagecanvasanim.SetBool("opencanvas", false);
@@ -406,6 +465,8 @@ public class AnxietyGameScript : MonoBehaviour
 
         yield return new WaitForSeconds(6f);
         closeeyesanim.SetBool("closeeyes", false);
+        rightcontroller.SendHapticImpulse(0.4f, 0.2f);
+        leftcontroller.SendHapticImpulse(0.4f, 0.2f);
         openeyesound.Play();
 
         screentextanim.SetBool("fadeout", true);
@@ -421,7 +482,13 @@ public class AnxietyGameScript : MonoBehaviour
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Feel the difference between the tense and the relaxed state.";
+        screentext.text = "Did you feel the difference between the tense and the relaxed state?";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(5f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "It's important to try and notice that so your body can feel relaxed.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(5f);
 
@@ -564,7 +631,7 @@ public class AnxietyGameScript : MonoBehaviour
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Now slowly relax your arms, and feel the difference.";
+        screentext.text = "Now slowly relax your arms, your shoulders and arms should feel comfortable.";
 
         //displays the ninth set of images
         StartCoroutine(Images9());
@@ -577,7 +644,7 @@ public class AnxietyGameScript : MonoBehaviour
         //relaxing legs and feet
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Let us now relax our legs and our feet";
+        screentext.text = "Let us now relax our legs and our feet.";
 
         //displays tenth set of images
         Images10();
@@ -634,7 +701,7 @@ public class AnxietyGameScript : MonoBehaviour
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "This time point your toes towards the ceiling and hold the position.";
+        screentext.text = "This time, point your toes towards the ceiling and hold the position.";
 
         //shows the countdowntimer
         StartCoroutine(exersicesliderspawn());
@@ -657,19 +724,7 @@ public class AnxietyGameScript : MonoBehaviour
         //outro / ending
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Did you feel the difference in your body between the tense and relaxed states?";
-        screentextanim.SetBool("fadeout", false);
-        yield return new WaitForSeconds(6f);
-
-        screentextanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        screentext.text = "And how relaxed the whole of your body feels now?";
-        screentextanim.SetBool("fadeout", false);
-        yield return new WaitForSeconds(6f);
-
-        screentextanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        screentext.text = "Well done if you did!";
+        screentext.text = "Your whole body should now feel much more relaxed than before.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 
@@ -681,31 +736,49 @@ public class AnxietyGameScript : MonoBehaviour
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Firstly, please do not try to do everything at once, set small targets you can acheive instead.";
+        screentext.text = "Please do not try to do everything at once, set smaller targets that you can acheieve.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(7f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Secondly, do not focus on the things you cannot change. Focus on yourself instead.";
+        screentext.text = "Try not to focus on the things you cannot change.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(7f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "And finally, do not tell yourself you are alone. Most people experience anxiety or fear in thier life.";
+        screentext.text = "Getting worked up over something you can't control can make you worried.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(7f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "That concludes the activity. Congratulations! You did very well!";
+        screentext.text = "Instead, focus on yourself.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "And finally, do not tell yourself you are alone.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "Most people experience anxiety in their life, it is a normal thing to go through.";
+        screentextanim.SetBool("fadeout", false);
+        yield return new WaitForSeconds(7f);
+
+        screentextanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        screentext.text = "That concludes the activity. Congratulations! You did very well.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Come back anytime if you would like to partake in the activities again";
+        screentext.text = "Come back anytime using the level select if you would like to partake in this activity again";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 

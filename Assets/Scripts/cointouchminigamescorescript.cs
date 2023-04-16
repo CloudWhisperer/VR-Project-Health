@@ -1,10 +1,14 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class cointouchminigamescorescript : MonoBehaviour
 {
     Levelchangefade fadelevelscript;
+
+    public XRBaseController rightcontroller;
+    public XRBaseController leftcontroller;
 
     public GameObject playersphere;
     public Animator sphereanim;
@@ -92,7 +96,10 @@ public class cointouchminigamescorescript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         breathin.Play();
         breathinsound.Play();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
+        rightcontroller.SendHapticImpulse(0.2f, 6f);
+        leftcontroller.SendHapticImpulse(0.2f, 6f);
+        yield return new WaitForSeconds(1.5f);
         breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
         yield return new WaitForSeconds(2f);
@@ -111,6 +118,8 @@ public class cointouchminigamescorescript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         breathout.Play();
         breathoutsound.Play();
+        rightcontroller.SendHapticImpulse(0.2f, 6f);
+        leftcontroller.SendHapticImpulse(0.2f, 6f);
         yield return new WaitForSeconds(3f);
         breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
@@ -129,11 +138,16 @@ public class cointouchminigamescorescript : MonoBehaviour
             yield return new WaitForSeconds(3f);
             breathin.Play();
             breathinsound.Play();
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1.5f);
+            rightcontroller.SendHapticImpulse(0.2f, 6f);
+            leftcontroller.SendHapticImpulse(0.2f, 6f);
+            yield return new WaitForSeconds(1.5f);
             breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             yield return new WaitForSeconds(4f);
             breathout.Play();
             breathoutsound.Play();
+            rightcontroller.SendHapticImpulse(0.2f, 6f);
+            leftcontroller.SendHapticImpulse(0.2f, 6f);
             yield return new WaitForSeconds(3f);
             breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
@@ -162,6 +176,12 @@ public class cointouchminigamescorescript : MonoBehaviour
         textanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
         starttext.text = "You control the sphere in front of you.";
+        textanim.SetBool("fadeout", false);
+
+        yield return new WaitForSeconds(5f);
+        textanim.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        starttext.text = "The sphere moves based on where you are looking.";
         textanim.SetBool("fadeout", false);
 
 

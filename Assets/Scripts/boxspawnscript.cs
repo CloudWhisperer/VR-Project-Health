@@ -1,8 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class boxspawnscript : MonoBehaviour
 {
+    public XRBaseController rightcontroller;
+    public XRBaseController leftcontroller;
+
     public Vector3 oldspawnpoint;
     public Vector3 currentspawnpoint;
     public GameObject line;
@@ -31,6 +35,9 @@ public class boxspawnscript : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
+                leftcontroller.SendHapticImpulse(0.1f, 0.1f);
+                rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+
                 boxsound.Play();
                 oldspawnpoint = randomposition;
 
@@ -78,7 +85,6 @@ public class boxspawnscript : MonoBehaviour
                 {
                     StartCoroutine(moveright());
                 }
-
             }
         }
         else if (oldspawnpoint == currentspawnpoint)

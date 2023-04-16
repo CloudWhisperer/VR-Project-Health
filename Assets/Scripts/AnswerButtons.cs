@@ -284,7 +284,7 @@ public class AnswerButtons : MonoBehaviour
                     break;
 
                 case 13:
-                    QuestionGenerator.questionnumber = 1;
+                    QuestionGenerator.questionnumber = 0;
                     break;
             }
         }

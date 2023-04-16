@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class CBT_Game_Choices : MonoBehaviour
 {
+    public XRBaseController rightcontroller;
+    public XRBaseController leftcontroller;
+
     public DialogueManager dialoguescript;
     public SphereCollider coll1;
     public SphereCollider coll2;
@@ -49,11 +53,15 @@ public class CBT_Game_Choices : MonoBehaviour
     {
         if (touchCollider.CompareTag("Choice1"))
         {
+            rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+            leftcontroller.SendHapticImpulse(0.1f, 0.1f);
             selectingtimer1 += 1;
             choice1slidervalue.value = selectingtimer1;
         }
         if (touchCollider.CompareTag("Choice2"))
         {
+            rightcontroller.SendHapticImpulse(0.1f, 0.1f);
+            leftcontroller.SendHapticImpulse(0.1f, 0.1f);
             selectingtimer2 += 1;
             choice2slidervalue.value = selectingtimer2;
         }

@@ -46,6 +46,8 @@ public class QuestionGenerator : MonoBehaviour
 
     public AudioSource unlocksound;
 
+    public GameObject grabtutorial;
+
     public void Allenable()
     {
         balls.SetActive(true);
@@ -107,6 +109,7 @@ public class QuestionGenerator : MonoBehaviour
 
     IEnumerator Unlockcube()
     {
+        grabtutorial.SetActive(true);
         unlocksound.Play();
         cubes.SetActive(true);
         unlocktext.text = "You have unlocked the cubes, try to stack them!";
@@ -254,7 +257,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "";
+                QuizManager.NewB = "No (Will return to colour selection)";
                 QuizManager.NewC = "Return to colour selection";
                 Answer_that_increases_score = "A";
 
@@ -442,6 +445,8 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log(questionnumber);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
+
+                StartCoroutine(Unlockcube());
             }
 
             if (questionnumber == 9)
@@ -464,8 +469,6 @@ public class QuestionGenerator : MonoBehaviour
                 Debug.Log(questionnumber);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
-
-                StartCoroutine(Unlockcube());
             }
 
             if (questionnumber == 10)
@@ -525,7 +528,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
-                QuizManager.NewB = "";
+                QuizManager.NewB = "No";
                 QuizManager.NewC = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
@@ -545,8 +548,8 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
+                QuizManager.NewA = "Yes (Will go to level select)";
+                QuizManager.NewB = "No (Start quiz)";
                 QuizManager.NewC = "Customize colour and weather again";
                 Answer_that_increases_score = "A";
 
