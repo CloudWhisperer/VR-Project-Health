@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class AnswerButtons : MonoBehaviour
 {
+    public Animator questionanim;
+    public Animator answer1;
+    public Animator answer2;
+    public Animator answer3;
+
     Levelchangefade levelfadescript;
 
     //the DEBUG text tracker of the 3 scores
@@ -28,7 +33,7 @@ public class AnswerButtons : MonoBehaviour
     public GameObject destroy_this_canvas;
 
     //values to determine final scorecounter
-    private int highestvalue;
+    private int highestvalue = -1;
     private int randomnumber;
 
     //value to check whatcolour is being used
@@ -312,17 +317,22 @@ public class AnswerButtons : MonoBehaviour
         QuestionGenerator.personalquestion = false;
         QuestionGenerator.levelselectquestion = false;
 
+        questionanim.SetBool("isshow", false);
+        answer1.SetBool("show", true);
+        answer2.SetBool("show", true);
+        answer3.SetBool("show", true);
+
         //Questionanim 0.3 seconds, stoppppp
         yield return new WaitForSeconds(0.3f);
 
-        //checks if the quiz is done or not CHANGE THE NUMBER EQUAL TO HOW MNAY QUESTIONS THERE ARE + 1.
-        if (QuestionGenerator.questionnumber >= 47)
+        //checks if the quiz is done or not CHANGE THE NUMBER EQUAL TO HOW MANY QUESTIONS THERE ARE + 1.
+        if (QuestionGenerator.questionnumber > 45)
         {
             Debug.Log("DONE WITH QUIZZZZZZZZZ");
-            StartCoroutine("FinishQuiz");
+            StartCoroutine(FinishQuiz());
 
-            highestvalue = Mathf.Max(QuizManager.Anxietylevel, QuizManager.Depressionlevel, QuizManager.Stresslevel);
-            Debug.Log(highestvalue);
+            //highestvalue = Mathf.Max(QuizManager.Anxietylevel, QuizManager.Depressionlevel, QuizManager.Stresslevel);
+            //Debug.Log(highestvalue);
         }
 
         else
@@ -351,46 +361,91 @@ public class AnswerButtons : MonoBehaviour
         Destroy(destroy_this_button);
         Destroy(destroy_this_canvas);
 
+        //for loop that checks which value is the highest. does it multiple times just in case.
+        for (int i = 0; i < 3; i++)
+        {
+            if (QuizManager.Stresslevel > highestvalue)
+            {
+                highestvalue = QuizManager.Stresslevel;
+            }
+            if (QuizManager.Depressionlevel > highestvalue)
+            {
+                highestvalue = QuizManager.Depressionlevel;
+            }
+            if (QuizManager.Anxietylevel > highestvalue)
+            {
+                highestvalue = QuizManager.Anxietylevel;
+            }
+
+            Debug.Log(highestvalue);
+        }
+
+        //loads the level based on the results (after the 3 checks)
         if (highestvalue == QuizManager.Stresslevel)
         {
-            Debug.Log("stresswon");
-            SceneManager.LoadScene(2);
-        }
-        if (highestvalue == QuizManager.Anxietylevel)
-        {
-            Debug.Log("anxietywon");
-            SceneManager.LoadScene(1);
+            Debug.Log("stress win");
+            Levelchangefade.leveltoload = 2;
+            levelfadescript.fadetolevel();
         }
         if (highestvalue == QuizManager.Depressionlevel)
         {
-            Debug.Log("depressionwon");
-            SceneManager.LoadScene(3);
+            Debug.Log("depression win");
+            Levelchangefade.leveltoload = 3;
+            levelfadescript.fadetolevel();
         }
-        if (highestvalue == (QuizManager.Depressionlevel & QuizManager.Anxietylevel & QuizManager.Stresslevel))
+        if (highestvalue == QuizManager.Anxietylevel)
         {
-            RandomSceneSelect();
-        }
-        else
-        {
-            RandomSceneSelect();
+            Debug.Log("anxiety win");
+            Levelchangefade.leveltoload = 1;
+            levelfadescript.fadetolevel();
         }
 
+        //this check is in case multiple values are the same
+        if (
+           //checks if they are all the same
+           highestvalue == QuizManager.Stresslevel &&
+           highestvalue == QuizManager.Depressionlevel &&
+           highestvalue == QuizManager.Anxietylevel ||
+
+           //checks if stress and depression is the same
+           highestvalue == QuizManager.Stresslevel &&
+           highestvalue == QuizManager.Depressionlevel ||
+
+           //checks if stress and anxiety is the same
+           highestvalue == QuizManager.Stresslevel &&
+           highestvalue == QuizManager.Anxietylevel ||
+
+           //checks if depression and anxiety is the same
+           highestvalue == QuizManager.Depressionlevel &&
+           highestvalue == QuizManager.Anxietylevel)
+        {
+            Debug.Log("they were either the same or all 0. (which is kinda the same thing)");
+            RandomSceneSelect();
+        }
     }
 
     void RandomSceneSelect()
     {
         Debug.Log("even,picking random");
-        randomnumber = Random.Range(1, 2);
+        randomnumber = Random.Range(0, 3);
         switch (randomnumber)
         {
+            case 0:
+                Debug.Log("number1");
+                Levelchangefade.leveltoload = 3;
+                levelfadescript.fadetolevel();
+                break;
+
             case 1:
-                Debug.Log("1");
-                SceneManager.LoadScene(2);
+                Debug.Log("number2");
+                Levelchangefade.leveltoload = 2;
+                levelfadescript.fadetolevel();
                 break;
 
             case 2:
-                Debug.Log("2");
-                SceneManager.LoadScene(3);
+                Debug.Log("number3");
+                Levelchangefade.leveltoload = 1;
+                levelfadescript.fadetolevel();
                 break;
         }
     }

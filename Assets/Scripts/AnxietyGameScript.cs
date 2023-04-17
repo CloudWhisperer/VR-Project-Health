@@ -46,6 +46,8 @@ public class AnxietyGameScript : MonoBehaviour
                   circlelegsanim, shouldrrupanim, shoulderdownanim, armsoutanim, footupanim,
                   footforwardanim, jawclenchanim, jawopenanim;
 
+    public AudioSource voice1,voice2;
+
     private void Awake()
     {
         closeyesobject.SetActive(false);
@@ -165,8 +167,13 @@ public class AnxietyGameScript : MonoBehaviour
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
         screentext.text = "Welcome!";
+
+        voice1.Play();
+
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(7f);
+
+
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
@@ -627,6 +634,7 @@ public class AnxietyGameScript : MonoBehaviour
     {
         //plays breathing function
         StartCoroutine(shortbreathing());
+        voice2.PlayDelayed(5f);
         yield return shortbreathing();
 
         screentextanim.SetBool("fadeout", true);
@@ -724,7 +732,7 @@ public class AnxietyGameScript : MonoBehaviour
         //outro / ending
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Your whole body should now feel much more relaxed than before.";
+        screentext.text = "Your whole body should feel much more relaxed than before.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 
@@ -736,7 +744,7 @@ public class AnxietyGameScript : MonoBehaviour
 
         screentextanim.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        screentext.text = "Please do not try to do everything at once, set smaller targets that you can acheieve.";
+        screentext.text = "Please do not try to do everything at once, set smaller targets that you can achieve.";
         screentextanim.SetBool("fadeout", false);
         yield return new WaitForSeconds(7f);
 

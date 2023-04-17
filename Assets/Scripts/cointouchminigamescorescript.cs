@@ -24,6 +24,9 @@ public class cointouchminigamescorescript : MonoBehaviour
     public AudioSource breathinsound;
     public AudioSource breathoutsound;
 
+    public AudioSource voice1;
+    public AudioSource voice2;
+
     public static int scorecounter;
     public static int losecounter;
 
@@ -46,6 +49,8 @@ public class cointouchminigamescorescript : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         starttext.text = "Welcome!";
         textanim.SetBool("fadeout", false);
+
+        voice1.Play();
 
         yield return new WaitForSeconds(6f);
         textanim.SetBool("fadeout", true);
@@ -228,6 +233,8 @@ public class cointouchminigamescorescript : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         starttext.text = "Stress can lead us towards bad decisions because we don't think straight.";
         textanim.SetBool("fadeout", false);
+
+        voice2.Play();
 
         yield return new WaitForSeconds(6f);
         textanim.SetBool("fadeout", true);

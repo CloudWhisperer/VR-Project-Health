@@ -61,7 +61,7 @@ public class QuestionGenerator : MonoBehaviour
 
     private void Start()
     {
-        //gotta start at 1 right?
+        //gotta start at 1
         questionnumber = 1;
     }
 
@@ -73,32 +73,27 @@ public class QuestionGenerator : MonoBehaviour
 
     IEnumerator Questionanim()
     {
+        yield return new WaitForSeconds(0.2f);
         questionanim.SetBool("isshow", true);
-        yield return new WaitForSeconds(0.4f);
-        questionanim.SetBool("isshow", false);
     }
 
     IEnumerator Answeranim()
     {
-        answer1.SetBool("show", true);
-        answer2.SetBool("show", true);
-        answer3.SetBool("show", true);
-
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
 
         if (answer1 != null)
         {
             answer1.SetBool("show", false);
         }
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
 
         if (answer2 != null)
         {
             answer2.SetBool("show", false);
         }
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
 
         if (answer3 != null)
         {
@@ -1047,7 +1042,7 @@ public class QuestionGenerator : MonoBehaviour
                                           " about the result or the future?";
 
                 StartCoroutine(Answeranim());
-                QuizManager.NewA = "Very diffucult";
+                QuizManager.NewA = "Very difficult";
                 QuizManager.NewB = "Slightly difficult";
                 QuizManager.NewC = "Not difficult";
                 Answer_that_increases_score = "A";

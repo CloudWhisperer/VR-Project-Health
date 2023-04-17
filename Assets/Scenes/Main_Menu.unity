@@ -1177,7 +1177,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -12847,7 +12847,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -18067,6 +18067,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee30e3d009b78b4098d5ee188a74f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questionanim: {fileID: 1560093072}
+  answer1: {fileID: 1611973217}
+  answer2: {fileID: 1353948004}
+  answer3: {fileID: 1391163979}
   anxietytext: {fileID: 31856804}
   depressiontext: {fileID: 297806873}
   stresstext: {fileID: 91973404}
@@ -24884,7 +24888,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
