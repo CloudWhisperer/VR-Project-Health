@@ -797,7 +797,7 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(6f);
 
         //fade to main menu
-        Levelchangefade.leveltoload = 0;
+        Levelchangefade.leveltoload = 1;
         fadelevelscript.fadetolevel();
     }
 }

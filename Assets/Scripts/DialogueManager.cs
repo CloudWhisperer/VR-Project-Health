@@ -338,7 +338,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         Debug.Log("End of conversation");
-        Levelchangefade.leveltoload = 0;
+        Levelchangefade.leveltoload = 1;
         fadelevelscript.fadetolevel();
 
     }

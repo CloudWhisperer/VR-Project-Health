@@ -384,19 +384,19 @@ public class AnswerButtons : MonoBehaviour
         if (highestvalue == QuizManager.Stresslevel)
         {
             Debug.Log("stress win");
-            Levelchangefade.leveltoload = 2;
+            Levelchangefade.leveltoload = 3;
             levelfadescript.fadetolevel();
         }
         if (highestvalue == QuizManager.Depressionlevel)
         {
             Debug.Log("depression win");
-            Levelchangefade.leveltoload = 3;
+            Levelchangefade.leveltoload = 4;
             levelfadescript.fadetolevel();
         }
         if (highestvalue == QuizManager.Anxietylevel)
         {
             Debug.Log("anxiety win");
-            Levelchangefade.leveltoload = 1;
+            Levelchangefade.leveltoload = 2;
             levelfadescript.fadetolevel();
         }
 
