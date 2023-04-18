@@ -32,6 +32,9 @@ public class QuestionGenerator : MonoBehaviour
     public Image yellowworldimage, redworldimage, brownworldimage,
                  blueworldimage, pinkworldimage, greenworldimage, orangeworldimage;
 
+    public Image vignettelevels, vignettecoloursandweather;
+    public Animator vignettelevelsanim, vignettecoloursandweathersanim;
+
     public Animator yellowworldimageanim, redworldimageanim, brownworldimageanim,
              blueworldimageanim, pinkworldimageanim, greenworldimageanim, orangeworldimageanim;
 
@@ -47,6 +50,8 @@ public class QuestionGenerator : MonoBehaviour
     public AudioSource unlocksound;
 
     public GameObject grabtutorial;
+
+    public Animator buttontutorialanim;
 
     public void Allenable()
     {
@@ -180,6 +185,9 @@ public class QuestionGenerator : MonoBehaviour
         rainimageanim.SetBool("fadein", false);
         snowimageanim.SetBool("fadein", false);
         sunimageanim.SetBool("fadein", false);
+
+        vignettelevelsanim.SetBool("isshow", false);
+        vignettecoloursandweathersanim.SetBool("fadein", false);
     }
 
     // Update is called once per frame
@@ -205,6 +213,8 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 CBTImage.enabled = true;
                 CBTimageanim.SetBool("isshow", true);
+                vignettelevels.enabled = true;
+                vignettelevelsanim.SetBool("isshow",true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -228,6 +238,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 Coingameimage.enabled = true;
                 Coinimageanim.SetBool("isshow", true);
+                vignettelevelsanim.SetBool("isshow", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -249,6 +260,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 anxietylevelimage.enabled = true;
                 Anxietyimageanim.SetBool("isshow", true);
+                vignettelevelsanim.SetBool("isshow", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -273,6 +285,8 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 redworldimage.enabled = true;
                 redworldimageanim.SetBool("fadein", true);
+                vignettecoloursandweather.enabled = true;
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -295,6 +309,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 blueworldimage.enabled = true;
                 blueworldimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -317,6 +332,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 yellowworldimage.enabled = true;
                 yellowworldimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -339,6 +355,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 pinkworldimage.enabled = true;
                 pinkworldimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -361,6 +378,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 orangeworldimage.enabled = true;
                 orangeworldimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -383,6 +401,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 greenworldimage.enabled = true;
                 greenworldimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -406,6 +425,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 brownworldimage.enabled = true;
                 brownworldimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -430,6 +450,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 rainimage.enabled = true;
                 rainimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -454,6 +475,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 sunimage.enabled = true;
                 sunimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -476,6 +498,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 snowimage.enabled = true;
                 snowimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -498,6 +521,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 fogimage.enabled = true;
                 fogimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -520,6 +544,7 @@ public class QuestionGenerator : MonoBehaviour
                 Turnoffallimages();
                 cloudimage.enabled = true;
                 cloudimageanim.SetBool("fadein", true);
+                vignettecoloursandweathersanim.SetBool("fadein", true);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes";
@@ -541,6 +566,7 @@ public class QuestionGenerator : MonoBehaviour
                                           " Not recommended for first time players";
 
                 Turnoffallimages();
+                buttontutorialanim.SetBool("isshow", false);
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes (Will go to level select)";
