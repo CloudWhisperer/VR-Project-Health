@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class exercisecollision : MonoBehaviour
 {
-    public AnxietyGameScript anxscript;
-    public SphereCollider armsoutcoll;
-
-    public SphereCollider touchcol;
-    public int timer;
+    [SerializeField]
+    private AnxietyGameScript Anxiety_game_manager_script;
+    [SerializeField]
+    private SphereCollider Arms_out_collision;
+    [SerializeField]
+    private SphereCollider Oculus_hand_collision;
+    private int timer;
 
     private void OnTriggerEnter(Collider touchcol)
     {
@@ -24,8 +26,9 @@ public class exercisecollision : MonoBehaviour
         }
         if (timer >= 50)
         {
-            StartCoroutine(anxscript.Relaxationpart2());
-            armsoutcoll.enabled = false;
+            //runs the function from the game manager script and starts the second part of the exercise
+            StartCoroutine(Anxiety_game_manager_script.Begin_applied_relaxation_part_2());
+            Arms_out_collision.enabled = false;
 
         }
     }

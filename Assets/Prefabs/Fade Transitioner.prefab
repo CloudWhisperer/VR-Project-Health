@@ -117,4 +117,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030e9e42720f0ae4d8d109567f6d29bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 6188933893773659903}
+  Fade_animator: {fileID: 6188933893773659903}

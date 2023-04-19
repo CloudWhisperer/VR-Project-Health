@@ -279,8 +279,8 @@ public class cointouchminigamescorescript : MonoBehaviour
         textanim.SetBool("fadeout", false);
 
         yield return new WaitForSeconds(4f);
-        Levelchangefade.leveltoload = 1;
-        fadelevelscript.fadetolevel();
+        Levelchangefade.What_level_number_to_load = 1;
+        fadelevelscript.Fade_to_level();
 
     }
 }

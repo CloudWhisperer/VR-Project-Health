@@ -683,9 +683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416b12b4bbd60f44ca86598975dbbd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lefthand: {fileID: 528622260}
-  righthand: {fileID: 88376349}
-  sfx: {fileID: 1300292411}
+  Left_VR_Controller: {fileID: 528622260}
+  Right_VR_Controller: {fileID: 88376349}
+  Button_sound_effect: {fileID: 1300292411}
 --- !u!4 &210146434
 Transform:
   m_ObjectHideFlags: 0

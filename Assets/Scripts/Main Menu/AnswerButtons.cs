@@ -160,20 +160,20 @@ public class AnswerButtons : MonoBehaviour
                 {
                     case -2:
                         StartCoroutine(levelisselected());
-                        Levelchangefade.leveltoload = 3;
-                        levelfadescript.fadetolevel();
+                        Levelchangefade.What_level_number_to_load = 3;
+                        levelfadescript.Fade_to_level();
                         break;
 
                     case -1:
                         StartCoroutine(levelisselected());
-                        Levelchangefade.leveltoload = 2;
-                        levelfadescript.fadetolevel();
+                        Levelchangefade.What_level_number_to_load = 2;
+                        levelfadescript.Fade_to_level();
                         break;
 
                     case 0:
                         StartCoroutine(levelisselected());
-                        Levelchangefade.leveltoload = 1;
-                        levelfadescript.fadetolevel();
+                        Levelchangefade.What_level_number_to_load = 1;
+                        levelfadescript.Fade_to_level();
                         break;
                 }
             }
@@ -384,20 +384,20 @@ public class AnswerButtons : MonoBehaviour
         if (highestvalue == QuizManager.Stresslevel)
         {
             Debug.Log("stress win");
-            Levelchangefade.leveltoload = 3;
-            levelfadescript.fadetolevel();
+            Levelchangefade.What_level_number_to_load = 3;
+            levelfadescript.Fade_to_level();
         }
         if (highestvalue == QuizManager.Depressionlevel)
         {
             Debug.Log("depression win");
-            Levelchangefade.leveltoload = 4;
-            levelfadescript.fadetolevel();
+            Levelchangefade.What_level_number_to_load = 4;
+            levelfadescript.Fade_to_level();
         }
         if (highestvalue == QuizManager.Anxietylevel)
         {
             Debug.Log("anxiety win");
-            Levelchangefade.leveltoload = 2;
-            levelfadescript.fadetolevel();
+            Levelchangefade.What_level_number_to_load = 2;
+            levelfadescript.Fade_to_level();
         }
 
         //this check is in case multiple values are the same
@@ -432,20 +432,20 @@ public class AnswerButtons : MonoBehaviour
         {
             case 0:
                 Debug.Log("number1");
-                Levelchangefade.leveltoload = 3;
-                levelfadescript.fadetolevel();
+                Levelchangefade.What_level_number_to_load = 3;
+                levelfadescript.Fade_to_level();
                 break;
 
             case 1:
                 Debug.Log("number2");
-                Levelchangefade.leveltoload = 2;
-                levelfadescript.fadetolevel();
+                Levelchangefade.What_level_number_to_load = 2;
+                levelfadescript.Fade_to_level();
                 break;
 
             case 2:
                 Debug.Log("number3");
-                Levelchangefade.leveltoload = 1;
-                levelfadescript.fadetolevel();
+                Levelchangefade.What_level_number_to_load = 1;
+                levelfadescript.Fade_to_level();
                 break;
         }
     }

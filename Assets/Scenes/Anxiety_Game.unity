@@ -12676,57 +12676,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c14ab48a1138449891fe1b751e9d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftcontroller: {fileID: 1299134583}
-  rightcontroller: {fileID: 921515519}
-  screentext: {fileID: 1794249424}
-  screentextanim: {fileID: 1794249426}
-  breathin: {fileID: 477026992}
-  breathout: {fileID: 747936021}
-  breathinsound: {fileID: 1318563544}
-  breathoutsound: {fileID: 1416589905}
-  closeyesobject: {fileID: 887254963}
-  closeeyesanim: {fileID: 887254965}
-  openeyesound: {fileID: 1897648778}
-  armsoutcollision: {fileID: 348656192}
-  exercise_slider_with_text: {fileID: 1344771879}
-  slidernumber: {fileID: 405501049}
-  maxtime: 5
-  exerciseslider: {fileID: 1344771881}
-  exercise_slider_with_text_animator: {fileID: 1344771882}
-  backgroundslider: {fileID: 334287331}
-  fillslider: {fileID: 677145322}
-  imagecanvas: {fileID: 1184826712}
-  eyesclose: {fileID: 620306286}
-  eyesopen: {fileID: 1689323885}
-  bodyimage: {fileID: 182828033}
-  circlejaw: {fileID: 707749254}
-  circleshoulders: {fileID: 1413726662}
-  circlearms: {fileID: 1320419779}
-  circlelegs: {fileID: 849496337}
-  shouldrrup: {fileID: 210405362}
-  shoulderdown: {fileID: 190584350}
-  armsout: {fileID: 1803559179}
-  footup: {fileID: 135239884}
-  footforward: {fileID: 1051526784}
-  jawclench: {fileID: 527661612}
-  jawopen: {fileID: 459783396}
-  imagecanvasanim: {fileID: 1184826714}
-  eyescloseanim: {fileID: 620306288}
-  eyesopenanim: {fileID: 1689323887}
-  bodyimageanim: {fileID: 182828035}
-  circlejawanim: {fileID: 707749256}
-  circleshouldersanim: {fileID: 1413726664}
-  circlearmsanim: {fileID: 1320419781}
-  circlelegsanim: {fileID: 849496339}
-  shouldrrupanim: {fileID: 210405364}
-  shoulderdownanim: {fileID: 190584352}
-  armsoutanim: {fileID: 1803559181}
-  footupanim: {fileID: 135239886}
-  footforwardanim: {fileID: 1051526786}
-  jawclenchanim: {fileID: 527661611}
-  jawopenanim: {fileID: 459783395}
-  voice1: {fileID: 349037424}
-  voice2: {fileID: 1723915197}
+  Left_VR_Controller: {fileID: 1299134583}
+  Right_VR_Controller: {fileID: 921515519}
+  Game_instruction_text: {fileID: 1794249424}
+  Game_instruction_text_animator: {fileID: 1794249426}
+  Breath_in_particle: {fileID: 477026992}
+  Breath_out_particle: {fileID: 747936021}
+  Breath_in_sound_effect: {fileID: 1318563544}
+  Breath_out_sound_effect: {fileID: 1416589905}
+  Close_eyes_object: {fileID: 887254963}
+  Close_eyes_animator: {fileID: 887254965}
+  Open_eyes_sound_effect: {fileID: 1897648778}
+  Arms_out_collision: {fileID: 348656192}
+  Exercise_slider_gameobject: {fileID: 1344771879}
+  Exercise_slider_text: {fileID: 405501049}
+  Exercise_slider: {fileID: 1344771881}
+  Exercise_slider_with_text_animator: {fileID: 1344771882}
+  Background_image_for_slider: {fileID: 334287331}
+  Fill_image_for_slider: {fileID: 677145322}
+  Canvas_border: {fileID: 1184826712}
+  Eyes_close_image: {fileID: 620306286}
+  Eyes_open_image: {fileID: 1689323885}
+  Body_image: {fileID: 182828033}
+  Circle_jaw_image: {fileID: 707749254}
+  Circle_shoulder_image: {fileID: 1413726662}
+  Circle_arms_image: {fileID: 1320419779}
+  Circle_legs_image: {fileID: 849496337}
+  Shoulder_up_image: {fileID: 210405362}
+  Shoulder_down_image: {fileID: 190584350}
+  Arms_out_image: {fileID: 1803559179}
+  Foot_pointing_up_image: {fileID: 135239884}
+  Foot_pointing_forward_image: {fileID: 1051526784}
+  Jaw_clench_image: {fileID: 527661612}
+  Jaw_open_image: {fileID: 459783396}
+  Canvas_border_anim: {fileID: 1184826714}
+  Eyes_close_image_anim: {fileID: 620306288}
+  Eyes_open_image_anim: {fileID: 1689323887}
+  Body_image_anim: {fileID: 182828035}
+  Circle_jaw_image_anim: {fileID: 707749256}
+  Circle_shoulders_image_anim: {fileID: 1413726664}
+  Circle_arms_image_anim: {fileID: 1320419781}
+  Circle_legs_image_anim: {fileID: 849496339}
+  Shoulder_up_image_anim: {fileID: 210405364}
+  Shoulder_down_image_anim: {fileID: 190584352}
+  Arms_out_image_anim: {fileID: 1803559181}
+  Foot_pointing_up_image_anim: {fileID: 135239886}
+  Foot_pointing_forward_image_anim: {fileID: 1051526786}
+  Jaw_clench_image_anim: {fileID: 527661611}
+  Jaw_open_image_anim: {fileID: 459783395}
+  Voice_part_1: {fileID: 349037424}
+  Voice_part_2: {fileID: 1723915197}
 --- !u!4 &434657494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2807449429036539767, guid: f0c16f0ea935ea64297ca1d4d55d9746,
@@ -34635,10 +34634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6abea9fcab8db041ae904e6d156a0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anxscript: {fileID: 430110943}
-  armsoutcoll: {fileID: 348656193}
-  touchcol: {fileID: 921515517}
-  timer: 0
+  Anxiety_game_manager_script: {fileID: 430110943}
+  Arms_out_collision: {fileID: 348656193}
+  Oculus_hand_collision: {fileID: 921515517}
 --- !u!1001 &922512544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45525,10 +45523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6abea9fcab8db041ae904e6d156a0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anxscript: {fileID: 430110943}
-  armsoutcoll: {fileID: 348656193}
-  touchcol: {fileID: 1299134581}
-  timer: 0
+  Anxiety_game_manager_script: {fileID: 430110943}
+  Arms_out_collision: {fileID: 348656193}
+  Oculus_hand_collision: {fileID: 1299134581}
 --- !u!4 &1299781216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385080170327957909, guid: ff62b58c5a9ea164fa8ddf8038e10cd1,

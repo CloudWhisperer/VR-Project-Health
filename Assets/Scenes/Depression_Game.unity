@@ -11709,19 +11709,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d904320fe1d3c1408399a80283038e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightcontroller: {fileID: 751415298}
-  leftcontroller: {fileID: 577367348}
-  dialoguescript: {fileID: 633871930}
-  coll1: {fileID: 628119995}
-  coll2: {fileID: 1305984905}
-  anim1: {fileID: 628119999}
-  anim2: {fileID: 1305984909}
-  selectchoicesound: {fileID: 621566751}
-  touchCollider: {fileID: 577367346}
-  selectingtimer1: 0
-  selectingtimer2: 0
-  choice1slidervalue: {fileID: 1710544497}
-  choice2slidervalue: {fileID: 1154644627}
+  Right_VR_controller: {fileID: 751415298}
+  Left_VR_controller: {fileID: 577367348}
+  Dialogue_script: {fileID: 633871930}
+  Choice_1_collider: {fileID: 628119995}
+  Choice_2_collider: {fileID: 1305984905}
+  Choice_1_animator: {fileID: 628119999}
+  Choice2_animator: {fileID: 1305984909}
+  Choice_selection_sound_effect: {fileID: 621566751}
+  VR_Hand_collider: {fileID: 577367346}
+  Choice_1_slider: {fileID: 1710544497}
+  Choice_2_slider: {fileID: 1154644627}
 --- !u!4 &578095102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3356751432537613521, guid: ffbddc4ef9676cc419e81e06aaa836d8,
@@ -13130,16 +13128,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7242f3af6db844796b0a66409244fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabtutorial: {fileID: 1285121426}
-  dialoguetutorialtext: {fileID: 1434681894}
-  bubbletutorial: {fileID: 2031649807}
-  grabtutorialanim: {fileID: 1285121430}
-  dialoguetutorialtextanim: {fileID: 1434681898}
-  bubbletutorialanim: {fileID: 2031649811}
-  rightcontroller: {fileID: 751415298}
-  leftcontroller: {fileID: 577367348}
-  nametext: {fileID: 1990136953}
-  dialoguetext: {fileID: 79974626}
+  Grabbing_object_tutorial: {fileID: 1285121426}
+  Dialogue_advancement_tutorial: {fileID: 1434681894}
+  Selecting_choice_tutorial: {fileID: 2031649807}
+  Grabbing_object_tutorial_animator: {fileID: 1285121430}
+  Dialogue_advancement_tutorial_animator: {fileID: 1434681898}
+  Selecting_choice_tutorial_animator: {fileID: 2031649811}
+  Right_VR_controller: {fileID: 751415298}
+  Left_VR_controller: {fileID: 577367348}
+  Character_name_text: {fileID: 1990136953}
+  Character_dialogue_text: {fileID: 79974626}
   ContinueButton:
     m_UseReference: 1
     m_Action:
@@ -13153,29 +13151,29 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -3424528429625007901, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  textsound: {fileID: 159159391}
-  choiceshowsound: {fileID: 1531396732}
-  choiceshowsound2: {fileID: 728314819}
-  thoughtbubbleaudio: {fileID: 1313553229}
-  thoughtbubbleaudiofadeoff: {fileID: 676643528}
-  wavingaudio: {fileID: 555065945}
-  introducingaudio: {fileID: 315944130}
-  examplingaudio: {fileID: 920149169}
-  Thought_bubble_animator: {fileID: 2091720597}
-  example1_anim: {fileID: 1434436438}
-  example2_anim: {fileID: 643602158}
-  Thoughtbubble: {fileID: 2091720595}
+  Proceed_text_sound: {fileID: 159159391}
+  Choice_1_appear_sound: {fileID: 1531396732}
+  Choice_2_appear_sound: {fileID: 728314819}
+  Thought_bubble_appear_audio: {fileID: 1313553229}
+  Thought_bubble_dissapear_audio: {fileID: 676643528}
+  Character_waving_audio: {fileID: 555065945}
+  Character_introducting_audio: {fileID: 315944130}
+  Character_showing_example_audio: {fileID: 920149169}
+  Thought_bubble: {fileID: 1874830531}
   Example1: {fileID: 1434436431}
   Example2: {fileID: 643602151}
-  canvasanim: {fileID: 1405410546}
+  Thought_bubble_animator: {fileID: 2091720597}
+  Example_1_animator: {fileID: 1434436438}
+  Example_2_animator: {fileID: 643602158}
+  Canvas_animator: {fileID: 1405410546}
   CBT_charanimator: {fileID: 153911809}
-  choice1: {fileID: 628119994}
-  choice2: {fileID: 1305984904}
-  textchoice1: {fileID: 1638702823}
-  choice1anim: {fileID: 628119999}
-  textchoice2: {fileID: 1695721990}
-  choice2anim: {fileID: 1305984909}
-  speed_of_text: 0.01
+  Choice_1_bubble: {fileID: 628119994}
+  Choice_2_bubble: {fileID: 1305984904}
+  Choice_1_text: {fileID: 1638702823}
+  Choice_2_text: {fileID: 1695721990}
+  Choice_1_bubble_animator: {fileID: 628119999}
+  Choice_2_bubble_animator: {fileID: 1305984909}
+  Speed_of_text: 0.4
 --- !u!4 &633871931
 Transform:
   m_ObjectHideFlags: 0
@@ -15774,19 +15772,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d904320fe1d3c1408399a80283038e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightcontroller: {fileID: 751415298}
-  leftcontroller: {fileID: 577367348}
-  dialoguescript: {fileID: 633871930}
-  coll1: {fileID: 628119995}
-  coll2: {fileID: 1305984905}
-  anim1: {fileID: 628119999}
-  anim2: {fileID: 1305984909}
-  selectchoicesound: {fileID: 621566751}
-  touchCollider: {fileID: 751415296}
-  selectingtimer1: 0
-  selectingtimer2: 0
-  choice1slidervalue: {fileID: 1710544497}
-  choice2slidervalue: {fileID: 1154644627}
+  Right_VR_controller: {fileID: 751415298}
+  Left_VR_controller: {fileID: 577367348}
+  Dialogue_script: {fileID: 633871930}
+  Choice_1_collider: {fileID: 628119995}
+  Choice_2_collider: {fileID: 1305984905}
+  Choice_1_animator: {fileID: 628119999}
+  Choice2_animator: {fileID: 1305984909}
+  Choice_selection_sound_effect: {fileID: 621566751}
+  VR_Hand_collider: {fileID: 751415296}
+  Choice_1_slider: {fileID: 1710544497}
+  Choice_2_slider: {fileID: 1154644627}
 --- !u!1001 &756889312
 PrefabInstance:
   m_ObjectHideFlags: 0
