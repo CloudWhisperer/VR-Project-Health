@@ -710,6 +710,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1170519395}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_animator
+      value: 
+      objectReference: {fileID: 104717652}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: istutorialcoin
       value: 1
       objectReference: {fileID: 0}
@@ -718,9 +722,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1299134583}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_gameobject
+      value: 
+      objectReference: {fileID: 104717651}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Is_tutorial_coin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_sound_effect
+      value: 
+      objectReference: {fileID: 643824087}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Left_VR_Controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Stress_game_script
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Player_sphere_trail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_collect_particle
+      value: 
+      objectReference: {fileID: 323238619}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -788,6 +824,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+--- !u!1 &104717651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 104717650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &104717652 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 98526966, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 104717650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &110652964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2244,6 +2292,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1170519395}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_animator
+      value: 
+      objectReference: {fileID: 309181921}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: istutorialcoin
       value: 1
       objectReference: {fileID: 0}
@@ -2252,9 +2304,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1299134583}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_gameobject
+      value: 
+      objectReference: {fileID: 309181920}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Is_tutorial_coin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_sound_effect
+      value: 
+      objectReference: {fileID: 643824087}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Left_VR_Controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Stress_game_script
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Player_sphere_trail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_collect_particle
+      value: 
+      objectReference: {fileID: 323238619}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -2317,6 +2401,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+--- !u!1 &309181920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 309181919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &309181921 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 98526966, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 309181919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &310059799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1576488453971394810, guid: a778b631c6253a04899cb31bad047c81,
@@ -7723,6 +7819,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 412120555}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 412120554}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -7785,6 +7905,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &412120554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 412120553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &412120555 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 412120553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &419435099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 38335279662569219, guid: 34d3f526198dae440bb2ce6005d86055,
@@ -7832,21 +7964,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921ac59ac678bd849a847597bd6857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightcontroller: {fileID: 921515519}
-  leftcontroller: {fileID: 1299134583}
-  playersphere: {fileID: 1170519389}
-  sphereanim: {fileID: 1170519396}
-  objects: {fileID: 996615835}
-  tutorialobjects: {fileID: 127238012}
-  backwall: {fileID: 995501048}
-  starttext: {fileID: 1794249424}
-  textanim: {fileID: 1794249426}
-  breathin: {fileID: 24045952}
-  breathout: {fileID: 747936021}
-  breathinsound: {fileID: 1318563544}
-  breathoutsound: {fileID: 1416589905}
-  voice1: {fileID: 1914893341}
-  voice2: {fileID: 943129417}
+  Right_VR_controller: {fileID: 1299134583}
+  Left_VR_controller: {fileID: 921515519}
+  Player_sphere: {fileID: 1170519389}
+  Player_sphere_animator: {fileID: 1170519396}
+  Coins_and_obstacles_gameobject: {fileID: 996615835}
+  Tutorial_coins: {fileID: 127238012}
+  Respawn_wall: {fileID: 995501048}
+  World_text: {fileID: 1794249424}
+  World_text_animator: {fileID: 1794249426}
+  Breath_in_particle_effect: {fileID: 24045952}
+  Breath_out_particle_effect: {fileID: 747936021}
+  Breath_in_sound_effect: {fileID: 1318563544}
+  Breath_out_sound_effect: {fileID: 1416589905}
+  Voice_part_1: {fileID: 1914893341}
+  Voice_part_2: {fileID: 943129417}
 --- !u!4 &430110942
 Transform:
   m_ObjectHideFlags: 0
@@ -8028,6 +8160,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 454470412}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 454470411}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -8090,6 +8246,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &454470411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 454470410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &454470412 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 454470410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &454948295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8113,6 +8281,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 454948297}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 454948296}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -8175,6 +8367,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &454948296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 454948295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &454948297 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 454948295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &484144111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6239969156481072347, guid: b71b0f8d2f881c743a85228f3030d1cb,
@@ -8260,13 +8464,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1170519395}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_animator
+      value: 
+      objectReference: {fileID: 529264965}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: leftcontroller
       value: 
       objectReference: {fileID: 1299134583}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_gameobject
+      value: 
+      objectReference: {fileID: 512449654}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_sound_effect
+      value: 
+      objectReference: {fileID: 643824087}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Left_VR_Controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Stress_game_script
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Player_sphere_trail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_collect_particle
+      value: 
+      objectReference: {fileID: 323238619}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -8329,6 +8565,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+--- !u!1 &512449654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 512449653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &513312209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10746,13 +10988,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1170519395}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_animator
+      value: 
+      objectReference: {fileID: 669601489}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: leftcontroller
       value: 
       objectReference: {fileID: 1299134583}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_gameobject
+      value: 
+      objectReference: {fileID: 669601488}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_sound_effect
+      value: 
+      objectReference: {fileID: 643824087}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Left_VR_Controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Stress_game_script
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Player_sphere_trail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_collect_particle
+      value: 
+      objectReference: {fileID: 323238619}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -10815,6 +11089,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+--- !u!1 &669601488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 669601487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &669601489 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 98526966, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 669601487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &677735913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11473,7 +11759,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -18443,6 +18729,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 915562290}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 915562289}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -18505,6 +18815,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &915562289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 915562288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &915562290 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 915562288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &921515511
 GameObject:
   m_ObjectHideFlags: 0
@@ -20595,6 +20917,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 1090109046}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 1090109045}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -20657,6 +21003,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &1090109045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1090109044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1090109046 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1090109044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1093587302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4680757731159730826, guid: 0fde05fa0f3321942a21896ff4f0856f,
@@ -21092,6 +21450,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1170519395}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_animator
+      value: 
+      objectReference: {fileID: 1157181103}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: istutorialcoin
       value: 1
       objectReference: {fileID: 0}
@@ -21100,9 +21462,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1299134583}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_gameobject
+      value: 
+      objectReference: {fileID: 1157181102}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Is_tutorial_coin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_sound_effect
+      value: 
+      objectReference: {fileID: 643824087}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Left_VR_Controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Stress_game_script
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Player_sphere_trail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_collect_particle
+      value: 
+      objectReference: {fileID: 323238619}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -21170,6 +21564,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+--- !u!1 &1157181102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1157181101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1157181103 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 98526966, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1157181101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1159018870
 GameObject:
   m_ObjectHideFlags: 0
@@ -25977,6 +26383,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 1662707765}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 1662707764}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -26039,6 +26469,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &1662707764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1662707763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1662707765 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1662707763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1675843253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26062,6 +26504,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 1675843255}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 1675843254}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -26124,6 +26590,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &1675843254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1675843253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1675843255 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1675843253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1678893160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26375,6 +26853,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 1699296833}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 1699296832}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -26437,6 +26939,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &1699296832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699296831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1699296833 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699296831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1699576253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5186735023777053022, guid: ac8efb728f1fb9b4092c4df591c827ca,
@@ -27870,6 +28384,30 @@ PrefabInstance:
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_animator
+      value: 
+      objectReference: {fileID: 1973660890}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Left_VR_controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Sphere_assist_line
+      value: 
+      objectReference: {fileID: 583282123}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_gameobject
+      value: 
+      objectReference: {fileID: 1973660889}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 974862180, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+      propertyPath: Obstacle_sound_effect
+      value: 
+      objectReference: {fileID: 1018415460}
     - target: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
         type: 3}
       propertyPath: m_Name
@@ -27932,6 +28470,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36009c464e9d71343bb276ba903cc76c, type: 3}
+--- !u!1 &1973660889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4224851363383661564, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1973660888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1973660890 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 974862186, guid: 36009c464e9d71343bb276ba903cc76c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1973660888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1973824284
 GameObject:
   m_ObjectHideFlags: 0
@@ -28988,6 +29538,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5845864908267410083, guid: d524fb5a203ad894a81c72a6dbdbdafd,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845864908392808714, guid: d524fb5a203ad894a81c72a6dbdbdafd,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d524fb5a203ad894a81c72a6dbdbdafd, type: 3}
 --- !u!1001 &9100439326173825872
@@ -29014,13 +29574,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1170519395}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_animator
+      value: 
+      objectReference: {fileID: 9100439326173825874}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: leftcontroller
       value: 
       objectReference: {fileID: 1299134583}
     - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_gameobject
+      value: 
+      objectReference: {fileID: 9100439326173825873}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
       propertyPath: rightcontroller
       value: 
       objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_sound_effect
+      value: 
+      objectReference: {fileID: 643824087}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Left_VR_Controller
+      value: 
+      objectReference: {fileID: 1299134583}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Stress_game_script
+      value: 
+      objectReference: {fileID: 430110941}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Player_sphere_trail
+      value: 
+      objectReference: {fileID: 1170519395}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Right_VR_Controller
+      value: 
+      objectReference: {fileID: 921515519}
+    - target: {fileID: 98526961, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+      propertyPath: Coin_collect_particle
+      value: 
+      objectReference: {fileID: 323238619}
     - target: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
         type: 3}
       propertyPath: m_Name
@@ -29083,3 +29675,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e22f685b9e191de4e99bfe2ca881fa36, type: 3}
+--- !u!1 &9100439326173825873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 576856182348414440, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 9100439326173825872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &9100439326173825874 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 98526966, guid: e22f685b9e191de4e99bfe2ca881fa36,
+    type: 3}
+  m_PrefabInstance: {fileID: 9100439326173825872}
+  m_PrefabAsset: {fileID: 0}

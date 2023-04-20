@@ -5,282 +5,317 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class cointouchminigamescorescript : MonoBehaviour
 {
-    Levelchangefade fadelevelscript;
+    private Levelchangefade Fade_level_script;
 
-    public XRBaseController rightcontroller;
-    public XRBaseController leftcontroller;
+    [Header("-VR Controllers-")]
+    [SerializeField]
+    private XRBaseController Right_VR_controller;
+    [SerializeField]
+    private XRBaseController Left_VR_controller;
 
-    public GameObject playersphere;
-    public Animator sphereanim;
+    [Header("-Player sphere-")]
+    [SerializeField]
+    private GameObject Player_sphere;
+    [SerializeField]
+    private Animator Player_sphere_animator;
 
-    public GameObject objects;
-    public GameObject tutorialobjects;
-    public GameObject backwall;
-    public TextMeshProUGUI starttext;
-    public Animator textanim;
+    [Header("-Coins, obstacles, and world text-")]
+    [SerializeField]
+    private GameObject Coins_and_obstacles_gameobject;
+    [SerializeField]
+    private GameObject Tutorial_coins;
+    [SerializeField]
+    private GameObject Respawn_wall;
+    [SerializeField]
+    private TextMeshProUGUI World_text;
+    [SerializeField]
+    private Animator World_text_animator;
 
-    public ParticleSystem breathin;
-    public ParticleSystem breathout;
-    public AudioSource breathinsound;
-    public AudioSource breathoutsound;
+    [Header("-Particle systems-")]
+    [SerializeField]
+    private ParticleSystem Breath_in_particle_effect;
+    [SerializeField]
+    private ParticleSystem Breath_out_particle_effect;
 
-    public AudioSource voice1;
-    public AudioSource voice2;
+    [Header("Sound effects & voices")]
+    [SerializeField]
+    private AudioSource Breath_in_sound_effect;
+    [SerializeField]
+    private AudioSource Breath_out_sound_effect;
+    [SerializeField]
+    private AudioSource Voice_part_1;
+    [SerializeField]
+    private AudioSource Voice_part_2;
 
+    [Header("Score counters")]
     public static int scorecounter;
     public static int losecounter;
 
-    private void Awake()
-    {
-        breathin.Pause();
-        breathout.Pause();
-    }
     private void Start()
     {
-        StartCoroutine(beginningtext());
-        textanim.GetComponent<Animator>();
-        fadelevelscript = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+        Initialize_values_and_start_game();
     }
 
-    IEnumerator beginningtext()
+    private void Initialize_values_and_start_game()
     {
-        //beggining text
-        textanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        starttext.text = "Welcome!";
-        textanim.SetBool("fadeout", false);
+        StartCoroutine(Start_of_game());
+        World_text_animator.GetComponent<Animator>();
+        Fade_level_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+    }
 
-        voice1.Play();
+    IEnumerator Start_of_game()
+    {
+        //beginning text
+        World_text_animator.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        World_text.text = "Welcome!";
+        World_text_animator.SetBool("fadeout", false);
+
+        Voice_part_1.Play();
 
         yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Life can be stressful for us sometimes.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Life can be stressful for us sometimes.";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "That's why it's very important that we take breaks, and relax our minds.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "That's why it's very important that we take breaks, and relax our minds.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "There are lots of ways to relax our minds.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "There are lots of ways to relax our minds.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "And we will do a few of them together!";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "And we will do a few of them together!";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Let's begin by taking a few deep breaths.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Let's begin by taking a few deep breaths.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(4f);
-        yield return StartCoroutine(BreathingexerciseStart());
+        yield return StartCoroutine(Begin_Breathing_exercise());
     }
-    IEnumerator BreathingexerciseStart()
+    IEnumerator Begin_Breathing_exercise()
     {
         //start breathing part  //1
 
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Breath in...";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Breath in...";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(1f);
-        breathin.Play();
-        breathinsound.Play();
+        Breath_in_particle_effect.Play();
+        Breath_in_sound_effect.Play();
         yield return new WaitForSeconds(1.5f);
-        rightcontroller.SendHapticImpulse(0.2f, 6f);
-        leftcontroller.SendHapticImpulse(0.2f, 6f);
+        Right_VR_controller.SendHapticImpulse(0.2f, 6f);
+        Left_VR_controller.SendHapticImpulse(0.2f, 6f);
         yield return new WaitForSeconds(1.5f);
-        breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-
-        yield return new WaitForSeconds(2f);
-        textanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        starttext.text = "Hold your breath...";
-        textanim.SetBool("fadeout", false);
+        Breath_in_particle_effect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
 
         yield return new WaitForSeconds(2f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Breath out...";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Hold your breath...";
+        World_text_animator.SetBool("fadeout", false);
+
+
+        yield return new WaitForSeconds(2f);
+        World_text_animator.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        World_text.text = "Breath out...";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(1f);
-        breathout.Play();
-        breathoutsound.Play();
-        rightcontroller.SendHapticImpulse(0.2f, 6f);
-        leftcontroller.SendHapticImpulse(0.2f, 6f);
+        Breath_out_particle_effect.Play();
+        Breath_out_sound_effect.Play();
+        Right_VR_controller.SendHapticImpulse(0.2f, 6f);
+        Left_VR_controller.SendHapticImpulse(0.2f, 6f);
         yield return new WaitForSeconds(3f);
-        breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        Breath_out_particle_effect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
 
         yield return new WaitForSeconds(1f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Try to match your breathing with the flow.";
-        textanim.SetBool("fadeout", false);
-        yield return StartCoroutine(Breathingexercise());
+        World_text.text = "Try to match your breathing with the flow.";
+        World_text_animator.SetBool("fadeout", false);
+        yield return StartCoroutine(Breathing_exercise_loop());
     }
 
-    IEnumerator Breathingexercise()
+    IEnumerator Breathing_exercise_loop()
     {
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(3f);
-            breathin.Play();
-            breathinsound.Play();
+            Breath_in_particle_effect.Play();
+            Breath_in_sound_effect.Play();
             yield return new WaitForSeconds(1.5f);
-            rightcontroller.SendHapticImpulse(0.2f, 6f);
-            leftcontroller.SendHapticImpulse(0.2f, 6f);
+            Right_VR_controller.SendHapticImpulse(0.2f, 6f);
+            Left_VR_controller.SendHapticImpulse(0.2f, 6f);
             yield return new WaitForSeconds(1.5f);
-            breathin.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Breath_in_particle_effect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             yield return new WaitForSeconds(4f);
-            breathout.Play();
-            breathoutsound.Play();
-            rightcontroller.SendHapticImpulse(0.2f, 6f);
-            leftcontroller.SendHapticImpulse(0.2f, 6f);
+            Breath_out_particle_effect.Play();
+            Breath_out_sound_effect.Play();
+            Right_VR_controller.SendHapticImpulse(0.2f, 6f);
+            Left_VR_controller.SendHapticImpulse(0.2f, 6f);
             yield return new WaitForSeconds(3f);
-            breathout.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Breath_out_particle_effect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         yield return new WaitForSeconds(2f);
-        StartCoroutine(Coingame());
+        StartCoroutine(Begin_coin_game());
     }
 
-    IEnumerator Coingame()
+    IEnumerator Begin_coin_game()
     {
-        playersphere.SetActive(true);
-        textanim.SetBool("fadeout", true);
+        Player_sphere.SetActive(true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Now lets play a short game.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Now lets play a short game.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "This game is designed to keep you into a flow state.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "This game is designed to keep you into a flow state.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "You control the sphere in front of you.";
-        textanim.SetBool("fadeout", false);
-
-        yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        starttext.text = "The sphere moves based on where you are looking.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "You control the sphere in front of you.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Use the movement of your head to touch the rotating coins.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "The sphere moves based on where you are looking.";
+        World_text_animator.SetBool("fadeout", false);
+
+
+        yield return new WaitForSeconds(5f);
+        World_text_animator.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        World_text.text = "Use the movement of your head to touch the rotating coins.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(6f);
-        tutorialobjects.SetActive(true);
+        Tutorial_coins.SetActive(true);
         yield return new WaitForSeconds(7f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Now let's add some obstacles in the way.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Now let's add some obstacles in the way.";
+        World_text_animator.SetBool("fadeout", false);
 
 
         yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Now try to touch the rotating coins while avoiding the obstacles.";
+        World_text.text = "Now try to touch the rotating coins while avoiding the obstacles.";
         yield return new WaitForSeconds(1f);
-        objects.SetActive(true);
-        backwall.SetActive(true);
-
+        Coins_and_obstacles_gameobject.SetActive(true);
+        Respawn_wall.SetActive(true);
     }
 
+    //this function was made so another script can call the end stress game function
     public void End_Game()
     {
-        StartCoroutine(Endgame());
+        StartCoroutine(End_stress_game());
     }
 
-    public IEnumerator Endgame()
+    public IEnumerator End_stress_game()
     {
-        backwall.SetActive(false);
-        sphereanim.SetTrigger("isend");
+        Respawn_wall.SetActive(false);
+        Player_sphere_animator.SetTrigger("isend");
         yield return new WaitForSeconds(1);
-        playersphere.SetActive(false);
+        Player_sphere.SetActive(false);
+
 
         yield return new WaitForSeconds(5f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Stress can lead us towards bad decisions because we don't think straight.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Stress can lead us towards bad decisions because we don't think straight.";
+        World_text_animator.SetBool("fadeout", false);
 
-        voice2.Play();
-
-        yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
-        yield return new WaitForSeconds(0.2f);
-        starttext.text = "Try your best to ignore any negative thoughts, everything is always in motion.";
-        textanim.SetBool("fadeout", false);
+        Voice_part_2.Play();
 
         yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Some people say that when a door closes, another door opens.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Try your best to ignore any negative thoughts, everything is always in motion.";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Which means that if something ever goes wrong in your life, another opportunity will arise.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Some people say that when a door closes, another door opens.";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Take care of yourself, and remember to give yourself time to relax!";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Which means that if something ever goes wrong in your life, another opportunity will arise.";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(6f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "That concludes our session.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Take care of yourself, and remember to give yourself time to relax!";
+        World_text_animator.SetBool("fadeout", false);
+
+
+        yield return new WaitForSeconds(6f);
+        World_text_animator.SetBool("fadeout", true);
+        yield return new WaitForSeconds(0.2f);
+        World_text.text = "That concludes our session.";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(3f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Feel free to come back anytime to play again.";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Feel free to come back anytime to play again.";
+        World_text_animator.SetBool("fadeout", false);
+
 
         yield return new WaitForSeconds(4f);
-        textanim.SetBool("fadeout", true);
+        World_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        starttext.text = "Goodbye!";
-        textanim.SetBool("fadeout", false);
+        World_text.text = "Goodbye!";
+        World_text_animator.SetBool("fadeout", false);
 
+
+        //fades back into the main menu
         yield return new WaitForSeconds(4f);
         Levelchangefade.What_level_number_to_load = 1;
-        fadelevelscript.Fade_to_level();
-
+        Fade_level_script.Fade_to_level();
     }
 }

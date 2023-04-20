@@ -347,11 +347,11 @@ public class AnswerButtons : MonoBehaviour
 
     IEnumerator FinishQuiz()
     {
-        //enables the animation for the removing of objects
+        //enables the animation for the removing of Coins_and_obstacles_gameobject
         ButtonAnim.buttonanim.enabled = true;
         CanvasAnim.canvasanim.enabled = true;
 
-        //turns off objects to prevent mashing
+        //turns off Coins_and_obstacles_gameobject to prevent mashing
         answerAbutton.SetActive(false);
         answerBbutton.SetActive(false);
         answerCbutton.SetActive(false);
@@ -649,7 +649,7 @@ public class AnswerButtons : MonoBehaviour
 
     IEnumerator levelisselected()
     {
-        //enables the animation for the removing of objects
+        //enables the animation for the removing of Coins_and_obstacles_gameobject
         ButtonAnim.buttonanim.enabled = true;
         CanvasAnim.canvasanim.enabled = true;
 

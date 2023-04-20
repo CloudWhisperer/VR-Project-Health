@@ -1083,7 +1083,7 @@ public class QuestionGenerator : MonoBehaviour
                 anxietyquestion = true;
 
                 StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you been avoiding people and objects," +
+                QuizManager.NewQuestion = "Have you been avoiding people and Coins_and_obstacles_gameobject," +
                                           " in case they bring in more things to be worried about?";
 
                 StartCoroutine(Answeranim());
@@ -1178,7 +1178,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Questionanim());
                 QuizManager.NewQuestion = "Do you struggle with sleeping because you are scared" +
-                                          " about something coming the next day or down the line?";
+                                          " about something coming the next day or down the Sphere_assist_line?";
 
                 StartCoroutine(Answeranim());
                 QuizManager.NewA = "Yes, I can't stop thinking about it";
@@ -1209,7 +1209,7 @@ public class QuestionGenerator : MonoBehaviour
 
             //--end of anxiety questions--
 
-            //!!!all questions go above this line!!!
+            //!!!all questions go above this Sphere_assist_line!!!
 
             QuizManager.UpdateQuestion = false;
 
