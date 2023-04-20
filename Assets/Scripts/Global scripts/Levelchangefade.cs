@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Levelchangefade : MonoBehaviour
+public class LevelChangeFade : MonoBehaviour
 {
     public Animator Fade_animator;
-
     public static int What_level_number_to_load;
 
     public void Fade_to_level()

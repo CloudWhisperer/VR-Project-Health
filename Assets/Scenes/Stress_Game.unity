@@ -7964,8 +7964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921ac59ac678bd849a847597bd6857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Right_VR_controller: {fileID: 1299134583}
-  Left_VR_controller: {fileID: 921515519}
+  Right_VR_controller: {fileID: 921515519}
+  Left_VR_controller: {fileID: 1299134583}
   Player_sphere: {fileID: 1170519389}
   Player_sphere_animator: {fileID: 1170519396}
   Coins_and_obstacles_gameobject: {fileID: 996615835}
@@ -9291,7 +9291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c300b3ccef1de4ab29a6e0bbaaab02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 139879597}
+  Target_to_look_at: {fileID: 139879597}
 --- !u!1001 &586421564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11759,7 +11759,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -16563,12 +16563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
---- !u!95 &759867376 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d875b43d50f57d246b51262a3df8750b,
-    type: 3}
-  m_PrefabInstance: {fileID: 621753732}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &768629620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4644801489947069046, guid: 36009c464e9d71343bb276ba903cc76c,
@@ -18878,8 +18872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 921515517}
-  handanimator: {fileID: 1515784296}
+  Hand_collider: {fileID: 921515517}
 --- !u!114 &921515515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23090,8 +23083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 1299134581}
-  handanimator: {fileID: 759867376}
+  Hand_collider: {fileID: 1299134581}
 --- !u!114 &1299134579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29536,16 +29528,6 @@ PrefabInstance:
     - target: {fileID: 5845864908267410082, guid: d524fb5a203ad894a81c72a6dbdbdafd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5845864908267410083, guid: d524fb5a203ad894a81c72a6dbdbdafd,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5845864908392808714, guid: d524fb5a203ad894a81c72a6dbdbdafd,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

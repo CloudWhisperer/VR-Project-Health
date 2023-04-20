@@ -1,49 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class QuizManager : MonoBehaviour
 {
-    //These 4 are for the question and button texts
-    public GameObject ScreenQuestion;
-    public GameObject AnswerA;
-    public GameObject AnswerB;
-    public GameObject AnswerC;
+    [Header("-Question text & answer text-")]
+    [SerializeField]
+    private GameObject Question_text;
+    [SerializeField]
+    private GameObject Answer_A_text,
+                       Answer_B_text,
+                       Answer_C_text;
 
     //track scores of the player with these
-    public static int Anxietylevel = 0;
-    public static int Depressionlevel = 0;
-    public static int Stresslevel = 0;
+    public static int Anxiety_level = 0;
+    public static int Depression_level = 0;
+    public static int Stress_level = 0;
 
     //the strings for the new question and answer buttons
-    public static string NewQuestion;
-    public static string NewA;
-    public static string NewB;
-    public static string NewC;
+    public static string New_question_text;
+    public static string New_answer_A;
+    public static string New_answer_B;
+    public static string New_answer_C;
 
-    //a bool to check of the question needs an update or not
-    public static bool UpdateQuestion = false;
+    public static bool Update_Question = false;
 
-    // Update is called once per frame
     void Update()
     {
         //this triggers after the question is answered in the question generator
-        if (UpdateQuestion == false)
+        if (Update_Question == false)
         {
-            UpdateQuestion = true;
-            StartCoroutine(TextonScreen());
+            Update_Question = true;
+            StartCoroutine(Show_text_on_screen());
         }
     }
 
-    //a function that replaces the text with the new question and answer
-    IEnumerator TextonScreen()
+    //replaces the text with the new question and answer
+    IEnumerator Show_text_on_screen()
     {
         yield return new WaitForSeconds(0.1f);
-        ScreenQuestion.GetComponent<TextMeshProUGUI>().text = NewQuestion;
-        AnswerA.GetComponent<TextMeshProUGUI>().text = NewA;
-        AnswerB.GetComponent<TextMeshProUGUI>().text = NewB;
-        AnswerC.GetComponent<TextMeshProUGUI>().text = NewC;
-
+        Question_text.GetComponent<TextMeshProUGUI>().text = New_question_text;
+        Answer_A_text.GetComponent<TextMeshProUGUI>().text = New_answer_A;
+        Answer_B_text.GetComponent<TextMeshProUGUI>().text = New_answer_B;
+        Answer_C_text.GetComponent<TextMeshProUGUI>().text = New_answer_C;
     }
 }

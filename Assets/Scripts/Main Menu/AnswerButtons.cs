@@ -1,132 +1,142 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class AnswerButtons : MonoBehaviour
 {
-    public Animator questionanim;
-    public Animator answer1;
-    public Animator answer2;
-    public Animator answer3;
+    private QuestionGenerator Question_generator_script;
 
-    Levelchangefade levelfadescript;
+    [Header("-Question and answer animators-")]
+    [SerializeField]
+    private Animator Question_text_animator;
+    [SerializeField]
+    private Animator Answer_1_animator,
+                     Answer_2_animator,
+                     Answer_3_animator,
+                     Button_animator,
+                     Canvas_animator;
 
-    //the DEBUG text tracker of the 3 scores
-    public TextMeshProUGUI anxietytext;
-    public TextMeshProUGUI depressiontext;
-    public TextMeshProUGUI stresstext;
+    private LevelChangeFade Level_fade_script;
 
-    //soundeffects for buttons
-    public AudioSource buttonsound;
+    [Header("-Sound effects-")]
+    [SerializeField]
+    private AudioSource Button_press_sound_effect;
 
-    //the answer buttons
-    public GameObject answerAbutton;
-    public GameObject answerBbutton;
-    public GameObject answerCbutton;
+    [Header("-Answer buttons-")]
+    [SerializeField]
+    private GameObject Answer_A_button;
+    [SerializeField]
+    private GameObject Answer_B_button;
+    [SerializeField]
+    private GameObject Answer_C_button;
 
-    //material colour to change
-    public Material worldmat;
+    [Header("-World material-")]
+    [SerializeField]
+    private Material World_material;
 
-    //destroy these
-    public GameObject destroy_this_button;
-    public GameObject destroy_this_canvas;
+    //destroy these at the end
+    [Header("-Canvas and physical button gameobjects-")]
+    [SerializeField]
+    private GameObject Physical_buttons;
+    [SerializeField]
+    private GameObject Quiz_canvas;
 
     //values to determine final scorecounter
-    private int highestvalue = -1;
-    private int randomnumber;
+    private int Highest_value = -1;
+    private int Random_number;
 
-    //value to check whatcolour is being used
-    private int colourcheck = 0;
+    //value to check what colour is being used in the world
+    private int World_colour_check = 0;
 
-    //weather particleeffects
-    public ParticleSystem rainweather;
-    public ParticleSystem fogweather;
-    public ParticleSystem cloudyweather;
-    public ParticleSystem snowweather;
-    public GameObject stars;
+    [Header("-Weather particle effects-")]
+    [SerializeField]
+    private ParticleSystem Rain;
+    [SerializeField]
+    private ParticleSystem Fog,
+                           Cloudy,
+                           Snow;
+    [SerializeField]
+    private GameObject Stars;
 
-    //skyboxes
-    public Material redspace;
-    public Material bluespace;
-    public Material pinkspace;
-    public Material yellowspace;
-    public Material orangespace;
-    public Material greenspace;
-    public Material brownspace;
-    public Material sunskybox;
+    [Header("-Skyboxes-")]
+    [SerializeField]
+    private Material Red_skybox;
+    [SerializeField]
+    private Material Blue_skybox,
+                     Pink_skybox,
+                     Yellow_skybox,
+                     Orange_skybox,
+                     Green_skybox,
+                     Brown_skybox,
+                     Sun_skybox;
 
     //particle effect to play when pushed button
-    public ParticleSystem buttonparticleA, buttonparticleB, buttonparticleC;
+    [Header("-Button particle effects-")]
+    [SerializeField]
+    private ParticleSystem Button_A_particle_effect;
+    [SerializeField]
+    private ParticleSystem Button_B_particle_effect;
+    [SerializeField]
+    private ParticleSystem Button_C_particle_effect;
 
     private void Start()
     {
-        levelfadescript = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+        Question_generator_script = GameObject.FindGameObjectWithTag("QuestionManager").GetComponent<QuestionGenerator>();
+        Level_fade_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChangeFade>();
+        Button_animator.GetComponent<Animator>();
     }
 
-    public void AnswerA()
+    public void Answer_A_pressed()
     {
-        buttonparticleA.Play();
-        buttonsound.Play();
+        Button_A_particle_effect.Play();
+        Button_press_sound_effect.Play();
 
-        //if the user picks a...
         if (QuestionGenerator.Answer_that_increases_score == "A")
         {
-            //and its a stressquestion...
-            if (QuestionGenerator.stressquestion == true)
+            if (QuestionGenerator.Is_stress_question == true)
             {
-                //do this!
-                QuizManager.Stresslevel += 1;
-                stresstext.text = "Stresslevel = " + QuizManager.Stresslevel.ToString();
+                QuizManager.Stress_level += 1;
             }
 
-            //and its a depressionquestion...
-            if (QuestionGenerator.depressionquestion == true)
+            if (QuestionGenerator.Is_depression_question == true)
             {
-                //do this!
-                QuizManager.Depressionlevel += 1;
-                depressiontext.text = "Depressionlevel = " + QuizManager.Depressionlevel.ToString();
+                QuizManager.Depression_level += 1;
             }
 
-            //and its a anxietyquestion...
-            if (QuestionGenerator.anxietyquestion == true)
+            if (QuestionGenerator.Is_anxiety_question == true)
             {
-                //do this!
-                QuizManager.Anxietylevel += 1;
-                anxietytext.text = "Anxietylevel = " + QuizManager.Anxietylevel.ToString();
+                QuizManager.Anxiety_level += 1;
             }
 
-            //and its a personalquestion...
-            if (QuestionGenerator.personalquestion == true)
+            if (QuestionGenerator.Is_personal_question == true)
             {
-                switch (QuestionGenerator.questionnumber)
+                switch (QuestionGenerator.Question_number)
                 {
                     case 1:
-                        Redselect();
+                        Red_selected();
                         break;
 
                     case 2:
-                        Blueselect();
+                        Blue_selected();
                         break;
 
                     case 3:
-                        Yellowselect();
+                        Yellow_selected();
                         break;
 
                     case 4:
-                        Pinkselect();
+                        Pink_selected();
                         break;
 
                     case 5:
-                        Orangeselect();
+                        Orange_selected();
                         break;
 
                     case 6:
-                        Greenselect();
+                        Green_selected();
                         break;
 
                     case 7:
-                        Brownselect();
+                        Brown_selected();
                         break;
 
                     case 8:
@@ -150,77 +160,71 @@ public class AnswerButtons : MonoBehaviour
                         break;
 
                     case 13:
-                        QuestionGenerator.questionnumber = -3;
+                        QuestionGenerator.Question_number = -3;
                         break;
                 }
             }
-            if (QuestionGenerator.levelselectquestion == true)
+            if (QuestionGenerator.Is_level_select_question == true)
             {
-                switch (QuestionGenerator.questionnumber)
+                switch (QuestionGenerator.Question_number)
                 {
                     case -2:
-                        StartCoroutine(levelisselected());
-                        Levelchangefade.What_level_number_to_load = 3;
-                        levelfadescript.Fade_to_level();
+                        StartCoroutine(Level_has_been_selected());
+                        LevelChangeFade.What_level_number_to_load = 3;
+                        Level_fade_script.Fade_to_level();
                         break;
 
                     case -1:
-                        StartCoroutine(levelisselected());
-                        Levelchangefade.What_level_number_to_load = 2;
-                        levelfadescript.Fade_to_level();
+                        StartCoroutine(Level_has_been_selected());
+                        LevelChangeFade.What_level_number_to_load = 2;
+                        Level_fade_script.Fade_to_level();
                         break;
 
                     case 0:
-                        StartCoroutine(levelisselected());
-                        Levelchangefade.What_level_number_to_load = 1;
-                        levelfadescript.Fade_to_level();
+                        StartCoroutine(Level_has_been_selected());
+                        LevelChangeFade.What_level_number_to_load = 1;
+                        Level_fade_script.Fade_to_level();
                         break;
                 }
             }
         }
 
-        //if user gets another choice, there isnt a wrong is there? ;p
         else
         {
             Debug.Log("answer is not A");
         }
 
-        StartCoroutine(Nextquestion());
-
+        StartCoroutine(Go_to_next_question());
     }
 
-    //same thing as A
-    public void AnswerB()
+    public void Answer_B_pressed()
     {
-        buttonparticleB.Play();
-        buttonsound.Play();
+        Button_B_particle_effect.Play();
+        Button_press_sound_effect.Play();
 
         if (QuestionGenerator.Answer_that_increases_score == "B")
         {
-            if (QuestionGenerator.stressquestion == true)
+            if (QuestionGenerator.Is_stress_question == true)
             {
-                QuizManager.Stresslevel += 1;
-                stresstext.text = "Stresslevel = " + QuizManager.Stresslevel.ToString();
+                QuizManager.Stress_level += 1;
             }
 
-            if (QuestionGenerator.depressionquestion == true)
+            if (QuestionGenerator.Is_depression_question == true)
             {
-                QuizManager.Depressionlevel += 1;
-                depressiontext.text = "Depressionlevel = " + QuizManager.Depressionlevel.ToString();
+                QuizManager.Depression_level += 1;
             }
 
-            if (QuestionGenerator.anxietyquestion == true)
+            if (QuestionGenerator.Is_anxiety_question == true)
             {
-                QuizManager.Anxietylevel += 1;
-                anxietytext.text = "Anxietylevel = " + QuizManager.Anxietylevel.ToString();
+                QuizManager.Anxiety_level += 1;
             }
 
-            if (QuestionGenerator.personalquestion == true)
+            if (QuestionGenerator.Is_personal_question == true)
             {
                 //do personal code here
                 Debug.Log("NO SELECTED");
             }
-            if (QuestionGenerator.levelselectquestion == true)
+            if (QuestionGenerator.Is_level_select_question == true)
             {
                 //do personal code here
                 Debug.Log("NO SELECTED");
@@ -232,44 +236,40 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not B");
         }
 
-        StartCoroutine(Nextquestion());
+        StartCoroutine(Go_to_next_question());
     }
 
-    public void AnswerC()
+    public void Answer_C_pressed()
     {
-        buttonparticleC.Play();
-        buttonsound.Play();
+        Button_C_particle_effect.Play();
+        Button_press_sound_effect.Play();
 
         if (QuestionGenerator.Answer_that_increases_score == "C")
         {
-            if (QuestionGenerator.stressquestion == true)
+            if (QuestionGenerator.Is_stress_question == true)
             {
-                QuizManager.Stresslevel += 1;
-                stresstext.text = "Stresslevel = " + QuizManager.Stresslevel.ToString();
+                QuizManager.Stress_level += 1;
             }
 
-            if (QuestionGenerator.depressionquestion == true)
+            if (QuestionGenerator.Is_depression_question == true)
             {
-                QuizManager.Depressionlevel += 1;
-                depressiontext.text = "Depressionlevel = " + QuizManager.Depressionlevel.ToString();
+                QuizManager.Depression_level += 1;
             }
 
-            if (QuestionGenerator.anxietyquestion == true)
+            if (QuestionGenerator.Is_anxiety_question == true)
             {
-                QuizManager.Anxietylevel += 1;
-                anxietytext.text = "Anxietylevel = " + QuizManager.Anxietylevel.ToString();
+                QuizManager.Anxiety_level += 1;
             }
         }
 
-        //and its a personalquestion...
-        if (QuestionGenerator.personalquestion == true)
+        if (QuestionGenerator.Is_personal_question == true)
         {
-            switch (QuestionGenerator.questionnumber)
+            switch (QuestionGenerator.Question_number)
             {
                 case 1:
                     //did it manually here because of a bug
-                    QuestionGenerator.questionnumber = 6;
-                    StartCoroutine(Nextquestion());
+                    QuestionGenerator.Question_number = 6;
+                    StartCoroutine(Go_to_next_question());
                     break;
                 case 2:
                 case 3:
@@ -277,7 +277,7 @@ public class AnswerButtons : MonoBehaviour
                 case 5:
                 case 6:
                 case 7:
-                    QuestionGenerator.questionnumber = 7;
+                    QuestionGenerator.Question_number = 7;
                     break;
 
                 case 8:
@@ -285,18 +285,18 @@ public class AnswerButtons : MonoBehaviour
                 case 10:
                 case 11:
                 case 12:
-                    QuestionGenerator.questionnumber = 12;
+                    QuestionGenerator.Question_number = 12;
                     break;
 
                 case 13:
-                    QuestionGenerator.questionnumber = 0;
+                    QuestionGenerator.Question_number = 0;
                     break;
             }
         }
 
-        if (QuestionGenerator.levelselectquestion == true)
+        if (QuestionGenerator.Is_level_select_question == true)
         {
-            QuestionGenerator.questionnumber = 0;
+            QuestionGenerator.Question_number = 0;
         }
 
         else
@@ -304,248 +304,246 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("answer is not C");
         }
 
-        StartCoroutine(Nextquestion());
+        StartCoroutine(Go_to_next_question());
     }
 
-    //goes to next question
-    IEnumerator Nextquestion()
+    IEnumerator Go_to_next_question()
     {
         //sets the bools to false to reset them before question loads
-        QuestionGenerator.stressquestion = false;
-        QuestionGenerator.depressionquestion = false;
-        QuestionGenerator.anxietyquestion = false;
-        QuestionGenerator.personalquestion = false;
-        QuestionGenerator.levelselectquestion = false;
+        QuestionGenerator.Is_stress_question = false;
+        QuestionGenerator.Is_depression_question = false;
+        QuestionGenerator.Is_anxiety_question = false;
+        QuestionGenerator.Is_personal_question = false;
+        QuestionGenerator.Is_level_select_question = false;
 
-        questionanim.SetBool("isshow", false);
-        answer1.SetBool("show", true);
-        answer2.SetBool("show", true);
-        answer3.SetBool("show", true);
+        Question_text_animator.SetBool("isshow", false);
+        Answer_1_animator.SetBool("show", true);
+        Answer_2_animator.SetBool("show", true);
+        Answer_3_animator.SetBool("show", true);
 
-        //Questionanim 0.3 seconds, stoppppp
+        //Show_question_text 0.3 seconds, stoppppp
         yield return new WaitForSeconds(0.3f);
 
         //checks if the quiz is done or not CHANGE THE NUMBER EQUAL TO HOW MANY QUESTIONS THERE ARE + 1.
-        if (QuestionGenerator.questionnumber > 45)
+        if (QuestionGenerator.Question_number > 45)
         {
             Debug.Log("DONE WITH QUIZZZZZZZZZ");
-            StartCoroutine(FinishQuiz());
-
-            //highestvalue = Mathf.Max(QuizManager.Anxietylevel, QuizManager.Depressionlevel, QuizManager.Stresslevel);
-            //Debug.Log(highestvalue);
+            StartCoroutine(Finish_Quiz());
         }
 
         else
         {
-            QuestionGenerator.questionnumber += 1;
-            QuestionGenerator.Displaying_Question = false;
-            answerAbutton.SetActive(true);
-            answerBbutton.SetActive(true);
-            answerCbutton.SetActive(true);
+            QuestionGenerator.Question_number += 1;
+            QuestionGenerator.Is_displaying_question = false;
+            Answer_A_button.SetActive(true);
+            Answer_B_button.SetActive(true);
+            Answer_C_button.SetActive(true);
         }
+
+        Question_generator_script.Update_question_number();
     }
 
-    IEnumerator FinishQuiz()
+    IEnumerator Finish_Quiz()
     {
-        //enables the animation for the removing of Coins_and_obstacles_gameobject
-        ButtonAnim.buttonanim.enabled = true;
-        CanvasAnim.canvasanim.enabled = true;
+        //enables the animation for the removing of objects
+        Button_animator.enabled = true;
+        Canvas_animator.enabled = true;
 
-        //turns off Coins_and_obstacles_gameobject to prevent mashing
-        answerAbutton.SetActive(false);
-        answerBbutton.SetActive(false);
-        answerCbutton.SetActive(false);
+        //turns off objects to prevent mashing
+        Answer_A_button.SetActive(false);
+        Answer_B_button.SetActive(false);
+        Answer_C_button.SetActive(false);
 
         //waits for a second or 2 and destroys it to save memory
         yield return new WaitForSeconds(1.1f);
-        Destroy(destroy_this_button);
-        Destroy(destroy_this_canvas);
+        Destroy(Physical_buttons);
+        Destroy(Quiz_canvas);
 
         //for loop that checks which value is the highest. does it multiple times just in case.
         for (int i = 0; i < 3; i++)
         {
-            if (QuizManager.Stresslevel > highestvalue)
+            if (QuizManager.Stress_level > Highest_value)
             {
-                highestvalue = QuizManager.Stresslevel;
+                Highest_value = QuizManager.Stress_level;
             }
-            if (QuizManager.Depressionlevel > highestvalue)
+            if (QuizManager.Depression_level > Highest_value)
             {
-                highestvalue = QuizManager.Depressionlevel;
+                Highest_value = QuizManager.Depression_level;
             }
-            if (QuizManager.Anxietylevel > highestvalue)
+            if (QuizManager.Anxiety_level > Highest_value)
             {
-                highestvalue = QuizManager.Anxietylevel;
+                Highest_value = QuizManager.Anxiety_level;
             }
 
-            Debug.Log(highestvalue);
+            Debug.Log(Highest_value);
         }
 
         //loads the level based on the results (after the 3 checks)
-        if (highestvalue == QuizManager.Stresslevel)
+        if (Highest_value == QuizManager.Stress_level)
         {
             Debug.Log("stress win");
-            Levelchangefade.What_level_number_to_load = 3;
-            levelfadescript.Fade_to_level();
+            LevelChangeFade.What_level_number_to_load = 3;
+            Level_fade_script.Fade_to_level();
         }
-        if (highestvalue == QuizManager.Depressionlevel)
+        if (Highest_value == QuizManager.Depression_level)
         {
             Debug.Log("depression win");
-            Levelchangefade.What_level_number_to_load = 4;
-            levelfadescript.Fade_to_level();
+            LevelChangeFade.What_level_number_to_load = 4;
+            Level_fade_script.Fade_to_level();
         }
-        if (highestvalue == QuizManager.Anxietylevel)
+        if (Highest_value == QuizManager.Anxiety_level)
         {
             Debug.Log("anxiety win");
-            Levelchangefade.What_level_number_to_load = 2;
-            levelfadescript.Fade_to_level();
+            LevelChangeFade.What_level_number_to_load = 2;
+            Level_fade_script.Fade_to_level();
         }
 
         //this check is in case multiple values are the same
         if (
            //checks if they are all the same
-           highestvalue == QuizManager.Stresslevel &&
-           highestvalue == QuizManager.Depressionlevel &&
-           highestvalue == QuizManager.Anxietylevel ||
+           Highest_value == QuizManager.Stress_level &&
+           Highest_value == QuizManager.Depression_level &&
+           Highest_value == QuizManager.Anxiety_level ||
 
            //checks if stress and depression is the same
-           highestvalue == QuizManager.Stresslevel &&
-           highestvalue == QuizManager.Depressionlevel ||
+           Highest_value == QuizManager.Stress_level &&
+           Highest_value == QuizManager.Depression_level ||
 
            //checks if stress and anxiety is the same
-           highestvalue == QuizManager.Stresslevel &&
-           highestvalue == QuizManager.Anxietylevel ||
+           Highest_value == QuizManager.Stress_level &&
+           Highest_value == QuizManager.Anxiety_level ||
 
            //checks if depression and anxiety is the same
-           highestvalue == QuizManager.Depressionlevel &&
-           highestvalue == QuizManager.Anxietylevel)
+           Highest_value == QuizManager.Depression_level &&
+           Highest_value == QuizManager.Anxiety_level)
         {
             Debug.Log("they were either the same or all 0. (which is kinda the same thing)");
-            RandomSceneSelect();
+            Random_level_select();
         }
     }
 
-    void RandomSceneSelect()
+    void Random_level_select()
     {
         Debug.Log("even,picking random");
-        randomnumber = Random.Range(0, 3);
-        switch (randomnumber)
+        Random_number = Random.Range(0, 3);
+        switch (Random_number)
         {
             case 0:
                 Debug.Log("number1");
-                Levelchangefade.What_level_number_to_load = 3;
-                levelfadescript.Fade_to_level();
+                LevelChangeFade.What_level_number_to_load = 3;
+                Level_fade_script.Fade_to_level();
                 break;
 
             case 1:
                 Debug.Log("number2");
-                Levelchangefade.What_level_number_to_load = 2;
-                levelfadescript.Fade_to_level();
+                LevelChangeFade.What_level_number_to_load = 2;
+                Level_fade_script.Fade_to_level();
                 break;
 
             case 2:
                 Debug.Log("number3");
-                Levelchangefade.What_level_number_to_load = 1;
-                levelfadescript.Fade_to_level();
+                LevelChangeFade.What_level_number_to_load = 1;
+                Level_fade_script.Fade_to_level();
                 break;
         }
     }
 
-    void Redselect()
+    void Red_selected()
     {
         Debug.Log("RED selected");
-        worldmat.SetColor("_BaseColor", Color.red);
-        RenderSettings.skybox = redspace;
-        colourcheck = 1;
+        World_material.SetColor("_BaseColor", Color.red);
+        RenderSettings.skybox = Red_skybox;
+        World_colour_check = 1;
     }
 
-    void Blueselect()
+    void Blue_selected()
     {
         Debug.Log("BLUE selected");
-        worldmat.SetColor("_BaseColor", Color.blue);
-        RenderSettings.skybox = bluespace;
-        colourcheck = 2;
+        World_material.SetColor("_BaseColor", Color.blue);
+        RenderSettings.skybox = Blue_skybox;
+        World_colour_check = 2;
     }
 
-    void Yellowselect()
+    void Yellow_selected()
     {
         Debug.Log("YELLOW selected");
-        worldmat.SetColor("_BaseColor", Color.yellow);
-        RenderSettings.skybox = yellowspace;
-        colourcheck = 3;
+        World_material.SetColor("_BaseColor", Color.yellow);
+        RenderSettings.skybox = Yellow_skybox;
+        World_colour_check = 3;
     }
 
-    void Pinkselect()
+    void Pink_selected()
     {
         Debug.Log("PINK selected");
         Color Pink = new Color32(227, 61, 148, 1);
-        worldmat.SetColor("_BaseColor", Pink);
-        RenderSettings.skybox = pinkspace;
-        colourcheck = 4;
+        World_material.SetColor("_BaseColor", Pink);
+        RenderSettings.skybox = Pink_skybox;
+        World_colour_check = 4;
     }
 
-    void Orangeselect()
+    void Orange_selected()
     {
         Debug.Log("ORANGE selected");
         Color Orange = new Color32(211, 84, 0, 1);
-        worldmat.SetColor("_BaseColor", Orange);
-        RenderSettings.skybox = orangespace;
-        colourcheck = 5;
+        World_material.SetColor("_BaseColor", Orange);
+        RenderSettings.skybox = Orange_skybox;
+        World_colour_check = 5;
     }
 
-    void Greenselect()
+    void Green_selected()
     {
         Debug.Log("GREEN selected");
-        worldmat.SetColor("_BaseColor", Color.green);
-        RenderSettings.skybox = greenspace;
-        colourcheck = 6;
+        World_material.SetColor("_BaseColor", Color.green);
+        RenderSettings.skybox = Green_skybox;
+        World_colour_check = 6;
     }
 
-    void Brownselect()
+    void Brown_selected()
     {
         Debug.Log("BROWN selected");
         Color Brown = new Color32(139, 69, 19, 1);
-        worldmat.SetColor("_BaseColor", Brown);
-        RenderSettings.skybox = brownspace;
-        colourcheck = 7;
+        World_material.SetColor("_BaseColor", Brown);
+        RenderSettings.skybox = Brown_skybox;
+        World_colour_check = 7;
     }
 
     void Check_colour_of_Skybox()
     {
-        if (RenderSettings.skybox == sunskybox)
+        if (RenderSettings.skybox == Sun_skybox)
         {
             Debug.Log("sunison");
-            switch (colourcheck)
+            switch (World_colour_check)
             {
                 case 1:
-                    RenderSettings.skybox = redspace;
+                    RenderSettings.skybox = Red_skybox;
                     break;
 
                 case 2:
-                    RenderSettings.skybox = bluespace;
+                    RenderSettings.skybox = Blue_skybox;
                     break;
 
                 case 3:
-                    RenderSettings.skybox = yellowspace;
+                    RenderSettings.skybox = Yellow_skybox;
                     break;
 
                 case 4:
-                    RenderSettings.skybox = pinkspace;
+                    RenderSettings.skybox = Pink_skybox;
                     break;
 
                 case 5:
-                    RenderSettings.skybox = orangespace;
+                    RenderSettings.skybox = Orange_skybox;
                     break;
 
                 case 6:
-                    RenderSettings.skybox = greenspace;
+                    RenderSettings.skybox = Green_skybox;
                     break;
 
                 case 7:
-                    RenderSettings.skybox = brownspace;
+                    RenderSettings.skybox = Brown_skybox;
                     break;
 
                 default:
-                    RenderSettings.skybox = pinkspace;
+                    RenderSettings.skybox = Pink_skybox;
                     break;
 
             }
@@ -554,109 +552,108 @@ public class AnswerButtons : MonoBehaviour
 
     void Set_weather_to_Rain()
     {
-        if (snowweather.isPlaying ||
-            fogweather.isPlaying)
+        if (Snow.isPlaying ||
+            Fog.isPlaying)
         {
-            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
-        if (!stars.activeInHierarchy)
+        if (!Stars.activeInHierarchy)
         {
-            stars.SetActive(true);
+            Stars.SetActive(true);
         }
 
         Check_colour_of_Skybox();
 
         Debug.Log("RAIN selected");
-        rainweather.Play();
-        cloudyweather.Play();
+        Rain.Play();
+        Cloudy.Play();
     }
 
     void Set_weather_to_Sunny()
     {
-        if (rainweather.isPlaying ||
-            snowweather.isPlaying ||
-            fogweather.isPlaying ||
-            cloudyweather.isPlaying)
+        if (Rain.isPlaying ||
+            Snow.isPlaying ||
+            Fog.isPlaying ||
+            Cloudy.isPlaying)
         {
-            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            cloudyweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Cloudy.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
         Debug.Log("SUNNY selected");
-        stars.SetActive(false);
-        RenderSettings.skybox = sunskybox;
+        Stars.SetActive(false);
+        RenderSettings.skybox = Sun_skybox;
     }
 
     void Set_weather_to_Snow()
     {
-        if (rainweather.isPlaying ||
-            fogweather.isPlaying ||
-            cloudyweather.isPlaying)
+        if (Rain.isPlaying ||
+            Fog.isPlaying ||
+            Cloudy.isPlaying)
         {
-            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            cloudyweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Cloudy.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
-        snowweather.Play();
+        Snow.Play();
         Debug.Log("SNOWY selected");
 
     }
 
     void Set_weather_to_Foggy()
     {
-        if (rainweather.isPlaying ||
-            snowweather.isPlaying)
+        if (Rain.isPlaying ||
+            Snow.isPlaying)
         {
-            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
-        if (!stars.activeInHierarchy)
+        if (!Stars.activeInHierarchy)
         {
-            stars.SetActive(true);
+            Stars.SetActive(true);
         }
 
         Check_colour_of_Skybox();
         Debug.Log("FOGGY selected");
-        fogweather.Play();
-        cloudyweather.Play();
+        Fog.Play();
+        Cloudy.Play();
     }
 
     void Set_weather_to_Cloudy()
     {
-        if (rainweather.isPlaying ||
-            snowweather.isPlaying ||
-            fogweather.isPlaying)
+        if (Rain.isPlaying ||
+            Snow.isPlaying ||
+            Fog.isPlaying)
         {
-            rainweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            snowweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            fogweather.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
-        if (!stars.activeInHierarchy)
+        if (!Stars.activeInHierarchy)
         {
-            stars.SetActive(true);
+            Stars.SetActive(true);
         }
 
         Check_colour_of_Skybox();
         Debug.Log("CLOUDY selected");
-        cloudyweather.Play();
+        Cloudy.Play();
     }
 
-    IEnumerator levelisselected()
+    IEnumerator Level_has_been_selected()
     {
-        //enables the animation for the removing of Coins_and_obstacles_gameobject
-        ButtonAnim.buttonanim.enabled = true;
-        CanvasAnim.canvasanim.enabled = true;
+        //enables the animation for the removing of objects
+        Button_animator.enabled = true;
+        Canvas_animator.enabled = true;
 
         //waits for a second or 2 and destroys it to save memory
         yield return new WaitForSeconds(1.1f);
-        Destroy(destroy_this_button);
-        Destroy(destroy_this_canvas);
+        Destroy(Physical_buttons);
+        Destroy(Quiz_canvas);
     }
-
 }

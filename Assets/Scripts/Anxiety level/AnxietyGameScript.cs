@@ -12,7 +12,7 @@ public class AnxietyGameScript : MonoBehaviour
     [SerializeField]
     private XRBaseController Right_VR_Controller;
 
-    Levelchangefade Level_fade_script;
+    LevelChangeFade Level_fade_script;
 
     [Header("-Game text-")]
     [SerializeField]
@@ -122,7 +122,7 @@ public class AnxietyGameScript : MonoBehaviour
         Breath_out_particle.Pause();
         StartCoroutine(Begin_breathing_exercise());
         Game_instruction_text_animator.GetComponent<Animator>();
-        Level_fade_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+        Level_fade_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChangeFade>();
         Time_remaining = Maximum_time;
     }
 
@@ -523,7 +523,7 @@ public class AnxietyGameScript : MonoBehaviour
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "This activity aims to relax your body and help you feel calm.";
+        Game_instruction_text.text = "This activity aims to relax your Paper_plane_rigidbody and help you feel calm.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(5f);
 
@@ -574,13 +574,13 @@ public class AnxietyGameScript : MonoBehaviour
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "It's important to try and notice that so your body can feel relaxed.";
+        Game_instruction_text.text = "It's important to try and notice that so your Paper_plane_rigidbody can feel relaxed.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(5f);
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "We will be repeating this exercise with different parts of the body.";
+        Game_instruction_text.text = "We will be repeating this exercise with different parts of the Paper_plane_rigidbody.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(5f);
 
@@ -811,7 +811,7 @@ public class AnxietyGameScript : MonoBehaviour
         //outro / ending
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "Your whole body should feel much more relaxed than before.";
+        Game_instruction_text.text = "Your whole Paper_plane_rigidbody should feel much more relaxed than before.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 
@@ -876,7 +876,7 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(6f);
 
         //fade to main menu
-        Levelchangefade.What_level_number_to_load = 1;
+        LevelChangeFade.What_level_number_to_load = 1;
         Level_fade_script.Fade_to_level();
     }
 }

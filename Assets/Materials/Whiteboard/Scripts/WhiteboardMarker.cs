@@ -32,7 +32,7 @@ public class WhiteboardMarker : MonoBehaviour
         //set colour array
         Colours = Enumerable.Repeat(Renderer.material.color, pensize * pensize).ToArray();
 
-        //set tip height of the marker
+        //set tip height of the Whiteboard_marker
         tipheight = tip.localScale.y;
 
     }
@@ -46,12 +46,12 @@ public class WhiteboardMarker : MonoBehaviour
 
     private void Draw()
     {
-        //casting a raycast and checking if it hits the whiteboard or not
+        //casting a raycast and checking if it hits the Whiteboard or not
         if (Physics.Raycast(tip.position, transform.up, out touch, tipheight))
         {
             if (touch.transform.CompareTag("Whiteboard"))
             {
-                //double checks the whiteboard is not null
+                //double checks the Whiteboard is not null
                 if (_whiteboard == null)
                 {
                     _whiteboard = touch.transform.GetComponent<Whiteboard>();
@@ -70,11 +70,11 @@ public class WhiteboardMarker : MonoBehaviour
                 //gets touch position from world coordinates
                 touchpos = new Vector2(touch.textureCoord.x, touch.textureCoord.y);
 
-                //converst touch position to whiteboard size
+                //converst touch position to Whiteboard size
                 var x = (int)(touchpos.x * _whiteboard.texturesize.x - (pensize / 2));
                 var y = (int)(touchpos.y * _whiteboard.texturesize.y - (pensize / 2));
 
-                //if the drawing is not on the whiteboard then exit otherwise lag
+                //if the drawing is not on the Whiteboard then exit otherwise lag
                 if (y < 0 || y > _whiteboard.texturesize.y || x < 0 || x > _whiteboard.texturesize.x)
                 {
                     drawingsound.Stop();

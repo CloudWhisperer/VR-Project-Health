@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class WhatObjectIsBeingGrabbed : MonoBehaviour
+public class WhatIsBeingGrabbed : MonoBehaviour
 {
+    [Header("-Hands-")]
     [SerializeField]
     private SphereCollider Hand_collider;
-    [SerializeField]
     private Animator Hand_animator;
 
     private void OnTriggerEnter(Collider grabCollider)

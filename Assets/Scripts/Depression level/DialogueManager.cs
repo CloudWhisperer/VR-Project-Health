@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DialogueManager : MonoBehaviour
 {
-    Levelchangefade Fade_level_script;
+    LevelChangeFade Fade_level_script;
 
     [Header("-Tutorial images and animations-")]
     [SerializeField]
@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         Sentences = new Queue<string>();
-        Fade_level_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+        Fade_level_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChangeFade>();
     }
 
     void Update()
@@ -513,7 +513,7 @@ public class DialogueManager : MonoBehaviour
     void End_dialogue_and_game()
     {
         Debug.Log("End of conversation");
-        Levelchangefade.What_level_number_to_load = 1;
+        LevelChangeFade.What_level_number_to_load = 1;
         Fade_level_script.Fade_to_level();
 
     }

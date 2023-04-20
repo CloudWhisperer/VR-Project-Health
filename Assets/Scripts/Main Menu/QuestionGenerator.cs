@@ -5,576 +5,639 @@ using UnityEngine.UI;
 
 public class QuestionGenerator : MonoBehaviour
 {
-    public Animator questionanim;
-    public Animator answer1;
-    public Animator answer2;
-    public Animator answer3;
+    [Header("-Question and answer text animators-")]
+    [SerializeField]
+    private Animator Question_text_animator;
+    [SerializeField]
+    private Animator Answer_A_text_animator,
+                     Answer_B_text_animator,
+                     Answer_C_text_animator;
 
     public static string Answer_that_increases_score;
-    public static bool Displaying_Question = false;
+    public static bool Is_displaying_question = false;
 
     //bools to check which type of question user is on
-    public static bool stressquestion = false;
-    public static bool depressionquestion = false;
-    public static bool anxietyquestion = false;
-
-
-    public static bool personalquestion = false;
-
-    public static bool levelselectquestion = true;
+    public static bool Is_stress_question = false;
+    public static bool Is_depression_question = false;
+    public static bool Is_anxiety_question = false;
+    public static bool Is_personal_question = false;
+    public static bool Is_level_select_question = true;
 
     //int to check what question number use is on
-    public static int questionnumber;
+    public static int Question_number;
 
-    public Image CBTImage, Coingameimage, anxietylevelimage;
-    public Animator CBTimageanim, Coinimageanim, Anxietyimageanim;
+    [Header("-Level select images-")]
+    [SerializeField]
+    private Image CBT_level_image;
+    [SerializeField]
+    private Image Coin_game_level_image;
+    [SerializeField]
+    private Image Anxiety_level_image;
 
-    public Image yellowworldimage, redworldimage, brownworldimage,
-                 blueworldimage, pinkworldimage, greenworldimage, orangeworldimage;
+    [Header("-Level select image animators-")]
+    [SerializeField]
+    private Animator CBT_level_image_animator;
+    [SerializeField]
+    private Animator Coin_game_level_image_animator;
+    [SerializeField]
+    private Animator Anxiety_level_image_animator;
 
-    public Image vignettelevels, vignettecoloursandweather;
-    public Animator vignettelevelsanim, vignettecoloursandweathersanim;
+    [Header("-Coloured world images-")]
+    [SerializeField]
+    private Image Yellow_world_image;
+    [SerializeField]
+    private Image Red_world_image,
+                  Brown_world_image,
+                  Blue_world_image,
+                  Pink_world_image,
+                  Green_world_image,
+                  Orange_world_image;
 
-    public Animator yellowworldimageanim, redworldimageanim, brownworldimageanim,
-             blueworldimageanim, pinkworldimageanim, greenworldimageanim, orangeworldimageanim;
+    [Header("-Coloured world image animators-")]
+    [SerializeField]
+    private Animator Yellow_world_image_animator;
+    [SerializeField]
+    private Animator Red_world_image_animator,
+                     Brown_world_image_animator,
+                     Blue_world_image_animator,
+                     Pink_world_image_animator,
+                     Green_world_image_animator,
+                     Orange_world_image_animator;
 
-    public Image cloudimage, fogimage, rainimage, snowimage, sunimage;
+    [Header("-World weather images-")]
+    [SerializeField]
+    private Image Cloud_weather_image;
+    [SerializeField]
+    private Image Fog_weather_image,
+                  Rain_weather_image,
+                  Snow_weather_image,
+                  Sun_weather_image;
 
-    public Animator cloudimageanim, fogimageanim, rainimageanim, snowimageanim, sunimageanim;
+    [Header("-World weather image animators-")]
+    [SerializeField]
+    private Animator Cloud_weather_image_animator;
+    [SerializeField]
+    private Animator Fog_weather_image_animator,
+                     Rain_weather_image_animator,
+                     Snow_weather_image_animator,
+                     Sun_weather_image_animator;
 
-    public GameObject balls, cubes, pingpong, pingpongball, whiteboard, marker, paperplane;
+    [Header("-Vignette for images-")]
+    [SerializeField]
+    private Image Vignette_for_level_select;
+    [SerializeField]
+    private Image Vignette_for_world_colours_and_weather_images;
 
-    public TextMeshProUGUI unlocktext;
-    public Animator unlocktextanim;
+    [Header("-Vignette image animators-")]
+    [SerializeField]
+    private Animator Vignette_for_level_select_animator;
+    [SerializeField]
+    private Animator Vignette_for_world_colours_and_weather_images_animator;
 
-    public AudioSource unlocksound;
+    [Header("-Objects on the table-")]
+    [SerializeField]
+    private GameObject Balls;
+    [SerializeField]
+    private GameObject Cubes,
+                       Ping_pong_paddle,
+                       Ping_pong_ball,
+                       Whiteboard,
+                       Whiteboard_marker,
+                       Paper_plane;
 
-    public GameObject grabtutorial;
+    [Header("Unlock text, animator, and sound effect")]
+    [SerializeField]
+    private TextMeshProUGUI Unlock_item_text;
+    [SerializeField]
+    private Animator Unlock_item_text_animator;
+    [SerializeField]
+    private AudioSource Unlock_item_sound;
 
-    public Animator buttontutorialanim;
+    [Header("Tutorials")]
+    [SerializeField]
+    private GameObject Grabbing_objects_tutorial;
+    [SerializeField]
+    private Animator Button_pushing_tutorial;
 
-    public void Allenable()
+    public void Enable_all_items()
     {
-        balls.SetActive(true);
-        cubes.SetActive(true);
-        pingpong.SetActive(true);
-        pingpongball.SetActive(true);
-        whiteboard.SetActive(true);
-        marker.SetActive(true);
-        paperplane.SetActive(true);
+        Balls.SetActive(true);
+        Cubes.SetActive(true);
+        Ping_pong_paddle.SetActive(true);
+        Ping_pong_ball.SetActive(true);
+        Whiteboard.SetActive(true);
+        Whiteboard_marker.SetActive(true);
+        Paper_plane.SetActive(true);
     }
 
     private void Start()
     {
-        //gotta start at 1
-        questionnumber = 1;
+        Question_number = 1;
+        Update_question_number();
     }
 
     private void Awake()
     {
         //written here again to counter a bug when loading the level
-        questionnumber = 1;
+        Question_number = 1;
     }
 
-    IEnumerator Questionanim()
+    IEnumerator Show_question_text()
     {
         yield return new WaitForSeconds(0.2f);
-        questionanim.SetBool("isshow", true);
+        Question_text_animator.SetBool("isshow", true);
     }
 
-    IEnumerator Answeranim()
+    IEnumerator Fade_out_answer_texts()
     {
         yield return new WaitForSeconds(0.3f);
 
-        if (answer1 != null)
+        if (Answer_A_text_animator != null)
         {
-            answer1.SetBool("show", false);
+            Answer_A_text_animator.SetBool("show", false);
         }
 
         yield return new WaitForSeconds(0.3f);
 
-        if (answer2 != null)
+        if (Answer_B_text_animator != null)
         {
-            answer2.SetBool("show", false);
+            Answer_B_text_animator.SetBool("show", false);
         }
 
         yield return new WaitForSeconds(0.3f);
 
-        if (answer3 != null)
+        if (Answer_C_text_animator != null)
         {
-            answer3.SetBool("show", false);
+            Answer_C_text_animator.SetBool("show", false);
         }
 
     }
 
-    IEnumerator Unlockcube()
+    IEnumerator Unlock_cubes()
     {
-        grabtutorial.SetActive(true);
-        unlocksound.Play();
-        cubes.SetActive(true);
-        unlocktext.text = "You have unlocked the cubes, try to stack them!";
-        unlocktextanim.SetBool("zoom", true);
+        Grabbing_objects_tutorial.SetActive(true);
+        Unlock_item_sound.Play();
+        Cubes.SetActive(true);
+        Unlock_item_text.text = "You have unlocked the Cubes, try to stack them!";
+        Unlock_item_text_animator.SetBool("zoom", true);
         yield return new WaitForSeconds(4f);
-        unlocktextanim.SetBool("zoom", false);
+        Unlock_item_text_animator.SetBool("zoom", false);
 
     }
 
-    IEnumerator Unlockballs()
+    IEnumerator Unlock_balls()
     {
-        unlocksound.Play();
-        balls.SetActive(true);
-        unlocktext.text = "You have unlocked the balls, try rolling them around!";
-        unlocktextanim.SetBool("zoom", true);
+        Unlock_item_sound.Play();
+        Balls.SetActive(true);
+        Unlock_item_text.text = "You have unlocked the Balls, try rolling them around!";
+        Unlock_item_text_animator.SetBool("zoom", true);
         yield return new WaitForSeconds(4f);
-        unlocktextanim.SetBool("zoom", false);
+        Unlock_item_text_animator.SetBool("zoom", false);
 
     }
 
-    IEnumerator UnlockPingpong()
+    IEnumerator Unlock_ping_pong_paddle()
     {
-        unlocksound.Play();
-        pingpong.SetActive(true);
-        pingpongball.SetActive(true);
-        unlocktext.text = "You have unlocked the Ping Pong paddle and ball, try to get a good hit!";
-        unlocktextanim.SetBool("zoom", true);
+        Unlock_item_sound.Play();
+        Ping_pong_paddle.SetActive(true);
+        Ping_pong_ball.SetActive(true);
+        Unlock_item_text.text = "You have unlocked the Ping Pong paddle and ball, try to get a good hit!";
+        Unlock_item_text_animator.SetBool("zoom", true);
         yield return new WaitForSeconds(4f);
-        unlocktextanim.SetBool("zoom", false);
+        Unlock_item_text_animator.SetBool("zoom", false);
 
     }
 
-    IEnumerator UnlockWhiteboard()
+    IEnumerator Unlock_whiteboard()
     {
-        unlocksound.Play();
-        whiteboard.SetActive(true);
-        WhiteboardUnlock.isUnlocked = true;
-        marker.SetActive(true);
-        unlocktext.text = "You have unlocked the Whiteboard and marker, try to draw a star!";
-        unlocktextanim.SetBool("zoom", true);
+        Unlock_item_sound.Play();
+        Whiteboard.SetActive(true);
+        Whiteboard_marker.SetActive(true);
+        Unlock_item_text.text = "You have unlocked the Whiteboard and Whiteboard_marker, try to draw a star!";
+        Unlock_item_text_animator.SetBool("zoom", true);
         yield return new WaitForSeconds(4f);
-        unlocktextanim.SetBool("zoom", false);
+        Unlock_item_text_animator.SetBool("zoom", false);
 
     }
 
-    IEnumerator UnlockPaperplane()
+    IEnumerator Unlock_paper_plane()
     {
-        unlocksound.Play();
-        paperplane.SetActive(true);
-        unlocktext.text = "You have unlocked the Paper Airplanes, try to throw them far!";
-        unlocktextanim.SetBool("zoom", true);
+        Unlock_item_sound.Play();
+        Paper_plane.SetActive(true);
+        Unlock_item_text.text = "You have unlocked the Paper Airplanes, try to throw them far!";
+        Unlock_item_text_animator.SetBool("zoom", true);
         yield return new WaitForSeconds(4f);
-        unlocktextanim.SetBool("zoom", false);
+        Unlock_item_text_animator.SetBool("zoom", false);
 
     }
 
-    public void Turnoffallimages()
+    public void Turn_off_all_images()
     {
-        CBTimageanim.SetBool("isshow", false);
-        Coinimageanim.SetBool("isshow", false);
-        Anxietyimageanim.SetBool("isshow", false);
+        //level images
+        CBT_level_image_animator.SetBool("isshow", false);
+        Coin_game_level_image_animator.SetBool("isshow", false);
+        Anxiety_level_image_animator.SetBool("isshow", false);
 
-        yellowworldimageanim.SetBool("fadein", false);
-        redworldimageanim.SetBool("fadein", false);
-        brownworldimageanim.SetBool("fadein", false);
-        blueworldimageanim.SetBool("fadein", false);
-        pinkworldimageanim.SetBool("fadein", false);
-        greenworldimageanim.SetBool("fadein", false);
-        orangeworldimageanim.SetBool("fadein", false);
+        //world colour images
+        Yellow_world_image_animator.SetBool("fadein", false);
+        Red_world_image_animator.SetBool("fadein", false);
+        Brown_world_image_animator.SetBool("fadein", false);
+        Blue_world_image_animator.SetBool("fadein", false);
+        Pink_world_image_animator.SetBool("fadein", false);
+        Green_world_image_animator.SetBool("fadein", false);
+        Orange_world_image_animator.SetBool("fadein", false);
 
-        cloudimageanim.SetBool("fadein", false);
-        fogimageanim.SetBool("fadein", false);
-        rainimageanim.SetBool("fadein", false);
-        snowimageanim.SetBool("fadein", false);
-        sunimageanim.SetBool("fadein", false);
+        //world weather images
+        Cloud_weather_image_animator.SetBool("fadein", false);
+        Fog_weather_image_animator.SetBool("fadein", false);
+        Rain_weather_image_animator.SetBool("fadein", false);
+        Snow_weather_image_animator.SetBool("fadein", false);
+        Sun_weather_image_animator.SetBool("fadein", false);
 
-        vignettelevelsanim.SetBool("isshow", false);
-        vignettecoloursandweathersanim.SetBool("fadein", false);
+        //image vignettes
+        Vignette_for_level_select_animator.SetBool("isshow", false);
+        Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update_question_number()
     {
-        if (Displaying_Question == false)
+        if (Is_displaying_question == false)
         {
-            Displaying_Question = true;
-
-            //Switch cases wont work here because i need it to keep checking
-            //when it switches to the next question so the player doesnt have to answer immediatly
-            //i could just use a switch and check once the player presses a button...
-            //check unity profile if it affects performance too much, if it does then change it to switch
+            Is_displaying_question = true;
 
             //--start of hidden questions--
-            if (questionnumber == -2)
+            if (Question_number == -2)
             {
-                levelselectquestion = true;
+                Is_level_select_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to go into the CBT level?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like to go into the CBT level?";
 
-                Turnoffallimages();
-                CBTImage.enabled = true;
-                CBTimageanim.SetBool("isshow", true);
-                vignettelevels.enabled = true;
-                vignettelevelsanim.SetBool("isshow",true);
+                Turn_off_all_images();
+                CBT_level_image.enabled = true;
+                CBT_level_image_animator.SetBool("isshow", true);
+                Vignette_for_level_select.enabled = true;
+                Vignette_for_level_select_animator.SetBool("isshow", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next level";
-                QuizManager.NewC = "Return to colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next level";
+                QuizManager.New_answer_C = "Return to colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a levelselect question");
 
-                Allenable();
+                Enable_all_items();
             }
 
-            if (questionnumber == -1)
+            if (Question_number == -1)
             {
-                levelselectquestion = true;
+                Is_level_select_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to go into the coin mini-game level?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like to go into the coin mini-game level?";
 
-                Turnoffallimages();
-                Coingameimage.enabled = true;
-                Coinimageanim.SetBool("isshow", true);
-                vignettelevelsanim.SetBool("isshow", true);
+                Turn_off_all_images();
+                Coin_game_level_image.enabled = true;
+                Coin_game_level_image_animator.SetBool("isshow", true);
+                Vignette_for_level_select_animator.SetBool("isshow", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next level";
-                QuizManager.NewC = "Return to colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next level";
+                QuizManager.New_answer_C = "Return to colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a levelselect question");
             }
 
-            if (questionnumber == 0)
+            if (Question_number == 0)
             {
-                levelselectquestion = true;
+                Is_level_select_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to go into the applied relaxation level?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like to go into the applied relaxation level?";
 
-                Turnoffallimages();
-                anxietylevelimage.enabled = true;
-                Anxietyimageanim.SetBool("isshow", true);
-                vignettelevelsanim.SetBool("isshow", true);
+                Turn_off_all_images();
+                Anxiety_level_image.enabled = true;
+                Anxiety_level_image_animator.SetBool("isshow", true);
+                Vignette_for_level_select_animator.SetBool("isshow", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No (Will return to colour selection)";
-                QuizManager.NewC = "Return to colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "No (Will return to colour selection)";
+                QuizManager.New_answer_C = "Return to colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a levelselect question");
             }
 
             //--end of hidden questions--
 
             //--start of personal questions--
-            if (questionnumber == 1)
+            if (Question_number == 1)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Red?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like your world to be Red?";
 
-                Turnoffallimages();
-                redworldimage.enabled = true;
-                redworldimageanim.SetBool("fadein", true);
-                vignettecoloursandweather.enabled = true;
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Red_world_image.enabled = true;
+                Red_world_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images.enabled = true;
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next colour";
-                QuizManager.NewC = "Skip colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next colour";
+                QuizManager.New_answer_C = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 2)
+            if (Question_number == 2)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Blue?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like your world to be Blue?";
 
-                Turnoffallimages();
-                blueworldimage.enabled = true;
-                blueworldimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Blue_world_image.enabled = true;
+                Blue_world_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next colour";
-                QuizManager.NewC = "Skip colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next colour";
+                QuizManager.New_answer_C = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 3)
+            if (Question_number == 3)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Yellow?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like your world to be Yellow?";
 
-                Turnoffallimages();
-                yellowworldimage.enabled = true;
-                yellowworldimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Yellow_world_image.enabled = true;
+                Yellow_world_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next colour";
-                QuizManager.NewC = "Skip colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next colour";
+                QuizManager.New_answer_C = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 4)
+            if (Question_number == 4)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Pink?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like your world to be Pink?";
 
-                Turnoffallimages();
-                pinkworldimage.enabled = true;
-                pinkworldimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Pink_world_image.enabled = true;
+                Pink_world_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next colour";
-                QuizManager.NewC = "Skip colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next colour";
+                QuizManager.New_answer_C = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 5)
+            if (Question_number == 5)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Orange?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like your world to be Orange?";
 
-                Turnoffallimages();
-                orangeworldimage.enabled = true;
-                orangeworldimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Orange_world_image.enabled = true;
+                Orange_world_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next colour";
-                QuizManager.NewC = "Skip colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next colour";
+                QuizManager.New_answer_C = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 6)
+            if (Question_number == 6)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Green?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like your world to be Green?";
 
-                Turnoffallimages();
-                greenworldimage.enabled = true;
-                greenworldimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Green_world_image.enabled = true;
+                Green_world_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next colour";
-                QuizManager.NewC = "Skip colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next colour";
+                QuizManager.New_answer_C = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 7)
+            if (Question_number == 7)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like your world to be Brown?" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like your world to be Brown?" +
                                           " If you have not chosen a colour, it will stay as white.";
 
-                Turnoffallimages();
-                brownworldimage.enabled = true;
-                brownworldimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Brown_world_image.enabled = true;
+                Brown_world_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Go to weather selection";
-                QuizManager.NewC = "Skip colour selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Go to weather selection";
+                QuizManager.New_answer_C = "Skip colour selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
             //--end of colours--
 
-            if (questionnumber == 8)
+            if (Question_number == 8)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like the weather to be Rainy?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like the weather to be Rainy?";
 
-                Turnoffallimages();
-                rainimage.enabled = true;
-                rainimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Rain_weather_image.enabled = true;
+                Rain_weather_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next weather";
-                QuizManager.NewC = "Skip weather selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next weather";
+                QuizManager.New_answer_C = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
 
-                StartCoroutine(Unlockcube());
+                StartCoroutine(Unlock_cubes());
             }
 
-            if (questionnumber == 9)
+            if (Question_number == 9)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like the weather to be Sunny?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like the weather to be Sunny?";
 
-                Turnoffallimages();
-                sunimage.enabled = true;
-                sunimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Sun_weather_image.enabled = true;
+                Sun_weather_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next weather";
-                QuizManager.NewC = "Skip weather selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next weather";
+                QuizManager.New_answer_C = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
-                Debug.Log("This is a personal question");
-                Debug.Log("And the answer is" + Answer_that_increases_score);
-            }
-
-            if (questionnumber == 10)
-            {
-                personalquestion = true;
-
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like the weather to be Snowy?";
-
-                Turnoffallimages();
-                snowimage.enabled = true;
-                snowimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
-
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next weather";
-                QuizManager.NewC = "Skip weather selection";
-                Answer_that_increases_score = "A";
-
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 11)
+            if (Question_number == 10)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like the weather to be Foggy?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like the weather to be Snowy?";
 
-                Turnoffallimages();
-                fogimage.enabled = true;
-                fogimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Snow_weather_image.enabled = true;
+                Snow_weather_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Next weather";
-                QuizManager.NewC = "Skip weather selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next weather";
+                QuizManager.New_answer_C = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 12)
+            if (Question_number == 11)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like the weather to be Cloudy?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like the weather to be Foggy?";
 
-                Turnoffallimages();
-                cloudimage.enabled = true;
-                cloudimageanim.SetBool("fadein", true);
-                vignettecoloursandweathersanim.SetBool("fadein", true);
+                Turn_off_all_images();
+                Fog_weather_image.enabled = true;
+                Fog_weather_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Skip weather selection";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Next weather";
+                QuizManager.New_answer_C = "Skip weather selection";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 13)
+            if (Question_number == 12)
             {
-                personalquestion = true;
+                Is_personal_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Would you like to skip the personality quiz and choose a level?" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like the weather to be Cloudy?";
+
+                Turn_off_all_images();
+                Cloud_weather_image.enabled = true;
+                Cloud_weather_image_animator.SetBool("fadein", true);
+                Vignette_for_world_colours_and_weather_images_animator.SetBool("fadein", true);
+
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "No";
+                QuizManager.New_answer_C = "Skip weather selection";
+                Answer_that_increases_score = "A";
+
+                Debug.Log(Question_number);
+                Debug.Log("This is a personal question");
+                Debug.Log("And the answer is" + Answer_that_increases_score);
+            }
+
+            if (Question_number == 13)
+            {
+                Is_personal_question = true;
+
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Would you like to skip the personality quiz and choose a level?" +
                                           " Not recommended for first time players";
 
-                Turnoffallimages();
-                buttontutorialanim.SetBool("isshow", false);
+                Turn_off_all_images();
+                Button_pushing_tutorial.SetBool("isshow", false);
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes (Will go to level select)";
-                QuizManager.NewB = "No (Start quiz)";
-                QuizManager.NewC = "Customize colour and weather again";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes (Will go to level select)";
+                QuizManager.New_answer_B = "No (Start quiz)";
+                QuizManager.New_answer_C = "Customize colour and weather again";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a personal question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
@@ -583,194 +646,194 @@ public class QuestionGenerator : MonoBehaviour
 
             //--start of stress questions--
 
-            if (questionnumber == 14)
+            if (Question_number == 14)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "You are trying to focus on your work in the library," +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "You are trying to focus on your work in the library," +
                                            " but you can hear someone chewing loudly" +
                                            " across the library, how irritated would you be?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Not irritated";
-                QuizManager.NewB = "Slightly irritated";
-                QuizManager.NewC = "Very irritated";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Not irritated";
+                QuizManager.New_answer_B = "Slightly irritated";
+                QuizManager.New_answer_C = "Very irritated";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 15)
+            if (Question_number == 15)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "You are stuck in a queue, there are around" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "You are stuck in a queue, there are around" +
                                           " 6 people in front of you and the progress of the" +
                                           " queue seems to be moving slowly, how tempted are" +
                                           " you to leave?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "It's taking too long, i'm leaving";
-                QuizManager.NewB = "I can stay for a little bit longer";
-                QuizManager.NewC = "I can wait, I have time";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "It's taking too long, i'm leaving";
+                QuizManager.New_answer_B = "I can stay for a little bit longer";
+                QuizManager.New_answer_C = "I can wait, I have time";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 16)
+            if (Question_number == 16)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Someone or something has made you upset," +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Someone or something has made you upset," +
                                           " how long would it take for you to calm down?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Not That long";
-                QuizManager.NewB = "Just a bit of time";
-                QuizManager.NewC = "It takes a while for me to calm down";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Not That long";
+                QuizManager.New_answer_B = "Just a bit of time";
+                QuizManager.New_answer_C = "It takes a while for me to calm down";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 17)
+            if (Question_number == 17)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "You are trying to study in your room, but" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "You are trying to study in your room, but" +
                                           " someone keeps texting you every" +
                                           " few minutes, how annoyed would you be in this situation?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "A little";
-                QuizManager.NewB = "Very annoyed, Just let me study already...";
-                QuizManager.NewC = "I wouldn't mind";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "A little";
+                QuizManager.New_answer_B = "Very annoyed, Just let me study already...";
+                QuizManager.New_answer_C = "I wouldn't mind";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 18)
+            if (Question_number == 18)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you think you overeact to situations a lot?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you think you overeact to situations a lot?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Somewhat";
-                QuizManager.NewB = "I think so";
-                QuizManager.NewC = "Nope";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Somewhat";
+                QuizManager.New_answer_B = "I think so";
+                QuizManager.New_answer_C = "Nope";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
 
-                StartCoroutine(Unlockballs());
+                StartCoroutine(Unlock_balls());
             }
 
-            if (questionnumber == 19)
+            if (Question_number == 19)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How 'on edge' do you normally feel?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "How 'on edge' do you normally feel?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Not as much";
-                QuizManager.NewB = "Slightly, when it gets really busy";
-                QuizManager.NewC = "A lot, I feel like I can never relax";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Not as much";
+                QuizManager.New_answer_B = "Slightly, when it gets really busy";
+                QuizManager.New_answer_C = "A lot, I feel like I can never relax";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 20)
+            if (Question_number == 20)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How often do you receive Headaches or become dizzy?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "How often do you receive Headaches or become dizzy?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Almost Everyday";
-                QuizManager.NewB = "Rarely";
-                QuizManager.NewC = "Never";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Almost Everyday";
+                QuizManager.New_answer_B = "Rarely";
+                QuizManager.New_answer_C = "Never";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 21)
+            if (Question_number == 21)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you often get chest pains?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you often get chest pains?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Almost Everyday";
-                QuizManager.NewB = "Rarely";
-                QuizManager.NewC = "Never";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Almost Everyday";
+                QuizManager.New_answer_B = "Rarely";
+                QuizManager.New_answer_C = "Never";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 22)
+            if (Question_number == 22)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you ever felt your heart racing faster recently?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Have you ever felt your heart racing faster recently?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "Rarely";
-                QuizManager.NewC = "Not at all";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "Rarely";
+                QuizManager.New_answer_C = "Not at all";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 23)
+            if (Question_number == 23)
             {
-                stressquestion = true;
+                Is_stress_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How often do you worry about things?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "How often do you worry about things?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "All the time";
-                QuizManager.NewB = "Sometimes";
-                QuizManager.NewC = "Not that much";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "All the time";
+                QuizManager.New_answer_B = "Sometimes";
+                QuizManager.New_answer_C = "Not that much";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a stress question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
@@ -779,441 +842,440 @@ public class QuestionGenerator : MonoBehaviour
 
             //--start of depression questions--
 
-            if (questionnumber == 24)
+            if (Question_number == 24)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Are you happy with the way things are going in your life?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Are you happy with the way things are going in your life?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "I'm very happy";
-                QuizManager.NewB = "It could be worse";
-                QuizManager.NewC = "I'm not happy at all";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "I'm very happy";
+                QuizManager.New_answer_B = "It could be worse";
+                QuizManager.New_answer_C = "I'm not happy at all";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 25)
+            if (Question_number == 25)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you think you have the strength to keep going in your life?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you think you have the strength to keep going in your life?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "I don't think so";
-                QuizManager.NewB = "Maybe a little bit of strength";
-                QuizManager.NewC = "I can keep going";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "I don't think so";
+                QuizManager.New_answer_B = "Maybe a little bit of strength";
+                QuizManager.New_answer_C = "I can keep going";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 26)
+            if (Question_number == 26)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "And how much determination would you say you have to push yourself" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "And how much determination would you say you have to push yourself" +
                                           " forward and become stronger?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "A little bit";
-                QuizManager.NewB = "None at all";
-                QuizManager.NewC = "A lot, I feel very determined";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "A little bit";
+                QuizManager.New_answer_B = "None at all";
+                QuizManager.New_answer_C = "A lot, I feel very determined";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 27)
+            if (Question_number == 27)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you blame the bad things that happen in your life on yourself?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you blame the bad things that happen in your life on yourself?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, because it's all my fault";
-                QuizManager.NewB = "Only if it actually is my fault";
-                QuizManager.NewC = "Sometimes";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes, because it's all my fault";
+                QuizManager.New_answer_B = "Only if it actually is my fault";
+                QuizManager.New_answer_C = "Sometimes";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
 
-                StartCoroutine(UnlockPingpong());
+                StartCoroutine(Unlock_ping_pong_paddle());
             }
 
-            if (questionnumber == 28)
+            if (Question_number == 28)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How quick are you to get angry at something?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "How quick are you to get angry at something?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Not quick at all";
-                QuizManager.NewB = "Not that quick";
-                QuizManager.NewC = "Very quick";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Not quick at all";
+                QuizManager.New_answer_B = "Not that quick";
+                QuizManager.New_answer_C = "Very quick";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 29)
+            if (Question_number == 29)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you invested yourself into any hobbies recently?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Have you invested yourself into any hobbies recently?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "A few";
-                QuizManager.NewB = "Nope";
-                QuizManager.NewC = "Yes, quite a lot";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "A few";
+                QuizManager.New_answer_B = "Nope";
+                QuizManager.New_answer_C = "Yes, quite a lot";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 30)
+            if (Question_number == 30)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you noticed yourself speaking slower or moving slower than usual?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Have you noticed yourself speaking slower or moving slower than usual?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "I'm not sure";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "I think so";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "I'm not sure";
+                QuizManager.New_answer_B = "No";
+                QuizManager.New_answer_C = "I think so";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 31)
+            if (Question_number == 31)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Is your appetite suddenly very low or very high?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Is your appetite suddenly very low or very high?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "I can't tell";
-                QuizManager.NewC = "No";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "I can't tell";
+                QuizManager.New_answer_C = "No";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 32)
+            if (Question_number == 32)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you have difficulty trying to sleep?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you have difficulty trying to sleep?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "No";
-                QuizManager.NewB = "Yes";
-                QuizManager.NewC = "Slightly";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "No";
+                QuizManager.New_answer_B = "Yes";
+                QuizManager.New_answer_C = "Slightly";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 33)
+            if (Question_number == 33)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you feel like you don't have any energy to do tasks?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you feel like you don't have any energy to do tasks?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "No";
-                QuizManager.NewC = "Sometimes";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "No";
+                QuizManager.New_answer_C = "Sometimes";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 34)
+            if (Question_number == 34)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you recently been avoiding your friends and family," +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Have you recently been avoiding your friends and family," +
                                           " or withholding from social events?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "No, I like to spend time with people";
-                QuizManager.NewB = "Yes, I don't feel like interacting with anyone";
-                QuizManager.NewC = "Sometimes, when i'm not in the mood";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "No, I like to spend time with people";
+                QuizManager.New_answer_B = "Yes, I don't feel like interacting with anyone";
+                QuizManager.New_answer_C = "Sometimes, when i'm not in the mood";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 35)
+            if (Question_number == 35)
             {
-                depressionquestion = true;
+                Is_depression_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you suddenly stopped doing the hobbies you used to love?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Have you suddenly stopped doing the hobbies you used to love?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, I dont feel like doing them anymore";
-                QuizManager.NewB = "Yes, because I physically can't do it anymore";
-                QuizManager.NewC = "No";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes, I dont feel like doing them anymore";
+                QuizManager.New_answer_B = "Yes, because I physically can't do it anymore";
+                QuizManager.New_answer_C = "No";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a depression question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
 
-                StartCoroutine(UnlockWhiteboard());
+                StartCoroutine(Unlock_whiteboard());
             }
 
             //--end of depression questions--
 
             //--start of anxiety questions--
 
-            if (questionnumber == 36)
+            if (Question_number == 36)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you struggle with taking a break or relaxing?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you struggle with taking a break or relaxing?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, I feel unproductive";
-                QuizManager.NewB = "Sometimes, it depends how much work I have";
-                QuizManager.NewC = "No, I want more breaks";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes, I feel unproductive";
+                QuizManager.New_answer_B = "Sometimes, it depends how much work I have";
+                QuizManager.New_answer_C = "No, I want more breaks";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 37)
+            if (Question_number == 37)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Were you in a state of fear or dread today?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Were you in a state of fear or dread today?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "A little bit";
-                QuizManager.NewB = "Yes";
-                QuizManager.NewC = "No";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "A little bit";
+                QuizManager.New_answer_B = "Yes";
+                QuizManager.New_answer_C = "No";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 38)
+            if (Question_number == 38)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Are you always worried about bad things happening?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Are you always worried about bad things happening?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "No";
-                QuizManager.NewB = "Sometimes";
-                QuizManager.NewC = "Yes, always";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "No";
+                QuizManager.New_answer_B = "Sometimes";
+                QuizManager.New_answer_C = "Yes, always";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 39)
+            if (Question_number == 39)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How difficult is it to focus on a task because you are scared" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "How difficult is it to focus on a task because you are scared" +
                                           " about the result or the future?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Very difficult";
-                QuizManager.NewB = "Slightly difficult";
-                QuizManager.NewC = "Not difficult";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Very difficult";
+                QuizManager.New_answer_B = "Slightly difficult";
+                QuizManager.New_answer_C = "Not difficult";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 40)
+            if (Question_number == 40)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you been avoiding people and Coins_and_obstacles_gameobject," +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Have you been avoiding people and objects," +
                                           " in case they bring in more things to be worried about?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Sometimes";
-                QuizManager.NewB = "Yes, I don't need more things on my plate";
-                QuizManager.NewC = "Nope";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Sometimes";
+                QuizManager.New_answer_B = "Yes, I don't need more things on my plate";
+                QuizManager.New_answer_C = "Nope";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 41)
+            if (Question_number == 41)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you take time off work or studying because it" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you take time off work or studying because it" +
                                           " has become much more difficult and scary?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes";
-                QuizManager.NewB = "A little bit";
-                QuizManager.NewC = "No, I can manage";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes";
+                QuizManager.New_answer_B = "A little bit";
+                QuizManager.New_answer_C = "No, I can manage";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
 
-                StartCoroutine(UnlockPaperplane());
+                StartCoroutine(Unlock_paper_plane());
             }
 
-            if (questionnumber == 42)
+            if (Question_number == 42)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "How often do you get pins and needles?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "How often do you get pins and needles?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "I am not sure";
-                QuizManager.NewB = "Quite often";
-                QuizManager.NewC = "Not that often";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "I am not sure";
+                QuizManager.New_answer_B = "Quite often";
+                QuizManager.New_answer_C = "Not that often";
                 Answer_that_increases_score = "B";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 43)
+            if (Question_number == 43)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Have you noticed yourself with a very dry mouth?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Have you noticed yourself with a very dry mouth?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "No";
-                QuizManager.NewB = "Sometimes";
-                QuizManager.NewC = "Yes";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "No";
+                QuizManager.New_answer_B = "Sometimes";
+                QuizManager.New_answer_C = "Yes";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 44)
+            if (Question_number == 44)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you sweat very excessively?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you sweat very excessively?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Nope";
-                QuizManager.NewB = "Yes, when I do physical exersise";
-                QuizManager.NewC = "Yes, for no reason";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Nope";
+                QuizManager.New_answer_B = "Yes, when I do physical exersise";
+                QuizManager.New_answer_C = "Yes, for no reason";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 45)
+            if (Question_number == 45)
             {
-                anxietyquestion = true;
+                Is_anxiety_question = true;
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Do you struggle with sleeping because you are scared" +
-                                          " about something coming the next day or down the Sphere_assist_line?";
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Do you struggle with sleeping because you are scared" +
+                                          " about something coming the next day or down the line?";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "Yes, I can't stop thinking about it";
-                QuizManager.NewB = "A little, but I can still sleep";
-                QuizManager.NewC = "Not at all";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "Yes, I can't stop thinking about it";
+                QuizManager.New_answer_B = "A little, but I can still sleep";
+                QuizManager.New_answer_C = "Not at all";
                 Answer_that_increases_score = "A";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
                 Debug.Log("This is a anxiety question");
                 Debug.Log("And the answer is" + Answer_that_increases_score);
             }
 
-            if (questionnumber == 46)
+            if (Question_number == 46)
             {
 
-                StartCoroutine(Questionanim());
-                QuizManager.NewQuestion = "Thank you for your honesty, the game will adjust" +
+                StartCoroutine(Show_question_text());
+                QuizManager.New_question_text = "Thank you for your honesty, the game will adjust" +
                                           " based on your answers, press any button to continue";
 
-                StartCoroutine(Answeranim());
-                QuizManager.NewA = "";
-                QuizManager.NewB = "";
-                QuizManager.NewC = "";
+                StartCoroutine(Fade_out_answer_texts());
+                QuizManager.New_answer_A = "";
+                QuizManager.New_answer_B = "";
+                QuizManager.New_answer_C = "";
                 Answer_that_increases_score = "C";
 
-                Debug.Log(questionnumber);
+                Debug.Log(Question_number);
             }
 
             //--end of anxiety questions--
 
-            //!!!all questions go above this Sphere_assist_line!!!
+            //!!!all questions go above this line!!!
 
-            QuizManager.UpdateQuestion = false;
+            QuizManager.Update_Question = false;
 
         }
     }
-
 }

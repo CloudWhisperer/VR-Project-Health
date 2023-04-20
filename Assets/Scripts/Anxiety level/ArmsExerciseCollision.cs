@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class exercisecollision : MonoBehaviour
+public class ArmsExerciseCollision : MonoBehaviour
 {
     [SerializeField]
     private AnxietyGameScript Anxiety_game_manager_script;

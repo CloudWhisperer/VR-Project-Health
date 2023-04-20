@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class boxspawnscript : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
     [Header("-VR Controllers-")]
     [SerializeField]
@@ -15,13 +15,13 @@ public class boxspawnscript : MonoBehaviour
 
     [Header("-Obstacle-")]
     [SerializeField]
-    private GameObject Sphere_assist_line;
+    private GameObject Obstacle_gameobject;
     [SerializeField]
     private Animator Obstacle_animator;
     [SerializeField]
     private AudioSource Obstacle_sound_effect;
     [SerializeField]
-    private GameObject Obstacle_gameobject;
+    private GameObject Sphere_assist_line;
 
     private void Start()
     {
@@ -53,9 +53,9 @@ public class boxspawnscript : MonoBehaviour
 
                 GameObject box = Instantiate(Obstacle_gameobject, Random_spawn_point, transform.localRotation);
 
-                cointouchminigamescorescript.losecounter += 1;
+                CoinMiniGame.losecounter += 1;
 
-                switch (cointouchminigamescorescript.losecounter)
+                switch (CoinMiniGame.losecounter)
                 {
                     case 5:
                         Sphere_assist_line.SetActive(true);

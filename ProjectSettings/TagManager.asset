@@ -29,6 +29,7 @@ TagManager:
   - Table
   - Armout
   - Shoudlerup
+  - QuestionManager
   layers:
   - Default
   - TransparentFX

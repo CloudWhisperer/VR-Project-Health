@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class cubesounds : MonoBehaviour
+public class CubeSoundEffect : MonoBehaviour
 {
-    public AudioSource cubesound;
+    [SerializeField]
+    private AudioSource Cube_sound_effect;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Table")
             || other.gameObject.CompareTag("Cube"))
         {
-            if (!cubesound.isPlaying)
+            if (!Cube_sound_effect.isPlaying)
             {
-                cubesound.Play();
+                Cube_sound_effect.Play();
             }
         }
     }

@@ -3,9 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class cointouchminigamescorescript : MonoBehaviour
+public class CoinMiniGame : MonoBehaviour
 {
-    private Levelchangefade Fade_level_script;
+    private LevelChangeFade Fade_level_script;
 
     [Header("-VR Controllers-")]
     [SerializeField]
@@ -60,7 +60,7 @@ public class cointouchminigamescorescript : MonoBehaviour
     {
         StartCoroutine(Start_of_game());
         World_text_animator.GetComponent<Animator>();
-        Fade_level_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+        Fade_level_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChangeFade>();
     }
 
     IEnumerator Start_of_game()
@@ -315,7 +315,7 @@ public class cointouchminigamescorescript : MonoBehaviour
 
         //fades back into the main menu
         yield return new WaitForSeconds(4f);
-        Levelchangefade.What_level_number_to_load = 1;
+        LevelChangeFade.What_level_number_to_load = 1;
         Fade_level_script.Fade_to_level();
     }
 }

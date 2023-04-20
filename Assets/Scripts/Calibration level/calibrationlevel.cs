@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class calibrationlevel : MonoBehaviour
+public class CalibrationLevel : MonoBehaviour
 {
-    Levelchangefade Level_fade_script;
+    LevelChangeFade Level_fade_script;
 
     [Header("-VR Controllers-")]
     [SerializeField]
@@ -16,7 +16,7 @@ public class calibrationlevel : MonoBehaviour
 
     void Start()
     {
-        Level_fade_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<Levelchangefade>();
+        Level_fade_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChangeFade>();
     }
 
     public void Go_to_main_menu()
@@ -26,7 +26,7 @@ public class calibrationlevel : MonoBehaviour
         Right_VR_Controller.SendHapticImpulse(0.1f, 0.1f);
 
         //fade to main menu
-        Levelchangefade.What_level_number_to_load = 1;
+        LevelChangeFade.What_level_number_to_load = 1;
         Level_fade_script.Fade_to_level();
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class Coinspawn : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
     [Header("-VR Controllers-")]
     [SerializeField]
@@ -29,7 +29,7 @@ public class Coinspawn : MonoBehaviour
 
     [Header("Scripts")]
     [SerializeField]
-    private cointouchminigamescorescript Stress_game_script;
+    private CoinMiniGame Stress_game_script;
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class Coinspawn : MonoBehaviour
     private void Initialize_coin_and_values()
     {
         Coin_animator = GetComponent<Animator>();
-        Stress_game_script = GameObject.FindObjectOfType(typeof(cointouchminigamescorescript)) as cointouchminigamescorescript;
+        Stress_game_script = GameObject.FindObjectOfType(typeof(CoinMiniGame)) as CoinMiniGame;
     }
 
     private void Update()
@@ -65,7 +65,7 @@ public class Coinspawn : MonoBehaviour
             {
                 Contact_with_player_sphere(randomposition);
 
-                switch (cointouchminigamescorescript.scorecounter)
+                switch (CoinMiniGame.scorecounter)
                 {
                     case 5:
                         Turn_on_sphere_trail();
@@ -189,10 +189,10 @@ public class Coinspawn : MonoBehaviour
 
         if (Is_tutorial_coin == false)
         {
-            cointouchminigamescorescript.scorecounter += 1;
+            CoinMiniGame.scorecounter += 1;
         }
 
-        Debug.Log(cointouchminigamescorescript.scorecounter);
+        Debug.Log(CoinMiniGame.scorecounter);
     }
 
     IEnumerator Coin_dead()
