@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 139879595}
   - component: {fileID: 139879594}
   m_Layer: 0
-  m_Name: targetforline
+  m_Name: Target For Line assist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1750,34 +1750,13 @@ GameObject:
   m_Component:
   - component: {fileID: 202159998}
   - component: {fileID: 202159997}
-  - component: {fileID: 202159996}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &202159996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202159995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &202159997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,7 +2490,7 @@ GameObject:
   - component: {fileID: 323238619}
   - component: {fileID: 323238618}
   m_Layer: 0
-  m_Name: Coinparticle
+  m_Name: Coin Particle Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7946,7 +7925,7 @@ GameObject:
   - component: {fileID: 430110942}
   - component: {fileID: 430110941}
   m_Layer: 0
-  m_Name: Scoremanager
+  m_Name: Score Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11759,7 +11738,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -19330,7 +19309,7 @@ GameObject:
   - component: {fileID: 943129416}
   - component: {fileID: 943129417}
   m_Layer: 0
-  m_Name: voicepart2
+  m_Name: Voice part 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20150,7 +20129,7 @@ GameObject:
   - component: {fileID: 995501050}
   - component: {fileID: 995501049}
   m_Layer: 0
-  m_Name: destroyballhere
+  m_Name: Destroy Objects Collider
   m_TagString: Break
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24260,7 +24239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1429251393}
   m_Layer: 0
-  m_Name: Sounds
+  m_Name: Sound Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27393,7 +27372,7 @@ GameObject:
   - component: {fileID: 1794249424}
   - component: {fileID: 1794249426}
   m_Layer: 5
-  m_Name: StartText
+  m_Name: Instruction Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27983,7 +27962,7 @@ GameObject:
   - component: {fileID: 1914893340}
   - component: {fileID: 1914893341}
   m_Layer: 0
-  m_Name: voicepart1
+  m_Name: Voice part 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29528,6 +29507,16 @@ PrefabInstance:
     - target: {fileID: 5845864908267410082, guid: d524fb5a203ad894a81c72a6dbdbdafd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845864908267410083, guid: d524fb5a203ad894a81c72a6dbdbdafd,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845864908392808714, guid: d524fb5a203ad894a81c72a6dbdbdafd,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

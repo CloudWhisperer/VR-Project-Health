@@ -235,8 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 88376348}
-  handanimator: {fileID: 2010868009}
+  Hand_collider: {fileID: 0}
 --- !u!114 &88376346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +489,6 @@ GameObject:
   - component: {fileID: 94673855}
   - component: {fileID: 94673854}
   - component: {fileID: 94673853}
-  - component: {fileID: 94673852}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -514,22 +512,6 @@ Transform:
   m_Father: {fileID: 97164798}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &94673852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94673850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f414c9bec17184089b5527a4026a40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LeftGrabRay: {fileID: 1382278740}
-  RightGrabRay: {fileID: 226668093}
-  leftdirectgrab: {fileID: 528622255}
-  rightdirectgrab: {fileID: 88376344}
 --- !u!114 &94673853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,7 +695,7 @@ GameObject:
   - component: {fileID: 213004633}
   - component: {fileID: 213004632}
   m_Layer: 8
-  m_Name: Text (TMP)
+  m_Name: Instruction Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3450,8 +3432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 528622259}
-  handanimator: {fileID: 1112470432}
+  Hand_collider: {fileID: 0}
 --- !u!114 &528622257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,12 +4025,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 433113011}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1112470432 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d875b43d50f57d246b51262a3df8750b,
-    type: 3}
-  m_PrefabInstance: {fileID: 433113011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1112470433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4156,7 +4131,7 @@ GameObject:
   - component: {fileID: 1300292412}
   - component: {fileID: 1300292411}
   m_Layer: 0
-  m_Name: sfx
+  m_Name: Sound Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4286,7 +4261,7 @@ GameObject:
   - component: {fileID: 1347103515}
   - component: {fileID: 1347103514}
   m_Layer: 8
-  m_Name: Text (TMP)
+  m_Name: Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6203,7 +6178,7 @@ GameObject:
   - component: {fileID: 1916111687}
   - component: {fileID: 1916111686}
   m_Layer: 8
-  m_Name: Button
+  m_Name: Continue Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6275,8 +6250,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 210146433}
-        m_TargetAssemblyTypeName: calibrationlevel, Assembly-CSharp
-        m_MethodName: nextlevel
+        m_TargetAssemblyTypeName: CalibrationLevel, Assembly-CSharp
+        m_MethodName: Go_to_main_menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6336,7 +6311,7 @@ GameObject:
   - component: {fileID: 1917530925}
   - component: {fileID: 1917530924}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Alignment Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6548,7 +6523,7 @@ GameObject:
   - component: {fileID: 2095865729}
   - component: {fileID: 2095865731}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,7 +13,7 @@ public class WhatIsBeingGrabbed : MonoBehaviour
         {
             Hand_animator.SetBool("iscube", true);
         }
-        if (grabCollider.CompareTag("Plane"))
+        if (grabCollider.CompareTag("Paperplane"))
         {
             Hand_animator.SetBool("isplane", true);
         }
@@ -25,7 +25,7 @@ public class WhatIsBeingGrabbed : MonoBehaviour
         {
             Hand_animator.SetBool("iscube", false);
         }
-        if (grabCollider.CompareTag("Plane"))
+        if (grabCollider.CompareTag("Paperplane"))
         {
             Hand_animator.SetBool("isplane", false);
         }

@@ -120,10 +120,14 @@ public class AnxietyGameScript : MonoBehaviour
         Close_eyes_object.SetActive(false);
         Breath_in_particle.Pause();
         Breath_out_particle.Pause();
-        StartCoroutine(Begin_breathing_exercise());
         Game_instruction_text_animator.GetComponent<Animator>();
         Level_fade_script = GameObject.FindGameObjectWithTag("Fade").GetComponent<LevelChangeFade>();
         Time_remaining = Maximum_time;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Begin_breathing_exercise());
     }
 
     private void Update()
@@ -355,14 +359,14 @@ public class AnxietyGameScript : MonoBehaviour
         Canvas_border.enabled = true;
         Canvas_border_anim.SetBool("opencanvas", true);
         Eyes_close_image.enabled = true;
-        Eyes_close_image_anim.SetBool("Eyes_open_image", true);
+        Eyes_close_image_anim.SetBool("eyesopen", true);
     }
 
     private IEnumerator Enable_image_set_2()
     {
         Right_VR_Controller.SendHapticImpulse(0.1f, 0.1f);
         Left_VR_Controller.SendHapticImpulse(0.1f, 0.1f);
-        Eyes_close_image_anim.SetBool("Eyes_open_image", false);
+        Eyes_close_image_anim.SetBool("eyesopen", false);
         yield return new WaitForSeconds(1f);
         Eyes_open_image.enabled = true;
         Eyes_open_image_anim.SetBool("isopen", true);
@@ -523,7 +527,7 @@ public class AnxietyGameScript : MonoBehaviour
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "This activity aims to relax your Paper_plane_rigidbody and help you feel calm.";
+        Game_instruction_text.text = "This activity aims to relax your body, and help you feel calm.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(5f);
 
@@ -557,7 +561,7 @@ public class AnxietyGameScript : MonoBehaviour
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "Open and relax your eyes.";
+        Game_instruction_text.text = "Open your eyes and relax them.";
 
         //plays second set of images, used coroutine for delay
         StartCoroutine(Enable_image_set_2());
@@ -574,13 +578,13 @@ public class AnxietyGameScript : MonoBehaviour
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "It's important to try and notice that so your Paper_plane_rigidbody can feel relaxed.";
+        Game_instruction_text.text = "It's important to try and notice that so your body can feel relaxed.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(5f);
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "We will be repeating this exercise with different parts of the Paper_plane_rigidbody.";
+        Game_instruction_text.text = "We will be repeating this exercise with different parts of the body.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(5f);
 
@@ -711,7 +715,6 @@ public class AnxietyGameScript : MonoBehaviour
 
     public IEnumerator Begin_applied_relaxation_part_2()
     {
-        //plays breathing function
         StartCoroutine(Breathing_exercise_short_version());
         Voice_part_2.PlayDelayed(5f);
         yield return Breathing_exercise_short_version();
@@ -811,7 +814,7 @@ public class AnxietyGameScript : MonoBehaviour
         //outro / ending
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "Your whole Paper_plane_rigidbody should feel much more relaxed than before.";
+        Game_instruction_text.text = "Your whole body should feel much more relaxed than before.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 
@@ -865,7 +868,7 @@ public class AnxietyGameScript : MonoBehaviour
 
         Game_instruction_text_animator.SetBool("fadeout", true);
         yield return new WaitForSeconds(0.2f);
-        Game_instruction_text.text = "Come back anytime using the level select if you would like to partake in this activity again";
+        Game_instruction_text.text = "Come back anytime using the level select if you would like to partake in this activity again.";
         Game_instruction_text_animator.SetBool("fadeout", false);
         yield return new WaitForSeconds(6f);
 

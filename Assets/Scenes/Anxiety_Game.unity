@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 188301023}
-  m_IndirectSpecularColor: {r: 0.17594221, g: 0.21279934, b: 0.2602925, a: 1}
+  m_IndirectSpecularColor: {r: 0.18388525, g: 0.22887051, b: 0.30217364, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b31b5eeb8d145e54b9b1fde22609ca0f,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: ca61e3606ce37694bb8ac99a8a8a6110,
     type: 2}
 --- !u!196 &4
@@ -4365,7 +4366,7 @@ GameObject:
   - component: {fileID: 135239884}
   - component: {fileID: 135239886}
   m_Layer: 5
-  m_Name: footup
+  m_Name: Foot Up Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6029,7 +6030,7 @@ GameObject:
   - component: {fileID: 182828033}
   - component: {fileID: 182828035}
   m_Layer: 5
-  m_Name: Body image
+  m_Name: Body Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6727,7 +6728,7 @@ GameObject:
   - component: {fileID: 190584350}
   - component: {fileID: 190584352}
   m_Layer: 5
-  m_Name: shoulderdown
+  m_Name: Shoulder Relax Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7081,34 +7082,13 @@ GameObject:
   m_Component:
   - component: {fileID: 202159998}
   - component: {fileID: 202159997}
-  - component: {fileID: 202159996}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &202159996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202159995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &202159997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7226,7 +7206,7 @@ GameObject:
   - component: {fileID: 210405362}
   - component: {fileID: 210405364}
   m_Layer: 5
-  m_Name: shoulderup
+  m_Name: Shoulder up image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10118,7 +10098,7 @@ GameObject:
   - component: {fileID: 334287332}
   - component: {fileID: 334287331}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Background Colour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10467,7 +10447,7 @@ GameObject:
   - component: {fileID: 348656194}
   - component: {fileID: 348656193}
   m_Layer: 0
-  m_Name: armsoutcollision
+  m_Name: ArmCollisionCheck
   m_TagString: Armout
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12107,7 +12087,7 @@ GameObject:
   - component: {fileID: 405501050}
   - component: {fileID: 405501049}
   m_Layer: 5
-  m_Name: slidervaluetext
+  m_Name: Slider Value (Text)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12643,7 +12623,7 @@ GameObject:
   - component: {fileID: 430110942}
   - component: {fileID: 430110943}
   m_Layer: 0
-  m_Name: Anxietygamemanager
+  m_Name: Anxiety Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13496,7 +13476,7 @@ GameObject:
   - component: {fileID: 459783396}
   - component: {fileID: 459783395}
   m_Layer: 5
-  m_Name: jawopen
+  m_Name: Jaw Open Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15080,7 +15060,7 @@ GameObject:
   - component: {fileID: 527661612}
   - component: {fileID: 527661611}
   m_Layer: 5
-  m_Name: jawclose
+  m_Name: Jaw Close Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18734,7 +18714,7 @@ GameObject:
   - component: {fileID: 620306286}
   - component: {fileID: 620306288}
   m_Layer: 5
-  m_Name: Eyescloseimage
+  m_Name: Eyes Closed Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22105,7 +22085,7 @@ GameObject:
   - component: {fileID: 707749254}
   - component: {fileID: 707749256}
   m_Layer: 5
-  m_Name: circlejaw
+  m_Name: Jaw Circle image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28016,12 +27996,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
---- !u!95 &759867376 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d875b43d50f57d246b51262a3df8750b,
-    type: 3}
-  m_PrefabInstance: {fileID: 621753732}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &761807333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8,
@@ -32008,7 +31982,7 @@ GameObject:
   - component: {fileID: 849496337}
   - component: {fileID: 849496339}
   m_Layer: 5
-  m_Name: circlelegs
+  m_Name: Legs Circle Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34322,8 +34296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 921515517}
-  handanimator: {fileID: 1515784296}
+  Hand_collider: {fileID: 0}
 --- !u!114 &921515515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38793,7 +38766,7 @@ GameObject:
   - component: {fileID: 1051526784}
   - component: {fileID: 1051526786}
   m_Layer: 5
-  m_Name: footforward
+  m_Name: Foot Forward image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42410,7 +42383,7 @@ GameObject:
   - component: {fileID: 1184826712}
   - component: {fileID: 1184826714}
   m_Layer: 5
-  m_Name: imagecanvas
+  m_Name: Border & Canvas Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45211,8 +45184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 1299134581}
-  handanimator: {fileID: 759867376}
+  Hand_collider: {fileID: 0}
 --- !u!114 &1299134579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46339,7 +46311,7 @@ GameObject:
   - component: {fileID: 1320419779}
   - component: {fileID: 1320419781}
   m_Layer: 5
-  m_Name: circlearms
+  m_Name: Arms Circle Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46794,7 +46766,7 @@ GameObject:
   - component: {fileID: 1344771881}
   - component: {fileID: 1344771882}
   m_Layer: 5
-  m_Name: exerciseslider
+  m_Name: Exercise Timer Countdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48427,7 +48399,7 @@ GameObject:
   - component: {fileID: 1413726662}
   - component: {fileID: 1413726664}
   m_Layer: 5
-  m_Name: circleshoulders
+  m_Name: Shoulders Circle Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49188,7 +49160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1429251393}
   m_Layer: 0
-  m_Name: Sounds
+  m_Name: Sound Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57230,7 +57202,7 @@ GameObject:
   - component: {fileID: 1689323885}
   - component: {fileID: 1689323887}
   m_Layer: 5
-  m_Name: eyesopenimage
+  m_Name: Eyes Open Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59724,7 +59696,7 @@ GameObject:
   - component: {fileID: 1794249424}
   - component: {fileID: 1794249426}
   m_Layer: 5
-  m_Name: StartText
+  m_Name: Start Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60165,7 +60137,7 @@ GameObject:
   - component: {fileID: 1803559179}
   - component: {fileID: 1803559181}
   m_Layer: 5
-  m_Name: armsout
+  m_Name: Arms Out Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

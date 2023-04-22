@@ -3172,7 +3172,7 @@ GameObject:
   - component: {fileID: 159159390}
   - component: {fileID: 159159391}
   m_Layer: 0
-  m_Name: Proceed text
+  m_Name: Proceed Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5480,7 +5480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 280867644}
   m_Layer: 0
-  m_Name: Sounds
+  m_Name: Sound Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11397,8 +11397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 577367346}
-  handanimator: {fileID: 1629192369}
+  Hand_collider: {fileID: 0}
 --- !u!114 &577367344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12720,7 +12719,7 @@ GameObject:
   - component: {fileID: 628119995}
   - component: {fileID: 628119999}
   m_Layer: 0
-  m_Name: Choice 1
+  m_Name: Choice Bubble 1
   m_TagString: Choice1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13159,7 +13158,7 @@ MonoBehaviour:
   Character_waving_audio: {fileID: 555065945}
   Character_introducting_audio: {fileID: 315944130}
   Character_showing_example_audio: {fileID: 920149169}
-  Thought_bubble: {fileID: 1874830531}
+  Thought_bubble: {fileID: 2091720595}
   Example1: {fileID: 1434436431}
   Example2: {fileID: 643602151}
   Thought_bubble_animator: {fileID: 2091720597}
@@ -13173,7 +13172,7 @@ MonoBehaviour:
   Choice_2_text: {fileID: 1695721990}
   Choice_1_bubble_animator: {fileID: 628119999}
   Choice_2_bubble_animator: {fileID: 1305984909}
-  Speed_of_text: 0.4
+  Speed_of_text: 0.01
 --- !u!4 &633871931
 Transform:
   m_ObjectHideFlags: 0
@@ -13187,7 +13186,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &634529861 stripped
 Transform:
@@ -13371,132 +13370,16 @@ GameObject:
   - component: {fileID: 643602155}
   - component: {fileID: 643602154}
   - component: {fileID: 643602153}
-  - component: {fileID: 643602152}
   - component: {fileID: 643602158}
   - component: {fileID: 643602159}
+  - component: {fileID: 643602160}
   m_Layer: 0
-  m_Name: Example2cover
+  m_Name: Example 2 (Back Cover)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &643602152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643602151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 514d7c31e00dc464499d960fb0bdfef1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1918669414}
-  m_Colliders:
-  - {fileID: 643602154}
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 6
-  m_SelectMode: 0
-  m_CustomReticle: {fileID: 0}
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0.15
-  m_MovementType: 2
-  m_VelocityDamping: 1
-  m_VelocityScale: 1
-  m_AngularVelocityDamping: 1
-  m_AngularVelocityScale: 1
-  m_TrackPosition: 1
-  m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
-  m_TrackRotation: 1
-  m_SmoothRotation: 0
-  m_SmoothRotationAmount: 5
-  m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
-  m_ThrowSmoothingDuration: 0.25
-  m_ThrowSmoothingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
-  m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
-  m_RetainTransformParent: 1
-  m_AttachPointCompatibilityMode: 0
 --- !u!54 &643602153
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13639,6 +13522,122 @@ MonoBehaviour:
   HapticSelectExit:
     Intensity: 0.2
     Duration: 0.1
+--- !u!114 &643602160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643602151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f87d4a15265760419e32989c753a002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 1918669414}
+  m_Colliders:
+  - {fileID: 643602154}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_AttachTransform: {fileID: 0}
+  m_AttachEaseInTime: 0.15
+  m_MovementType: 2
+  m_VelocityDamping: 1
+  m_VelocityScale: 1
+  m_AngularVelocityDamping: 1
+  m_AngularVelocityScale: 1
+  m_TrackPosition: 1
+  m_SmoothPosition: 0
+  m_SmoothPositionAmount: 5
+  m_TightenPosition: 0.5
+  m_TrackRotation: 1
+  m_SmoothRotation: 0
+  m_SmoothRotationAmount: 5
+  m_TightenRotation: 0.5
+  m_ThrowOnDetach: 1
+  m_ThrowSmoothingDuration: 0.25
+  m_ThrowSmoothingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ThrowVelocityScale: 1.5
+  m_ThrowAngularVelocityScale: 1
+  m_ForceGravityOnDetach: 0
+  m_RetainTransformParent: 1
+  m_AttachPointCompatibilityMode: 0
 --- !u!1001 &648618015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13863,7 +13862,7 @@ GameObject:
   - component: {fileID: 676643527}
   - component: {fileID: 676643528}
   m_Layer: 0
-  m_Name: thoughtbubblefade
+  m_Name: Fade Thought Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14885,7 +14884,7 @@ GameObject:
   - component: {fileID: 728314818}
   - component: {fileID: 728314819}
   m_Layer: 0
-  m_Name: Choice show up (1)
+  m_Name: Choice show up 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15460,8 +15459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752a4e660ceef214f9716e20000d59c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabCollider: {fileID: 751415296}
-  handanimator: {fileID: 1967294659}
+  Hand_collider: {fileID: 0}
 --- !u!114 &751415294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18676,7 +18674,7 @@ GameObject:
   - component: {fileID: 909495542}
   - component: {fileID: 909495539}
   m_Layer: 5
-  m_Name: DialogueText
+  m_Name: Dialogue Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18715,10 +18713,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: CBT_Character
+    name: Naomi
     sentences:
     - 'Hello! '
-    - My name is CBT_Character.
+    - My name is Naomi.
     - You must be here for the CBT lessons, right?
     - Come and take a seat!
     - I think this place was a good spot to meet!
@@ -18763,11 +18761,10 @@ MonoBehaviour:
     - Maybe they were busy with something that caught their attention, and they didn't
       realise you were there.
     - Or perhaps they could have thought it was a stranger calling another stranger.
-    - Or they could have been lost in their own thoughts and didn't hear you.
-    - Now it's your turn! Tell me another reason why it looked like they ignored
-      you.
+    - Now you try!
+    - Tell me another reason why it looked like they ignored you.
     - Exactly!
-    - Doesn't it make much more sense to think they didn't hear you, as oppossed
+    - Doesn't it make much more sense to think they didn't hear or see you, as oppossed
       to them ignoring you on purpose?
     - Next time you have a negative thought like that, try to counter it with logic.
     - Another example I can give you is that if you are scared of needles and you
@@ -18814,11 +18811,12 @@ MonoBehaviour:
       lot!
     - One more thing I want to mention before I go is that whenever you feel scared
       or anxious, think about the happy times in your life.
-    - "As I mentioned at the beginning. We can't change\r                           
+    - "As I mentioned at the beginning.  We can't change\r                           
       how we feel, but we can change how we react. Which then changes how we feel.
       It's a full circle, like nature!"
     - Anyway, that concludes our talk for today!
-    - Feel free to come back anytime you like if you need a refresher!
+    - Feel free to come back anytime using the level select option if you need a
+      refresher!
     - I really hope I can see you again soon!
     - Take care of yourself!
 --- !u!222 &909495542
@@ -21779,7 +21777,7 @@ GameObject:
   - component: {fileID: 1025581502}
   - component: {fileID: 1025581501}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21833,7 +21831,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1026119671 stripped
 Transform:
@@ -22593,7 +22591,7 @@ GameObject:
   - component: {fileID: 1072343873}
   - component: {fileID: 1072343872}
   m_Layer: 0
-  m_Name: Example1
+  m_Name: Example 1 Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23802,7 +23800,7 @@ GameObject:
   - component: {fileID: 1154644626}
   - component: {fileID: 1154644627}
   m_Layer: 5
-  m_Name: Slider2
+  m_Name: Value Slider 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25541,7 +25539,7 @@ GameObject:
   - component: {fileID: 1285121428}
   - component: {fileID: 1285121430}
   m_Layer: 5
-  m_Name: Picking up objects tutorial text
+  m_Name: Picking Up Objects Tutorial (Text)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25706,7 +25704,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38b83835e2c0a7b4782195555e44a7c6,
         type: 3}
@@ -26545,7 +26543,7 @@ GameObject:
   - component: {fileID: 1305984905}
   - component: {fileID: 1305984909}
   m_Layer: 0
-  m_Name: Choice 2
+  m_Name: Choice Bubble 2
   m_TagString: Choice2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26757,7 +26755,7 @@ GameObject:
   - component: {fileID: 1313553228}
   - component: {fileID: 1313553229}
   m_Layer: 0
-  m_Name: thoughtbubbleshow
+  m_Name: Show Thought Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28742,7 +28740,7 @@ GameObject:
   - component: {fileID: 1405410544}
   - component: {fileID: 1405410546}
   m_Layer: 5
-  m_Name: DialogueBox
+  m_Name: Dialogue Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29293,132 +29291,16 @@ GameObject:
   - component: {fileID: 1434436435}
   - component: {fileID: 1434436434}
   - component: {fileID: 1434436433}
-  - component: {fileID: 1434436432}
   - component: {fileID: 1434436438}
   - component: {fileID: 1434436439}
+  - component: {fileID: 1434436440}
   m_Layer: 0
-  m_Name: Example1cover
+  m_Name: Example 1 (Back Cover)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1434436432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434436431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 514d7c31e00dc464499d960fb0bdfef1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1918669414}
-  m_Colliders:
-  - {fileID: 1434436434}
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 6
-  m_SelectMode: 0
-  m_CustomReticle: {fileID: 0}
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0.15
-  m_MovementType: 2
-  m_VelocityDamping: 1
-  m_VelocityScale: 1
-  m_AngularVelocityDamping: 1
-  m_AngularVelocityScale: 1
-  m_TrackPosition: 1
-  m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
-  m_TrackRotation: 1
-  m_SmoothRotation: 0
-  m_SmoothRotationAmount: 5
-  m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
-  m_ThrowSmoothingDuration: 0.25
-  m_ThrowSmoothingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
-  m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
-  m_RetainTransformParent: 1
-  m_AttachPointCompatibilityMode: 0
 --- !u!54 &1434436433
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29561,6 +29443,122 @@ MonoBehaviour:
   HapticSelectExit:
     Intensity: 0.2
     Duration: 0.1
+--- !u!114 &1434436440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434436431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f87d4a15265760419e32989c753a002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 1918669414}
+  m_Colliders:
+  - {fileID: 1434436434}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 2
+  m_SelectMode: 0
+  m_CustomReticle: {fileID: 0}
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_AttachTransform: {fileID: 0}
+  m_AttachEaseInTime: 0.15
+  m_MovementType: 2
+  m_VelocityDamping: 1
+  m_VelocityScale: 1
+  m_AngularVelocityDamping: 1
+  m_AngularVelocityScale: 1
+  m_TrackPosition: 1
+  m_SmoothPosition: 0
+  m_SmoothPositionAmount: 5
+  m_TightenPosition: 0.5
+  m_TrackRotation: 1
+  m_SmoothRotation: 0
+  m_SmoothRotationAmount: 5
+  m_TightenRotation: 0.5
+  m_ThrowOnDetach: 1
+  m_ThrowSmoothingDuration: 0.25
+  m_ThrowSmoothingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ThrowVelocityScale: 1.5
+  m_ThrowAngularVelocityScale: 1
+  m_ForceGravityOnDetach: 0
+  m_RetainTransformParent: 1
+  m_AttachPointCompatibilityMode: 0
 --- !u!1 &1434681894
 GameObject:
   m_ObjectHideFlags: 0
@@ -29574,7 +29572,7 @@ GameObject:
   - component: {fileID: 1434681896}
   - component: {fileID: 1434681898}
   m_Layer: 5
-  m_Name: continue dialogue tutorial text
+  m_Name: Continue Dialogue Tutorial Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34248,12 +34246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
---- !u!95 &1629192369 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d875b43d50f57d246b51262a3df8750b,
-    type: 3}
-  m_PrefabInstance: {fileID: 976828792}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1631791341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34356,7 +34348,7 @@ GameObject:
   - component: {fileID: 1638702824}
   - component: {fileID: 1638702823}
   m_Layer: 5
-  m_Name: Text1
+  m_Name: Choice 1 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34668,7 +34660,7 @@ RectTransform:
   - {fileID: 1434681895}
   - {fileID: 2031649808}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -35815,7 +35807,7 @@ GameObject:
   - component: {fileID: 1695721991}
   - component: {fileID: 1695721990}
   m_Layer: 5
-  m_Name: Text2
+  m_Name: Choice 2 Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36295,7 +36287,7 @@ GameObject:
   - component: {fileID: 1710544496}
   - component: {fileID: 1710544497}
   m_Layer: 5
-  m_Name: Slider1
+  m_Name: Value Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38220,7 +38212,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 28.826, y: -137.869, z: -3.575}
 --- !u!114 &1775430833
 MonoBehaviour:
@@ -38565,7 +38557,7 @@ Transform:
   - {fileID: 1918669415}
   - {fileID: 177064153}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1805300503
 PrefabInstance:
@@ -43065,7 +43057,7 @@ GameObject:
   - component: {fileID: 2031649809}
   - component: {fileID: 2031649811}
   m_Layer: 5
-  m_Name: bubble choice tutorial
+  m_Name: Choice Selection Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44087,7 +44079,7 @@ GameObject:
   - component: {fileID: 2076240660}
   - component: {fileID: 2076240659}
   m_Layer: 0
-  m_Name: Example1
+  m_Name: Example 1 Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44277,7 +44269,7 @@ GameObject:
   - component: {fileID: 2091720596}
   - component: {fileID: 2091720597}
   m_Layer: 0
-  m_Name: Road with fake character
+  m_Name: Thought Bubble Example
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

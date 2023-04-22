@@ -697,7 +697,7 @@ public class QuestionGenerator : MonoBehaviour
                                           " how long would it take for you to calm down?";
 
                 StartCoroutine(Fade_out_answer_texts());
-                QuizManager.New_answer_A = "Not That long";
+                QuizManager.New_answer_A = "Not that long";
                 QuizManager.New_answer_B = "Just a bit of time";
                 QuizManager.New_answer_C = "It takes a while for me to calm down";
                 Answer_that_increases_score = "C";
@@ -719,7 +719,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "A little";
-                QuizManager.New_answer_B = "Very annoyed, Just let me study already...";
+                QuizManager.New_answer_B = "Very annoyed, just let me study already...";
                 QuizManager.New_answer_C = "I wouldn't mind";
                 Answer_that_increases_score = "B";
 
@@ -733,7 +733,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_stress_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Do you think you overeact to situations a lot?";
+                QuizManager.New_question_text = "Do you think you overeact to a lot of situations?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "Somewhat";
@@ -771,10 +771,10 @@ public class QuestionGenerator : MonoBehaviour
                 Is_stress_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "How often do you receive Headaches or become dizzy?";
+                QuizManager.New_question_text = "How often do you receive headaches or become dizzy?";
 
                 StartCoroutine(Fade_out_answer_texts());
-                QuizManager.New_answer_A = "Almost Everyday";
+                QuizManager.New_answer_A = "Almost everyday";
                 QuizManager.New_answer_B = "Rarely";
                 QuizManager.New_answer_C = "Never";
                 Answer_that_increases_score = "A";
@@ -792,7 +792,7 @@ public class QuestionGenerator : MonoBehaviour
                 QuizManager.New_question_text = "Do you often get chest pains?";
 
                 StartCoroutine(Fade_out_answer_texts());
-                QuizManager.New_answer_A = "Almost Everyday";
+                QuizManager.New_answer_A = "Almost everyday";
                 QuizManager.New_answer_B = "Rarely";
                 QuizManager.New_answer_C = "Never";
                 Answer_that_increases_score = "A";
@@ -1052,8 +1052,8 @@ public class QuestionGenerator : MonoBehaviour
                 QuizManager.New_question_text = "Have you suddenly stopped doing the hobbies you used to love?";
 
                 StartCoroutine(Fade_out_answer_texts());
-                QuizManager.New_answer_A = "Yes, I dont feel like doing them anymore";
-                QuizManager.New_answer_B = "Yes, because I physically can't do it anymore";
+                QuizManager.New_answer_A = "Yes, I don't feel like doing them anymore";
+                QuizManager.New_answer_B = "Yes, because I physically can't do them anymore";
                 QuizManager.New_answer_C = "No";
                 Answer_that_increases_score = "A";
 
@@ -1166,7 +1166,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Show_question_text());
                 QuizManager.New_question_text = "Do you take time off work or studying because it" +
-                                          " has become much more difficult and scary?";
+                                          " has become much more intimidating?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "Yes";

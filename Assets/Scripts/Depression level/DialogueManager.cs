@@ -273,7 +273,10 @@ public class DialogueManager : MonoBehaviour
         CBT_charanimator.SetBool("isexampling", false);
         CBT_charanimator.SetBool("isintroducing", false);
         Can_press_continue_button = true;
-        Selecting_choice_tutorial_animator.SetBool("fadein", false);
+        if (Selecting_choice_tutorial_animator.isActiveAndEnabled)
+        {
+            Selecting_choice_tutorial_animator.SetBool("fadein", false);
+        }
     }
 
     private void Event_26_Ending()
