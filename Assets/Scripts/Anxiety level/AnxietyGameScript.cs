@@ -209,8 +209,8 @@ public class AnxietyGameScript : MonoBehaviour
         Breath_in_sound_effect.Play();
 
         yield return new WaitForSeconds(1.5f);
-        Right_VR_Controller.SendHapticImpulse(0.2f, 6f);
-        Left_VR_Controller.SendHapticImpulse(0.2f, 6f);
+        Right_VR_Controller.SendHapticImpulse(0.2f, 3f);
+        Left_VR_Controller.SendHapticImpulse(0.2f, 3f);
 
         yield return new WaitForSeconds(1.5f);
         Breath_in_particle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -229,8 +229,8 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Breath_out_particle.Play();
         Breath_out_sound_effect.Play();
-        Right_VR_Controller.SendHapticImpulse(0.2f, 6f);
-        Left_VR_Controller.SendHapticImpulse(0.2f, 6f);
+        Right_VR_Controller.SendHapticImpulse(0.2f, 3f);
+        Left_VR_Controller.SendHapticImpulse(0.2f, 3f);
 
         yield return new WaitForSeconds(2f);
         Breath_out_particle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -286,8 +286,8 @@ public class AnxietyGameScript : MonoBehaviour
         Breath_in_sound_effect.Play();
 
         yield return new WaitForSeconds(1.5f);
-        Right_VR_Controller.SendHapticImpulse(0.2f, 6f);
-        Left_VR_Controller.SendHapticImpulse(0.2f, 6f);
+        Right_VR_Controller.SendHapticImpulse(0.2f, 3f);
+        Left_VR_Controller.SendHapticImpulse(0.2f, 3f);
 
         yield return new WaitForSeconds(1.5f);
         Breath_in_particle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -307,8 +307,8 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Breath_out_particle.Play();
         Breath_out_sound_effect.Play();
-        Right_VR_Controller.SendHapticImpulse(0.2f, 6f);
-        Left_VR_Controller.SendHapticImpulse(0.2f, 6f);
+        Right_VR_Controller.SendHapticImpulse(0.2f, 3f);
+        Left_VR_Controller.SendHapticImpulse(0.2f, 3f);
 
         yield return new WaitForSeconds(3f);
         Breath_out_particle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -332,8 +332,8 @@ public class AnxietyGameScript : MonoBehaviour
             Breath_in_sound_effect.Play();
 
             yield return new WaitForSeconds(1.5f);
-            Right_VR_Controller.SendHapticImpulse(0.2f, 6f);
-            Left_VR_Controller.SendHapticImpulse(0.2f, 6f);
+            Right_VR_Controller.SendHapticImpulse(0.2f, 3f);
+            Left_VR_Controller.SendHapticImpulse(0.2f, 3f);
 
             yield return new WaitForSeconds(1.5f);
             Breath_in_particle.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -341,8 +341,8 @@ public class AnxietyGameScript : MonoBehaviour
             yield return new WaitForSeconds(4f);
             Breath_out_particle.Play();
             Breath_out_sound_effect.Play();
-            Right_VR_Controller.SendHapticImpulse(0.2f, 6f);
-            Left_VR_Controller.SendHapticImpulse(0.2f, 6f);
+            Right_VR_Controller.SendHapticImpulse(0.2f, 3f);
+            Left_VR_Controller.SendHapticImpulse(0.2f, 3f);
 
             yield return new WaitForSeconds(3f);
             Breath_out_particle.Stop(true, ParticleSystemStopBehavior.StopEmitting);

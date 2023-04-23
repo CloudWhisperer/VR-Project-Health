@@ -170,19 +170,19 @@ public class AnswerButtons : MonoBehaviour
                 {
                     case -2:
                         StartCoroutine(Level_has_been_selected());
-                        LevelChangeFade.What_level_number_to_load = 3;
+                        LevelChangeFade.What_level_number_to_load = 4;
                         Level_fade_script.Fade_to_level();
                         break;
 
                     case -1:
                         StartCoroutine(Level_has_been_selected());
-                        LevelChangeFade.What_level_number_to_load = 2;
+                        LevelChangeFade.What_level_number_to_load = 3;
                         Level_fade_script.Fade_to_level();
                         break;
 
                     case 0:
                         StartCoroutine(Level_has_been_selected());
-                        LevelChangeFade.What_level_number_to_load = 1;
+                        LevelChangeFade.What_level_number_to_load = 2;
                         Level_fade_script.Fade_to_level();
                         break;
                 }
