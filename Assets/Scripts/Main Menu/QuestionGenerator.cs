@@ -23,6 +23,12 @@ public class QuestionGenerator : MonoBehaviour
     public static bool Is_personal_question = false;
     public static bool Is_level_select_question = true;
 
+    //bools to unlock weather options which is after completing a level or 2 or 3. int to check how mnay levels player has beat
+    public static int How_many_levels_beaten = 0;
+    public static bool Unlock_weather_1 = false;
+    public static bool Unlock_weather_2 = false;
+    public static bool Unlock_weather_3 = false;
+
     //int to check what question number use is on
     public static int Question_number;
 
@@ -134,6 +140,33 @@ public class QuestionGenerator : MonoBehaviour
     {
         Question_number = 1;
         Update_question_number();
+        Check_how_many_levels_have_been_beaten();
+    }
+
+    private static void Check_how_many_levels_have_been_beaten()
+    {
+        switch (How_many_levels_beaten)
+        {
+            case 1:
+                Unlock_weather_1 = true;
+                break;
+
+            case 2:
+                Unlock_weather_2 = true;
+                break;
+
+            case 3:
+                Unlock_weather_3 = true;
+                break;
+
+            default:
+                break;
+        }
+
+        if (How_many_levels_beaten > 3)
+        {
+            Unlock_weather_1 = Unlock_weather_2 = Unlock_weather_3 = true;
+        }
     }
 
     private void Awake()
@@ -505,6 +538,9 @@ public class QuestionGenerator : MonoBehaviour
 
             if (Question_number == 8)
             {
+                //just to double check the unlocks
+                Check_how_many_levels_have_been_beaten();
+
                 Is_personal_question = true;
 
                 StartCoroutine(Show_question_text());
@@ -533,7 +569,15 @@ public class QuestionGenerator : MonoBehaviour
                 Is_personal_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Would you like the weather to be Sunny?";
+
+                if (Unlock_weather_1 == true)
+                {
+                    QuizManager.New_question_text = "Would you like the weather to be Sunny? (Unlocked!)";
+                }
+                else
+                {
+                    QuizManager.New_question_text = "Would you like the weather to be Sunny? (Unlocked after completing 1 level)";
+                }
 
                 Turn_off_all_images();
                 Sun_weather_image.enabled = true;
@@ -556,7 +600,16 @@ public class QuestionGenerator : MonoBehaviour
                 Is_personal_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Would you like the weather to be Snowy?";
+
+                if (Unlock_weather_2 == true)
+                {
+                    QuizManager.New_question_text = "Would you like the weather to be Snowy? (Unlocked!)";
+                }
+                else
+                {
+                    QuizManager.New_question_text = "Would you like the weather to be Snowy? (Unlocked after completing 2 levels)";
+                }
+
 
                 Turn_off_all_images();
                 Snow_weather_image.enabled = true;
@@ -579,7 +632,16 @@ public class QuestionGenerator : MonoBehaviour
                 Is_personal_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Would you like the weather to be Foggy?";
+
+                if (Unlock_weather_3 == true)
+                {
+                    QuizManager.New_question_text = "Would you like the weather to be Foggy? (Unlocked!)";
+                }
+                else
+                {
+                    QuizManager.New_question_text = "Would you like the weather to be Foggy? (Unlocked after completing all 3 level)";
+                }
+
 
                 Turn_off_all_images();
                 Fog_weather_image.enabled = true;

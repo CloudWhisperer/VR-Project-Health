@@ -516,6 +516,7 @@ public class DialogueManager : MonoBehaviour
     void End_dialogue_and_game()
     {
         Debug.Log("End of conversation");
+        QuestionGenerator.How_many_levels_beaten += 1;
         LevelChangeFade.What_level_number_to_load = 1;
         Fade_level_script.Fade_to_level();
 

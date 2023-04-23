@@ -573,55 +573,66 @@ public class AnswerButtons : MonoBehaviour
 
     void Set_weather_to_Sunny()
     {
-        if (Rain.isPlaying ||
-            Snow.isPlaying ||
-            Fog.isPlaying ||
-            Cloudy.isPlaying)
+        if (QuestionGenerator.Unlock_weather_1 == true)
         {
-            Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            Cloudy.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            if (Rain.isPlaying ||
+                Snow.isPlaying ||
+                Fog.isPlaying ||
+                Cloudy.isPlaying)
+            {
+                Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                Cloudy.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+            Debug.Log("SUNNY selected");
+            Stars.SetActive(false);
+            RenderSettings.skybox = Sun_skybox;
         }
-        Debug.Log("SUNNY selected");
-        Stars.SetActive(false);
-        RenderSettings.skybox = Sun_skybox;
+        Debug.Log(QuestionGenerator.Unlock_weather_1);
     }
 
     void Set_weather_to_Snow()
     {
-        if (Rain.isPlaying ||
+        if (QuestionGenerator.Unlock_weather_2 == true)
+        {
+            if (Rain.isPlaying ||
             Fog.isPlaying ||
             Cloudy.isPlaying)
-        {
-            Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            Cloudy.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            {
+                Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                Fog.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                Cloudy.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+
+            Snow.Play();
+            Debug.Log("SNOWY selected");
         }
-
-        Snow.Play();
-        Debug.Log("SNOWY selected");
-
+        Debug.Log(QuestionGenerator.Unlock_weather_2);
     }
 
     void Set_weather_to_Foggy()
     {
-        if (Rain.isPlaying ||
+        if (QuestionGenerator.Unlock_weather_3 == true)
+        {
+            if (Rain.isPlaying ||
             Snow.isPlaying)
-        {
-            Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-        }
+            {
+                Rain.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                Snow.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
 
-        if (!Stars.activeInHierarchy)
-        {
-            Stars.SetActive(true);
-        }
+            if (!Stars.activeInHierarchy)
+            {
+                Stars.SetActive(true);
+            }
 
-        Check_colour_of_Skybox();
-        Debug.Log("FOGGY selected");
-        Fog.Play();
-        Cloudy.Play();
+            Check_colour_of_Skybox();
+            Debug.Log("FOGGY selected");
+            Fog.Play();
+            Cloudy.Play();
+        }
+        Debug.Log(QuestionGenerator.Unlock_weather_3);
     }
 
     void Set_weather_to_Cloudy()
