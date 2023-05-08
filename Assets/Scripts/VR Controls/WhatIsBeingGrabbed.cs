@@ -5,6 +5,7 @@ public class WhatIsBeingGrabbed : MonoBehaviour
     [Header("-Hands-")]
     [SerializeField]
     private SphereCollider Hand_collider;
+    [SerializeField]
     private Animator Hand_animator;
 
     private void OnTriggerEnter(Collider grabCollider)
@@ -13,9 +14,15 @@ public class WhatIsBeingGrabbed : MonoBehaviour
         {
             Hand_animator.SetBool("iscube", true);
         }
-        if (grabCollider.CompareTag("Paperplane"))
+        if (grabCollider.CompareTag("Plane") ||
+            grabCollider.CompareTag("Paperplane"))
         {
             Hand_animator.SetBool("isplane", true);
+        }
+        if (grabCollider.CompareTag("Balls") ||
+           grabCollider.CompareTag("Pingpongball"))
+        {
+            Hand_animator.SetBool("iscube", true);
         }
     }
 
@@ -25,9 +32,15 @@ public class WhatIsBeingGrabbed : MonoBehaviour
         {
             Hand_animator.SetBool("iscube", false);
         }
-        if (grabCollider.CompareTag("Paperplane"))
+        if (grabCollider.CompareTag("Plane") ||
+            grabCollider.CompareTag("Paperplane"))
         {
             Hand_animator.SetBool("isplane", false);
+        }
+        if (grabCollider.CompareTag("Balls") ||
+            grabCollider.CompareTag("Pingpongball"))
+        {
+            Hand_animator.SetBool("iscube", false);
         }
     }
 }

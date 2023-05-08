@@ -561,6 +561,11 @@ PrefabInstance:
       propertyPath: cubesound
       value: 
       objectReference: {fileID: 1691070496}
+    - target: {fileID: 5342415493546640014, guid: 981f105e766ae23419d413aa8115cfd7,
+        type: 3}
+      propertyPath: Cube_sound_effect
+      value: 
+      objectReference: {fileID: 1691070496}
     - target: {fileID: 6208682080933490186, guid: 981f105e766ae23419d413aa8115cfd7,
         type: 3}
       propertyPath: m_Name
@@ -9347,6 +9352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hand_collider: {fileID: 469346185}
+  Hand_animator: {fileID: 907744842}
 --- !u!1 &473183421
 GameObject:
   m_ObjectHideFlags: 0
@@ -11818,6 +11824,18 @@ PrefabInstance:
     - target: {fileID: 893534163, guid: 981f105e766ae23419d413aa8115cfd7, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 893534164, guid: 981f105e766ae23419d413aa8115cfd7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 893534164, guid: 981f105e766ae23419d413aa8115cfd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.713
+      objectReference: {fileID: 0}
+    - target: {fileID: 893534164, guid: 981f105e766ae23419d413aa8115cfd7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.14
       objectReference: {fileID: 0}
     - target: {fileID: 950144668, guid: 981f105e766ae23419d413aa8115cfd7, type: 3}
       propertyPath: m_InteractionManager
@@ -17394,6 +17412,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1593503447}
+  - {fileID: 1970649114}
   m_Father: {fileID: 473183422}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -71.118, y: 90, z: 0}
@@ -17789,6 +17808,11 @@ PrefabInstance:
     - target: {fileID: 5342415493546640014, guid: 981f105e766ae23419d413aa8115cfd7,
         type: 3}
       propertyPath: cubesound
+      value: 
+      objectReference: {fileID: 1691070496}
+    - target: {fileID: 5342415493546640014, guid: 981f105e766ae23419d413aa8115cfd7,
+        type: 3}
+      propertyPath: Cube_sound_effect
       value: 
       objectReference: {fileID: 1691070496}
     - target: {fileID: 6208682080933490186, guid: 981f105e766ae23419d413aa8115cfd7,
@@ -19087,6 +19111,11 @@ PrefabInstance:
       propertyPath: cubesound
       value: 
       objectReference: {fileID: 1691070496}
+    - target: {fileID: 5342415493546640014, guid: 981f105e766ae23419d413aa8115cfd7,
+        type: 3}
+      propertyPath: Cube_sound_effect
+      value: 
+      objectReference: {fileID: 1691070496}
     - target: {fileID: 6208682080933490186, guid: 981f105e766ae23419d413aa8115cfd7,
         type: 3}
       propertyPath: m_Name
@@ -19602,7 +19631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Answer B Text
+  m_text: Next colour
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19987,7 +20016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Answer C Text
+  m_text: Skip colour selection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20687,6 +20716,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
+--- !u!95 &1534435852 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d875b43d50f57d246b51262a3df8750b,
+    type: 3}
+  m_PrefabInstance: {fileID: 418813349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1540435378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1463681914082456365, guid: abce8ad5941b4b842a8345ea17f9b8e7,
@@ -20932,7 +20967,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Question Text
+  m_text: 'Welcome back!
+
+
+    Would you like your world to be Red?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -21333,9 +21371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Answer A text
-
-'
+  m_text: Yes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21786,6 +21822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hand_collider: {fileID: 1617402407}
+  Hand_animator: {fileID: 1534435852}
 --- !u!1 &1621342312
 GameObject:
   m_ObjectHideFlags: 0
@@ -24539,6 +24576,55 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1970649113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970649114}
+  - component: {fileID: 1970649115}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1970649114
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970649113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 988175699}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1970649115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970649113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35004eb1301a38a4aa622f2bd24b76e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2015606488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6208682080933490186, guid: 981f105e766ae23419d413aa8115cfd7,

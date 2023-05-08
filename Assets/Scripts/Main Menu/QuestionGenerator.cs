@@ -136,11 +136,12 @@ public class QuestionGenerator : MonoBehaviour
         Paper_plane.SetActive(true);
     }
 
-    private void Start()
+    private void Awake()
     {
         Question_number = 1;
         Update_question_number();
         Check_how_many_levels_have_been_beaten();
+        StartCoroutine(Show_question_text());
     }
 
     private static void Check_how_many_levels_have_been_beaten()
@@ -167,12 +168,6 @@ public class QuestionGenerator : MonoBehaviour
         {
             Unlock_weather_1 = Unlock_weather_2 = Unlock_weather_3 = true;
         }
-    }
-
-    private void Awake()
-    {
-        //written here again to counter a bug when loading the level
-        Question_number = 1;
     }
 
     IEnumerator Show_question_text()
