@@ -573,8 +573,8 @@ public class AnswerButtons : MonoBehaviour
 
     void Set_weather_to_Sunny()
     {
-        if (QuestionGenerator.Unlock_weather_1 == true)
-        {
+        //if (QuestionGenerator.Unlock_weather_1 == true)
+        //{
             if (Rain.isPlaying ||
                 Snow.isPlaying ||
                 Fog.isPlaying ||
@@ -588,14 +588,14 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("SUNNY selected");
             Stars.SetActive(false);
             RenderSettings.skybox = Sun_skybox;
-        }
-        Debug.Log(QuestionGenerator.Unlock_weather_1);
+        //}
+        //Debug.Log(QuestionGenerator.Unlock_weather_1);
     }
 
     void Set_weather_to_Snow()
     {
-        if (QuestionGenerator.Unlock_weather_2 == true)
-        {
+        //if (QuestionGenerator.Unlock_weather_2 == true)
+        //{
             if (Rain.isPlaying ||
             Fog.isPlaying ||
             Cloudy.isPlaying)
@@ -607,14 +607,14 @@ public class AnswerButtons : MonoBehaviour
 
             Snow.Play();
             Debug.Log("SNOWY selected");
-        }
-        Debug.Log(QuestionGenerator.Unlock_weather_2);
+        //}
+        //Debug.Log(QuestionGenerator.Unlock_weather_2);
     }
 
     void Set_weather_to_Foggy()
     {
-        if (QuestionGenerator.Unlock_weather_3 == true)
-        {
+        //if (QuestionGenerator.Unlock_weather_3 == true)
+        //{
             if (Rain.isPlaying ||
             Snow.isPlaying)
             {
@@ -631,8 +631,8 @@ public class AnswerButtons : MonoBehaviour
             Debug.Log("FOGGY selected");
             Fog.Play();
             Cloudy.Play();
-        }
-        Debug.Log(QuestionGenerator.Unlock_weather_3);
+        //}
+        //Debug.Log(QuestionGenerator.Unlock_weather_3);
     }
 
     void Set_weather_to_Cloudy()

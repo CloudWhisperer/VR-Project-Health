@@ -315,7 +315,7 @@ public class CoinMiniGame : MonoBehaviour
 
         //fades back into the main menu
         yield return new WaitForSeconds(4f);
-        QuestionGenerator.How_many_levels_beaten += 1;
+        //QuestionGenerator.How_many_levels_beaten += 1;
         LevelChangeFade.What_level_number_to_load = 1;
         Fade_level_script.Fade_to_level();
     }

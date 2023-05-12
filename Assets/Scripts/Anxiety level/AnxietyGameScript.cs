@@ -879,7 +879,7 @@ public class AnxietyGameScript : MonoBehaviour
         yield return new WaitForSeconds(6f);
 
         //fade to main menu
-        QuestionGenerator.How_many_levels_beaten += 1;
+        //QuestionGenerator.How_many_levels_beaten += 1;
         LevelChangeFade.What_level_number_to_load = 1;
         Level_fade_script.Fade_to_level();
     }

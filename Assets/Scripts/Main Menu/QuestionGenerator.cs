@@ -24,10 +24,10 @@ public class QuestionGenerator : MonoBehaviour
     public static bool Is_level_select_question = true;
 
     //bools to unlock weather options which is after completing a level or 2 or 3. int to check how mnay levels player has beat
-    public static int How_many_levels_beaten = 0;
-    public static bool Unlock_weather_1 = false;
-    public static bool Unlock_weather_2 = false;
-    public static bool Unlock_weather_3 = false;
+    //public static int How_many_levels_beaten = 0;
+    //public static bool Unlock_weather_1 = false;
+    //public static bool Unlock_weather_2 = false;
+    //public static bool Unlock_weather_3 = false;
 
     //int to check what question number use is on
     public static int Question_number;
@@ -140,35 +140,35 @@ public class QuestionGenerator : MonoBehaviour
     {
         Question_number = 1;
         Update_question_number();
-        Check_how_many_levels_have_been_beaten();
+        //Check_how_many_levels_have_been_beaten();
         StartCoroutine(Show_question_text());
     }
 
-    private static void Check_how_many_levels_have_been_beaten()
-    {
-        switch (How_many_levels_beaten)
-        {
-            case 1:
-                Unlock_weather_1 = true;
-                break;
+    ////private static void Check_how_many_levels_have_been_beaten()
+    //{
+    //    switch (How_many_levels_beaten)
+    //    {
+    //        case 1:
+    //            Unlock_weather_1 = true;
+    //            break;
 
-            case 2:
-                Unlock_weather_2 = true;
-                break;
+    //        case 2:
+    //            Unlock_weather_2 = true;
+    //            break;
 
-            case 3:
-                Unlock_weather_3 = true;
-                break;
+    //        case 3:
+    //            Unlock_weather_3 = true;
+    //            break;
 
-            default:
-                break;
-        }
+    //        default:
+    //            break;
+    //    }
 
-        if (How_many_levels_beaten > 3)
-        {
-            Unlock_weather_1 = Unlock_weather_2 = Unlock_weather_3 = true;
-        }
-    }
+    //    if (How_many_levels_beaten > 3)
+    //    {
+    //        Unlock_weather_1 = Unlock_weather_2 = Unlock_weather_3 = true;
+    //    }
+    //}
 
     IEnumerator Show_question_text()
     {
@@ -241,7 +241,7 @@ public class QuestionGenerator : MonoBehaviour
         Unlock_item_sound.Play();
         Whiteboard.SetActive(true);
         Whiteboard_marker.SetActive(true);
-        Unlock_item_text.text = "You have unlocked the Whiteboard and Whiteboard_marker, try to draw a star!";
+        Unlock_item_text.text = "You have unlocked the Whiteboard and Marker, try to draw a star!";
         Unlock_item_text_animator.SetBool("zoom", true);
         yield return new WaitForSeconds(4f);
         Unlock_item_text_animator.SetBool("zoom", false);
@@ -252,7 +252,7 @@ public class QuestionGenerator : MonoBehaviour
     {
         Unlock_item_sound.Play();
         Paper_plane.SetActive(true);
-        Unlock_item_text.text = "You have unlocked the Paper Airplanes, try to throw them far!";
+        Unlock_item_text.text = "You have unlocked the Paper Airplane, try to throw it far!";
         Unlock_item_text_animator.SetBool("zoom", true);
         yield return new WaitForSeconds(4f);
         Unlock_item_text_animator.SetBool("zoom", false);
@@ -534,7 +534,7 @@ public class QuestionGenerator : MonoBehaviour
             if (Question_number == 8)
             {
                 //just to double check the unlocks
-                Check_how_many_levels_have_been_beaten();
+                //Check_how_many_levels_have_been_beaten();
 
                 Is_personal_question = true;
 
@@ -565,14 +565,16 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Show_question_text());
 
-                if (Unlock_weather_1 == true)
-                {
-                    QuizManager.New_question_text = "Would you like the weather to be Sunny? (Unlocked!)";
-                }
-                else
-                {
-                    QuizManager.New_question_text = "Would you like the weather to be Sunny? (Unlocked after completing 1 level)";
-                }
+                //if (Unlock_weather_1 == true)
+                //{
+                //    QuizManager.New_question_text = "Would you like the weather to be Sunny? (Unlocked!)";
+                //}
+                //else
+                //{
+                //    QuizManager.New_question_text = "Would you like the weather to be Sunny? (Unlocked after completing 1 level)";
+                //}
+
+                QuizManager.New_question_text = "Would you like the weather to be Sunny?";
 
                 Turn_off_all_images();
                 Sun_weather_image.enabled = true;
@@ -596,15 +598,16 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Show_question_text());
 
-                if (Unlock_weather_2 == true)
-                {
-                    QuizManager.New_question_text = "Would you like the weather to be Snowy? (Unlocked!)";
-                }
-                else
-                {
-                    QuizManager.New_question_text = "Would you like the weather to be Snowy? (Unlocked after completing 2 levels)";
-                }
+                //if (Unlock_weather_2 == true)
+                //{
+                //    QuizManager.New_question_text = "Would you like the weather to be Snowy? (Unlocked!)";
+                //}
+                //else
+                //{
+                //    QuizManager.New_question_text = "Would you like the weather to be Snowy? (Unlocked after completing 2 levels)";
+                //}
 
+                QuizManager.New_question_text = "Would you like the weather to be Snowy?";
 
                 Turn_off_all_images();
                 Snow_weather_image.enabled = true;
@@ -628,15 +631,16 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Show_question_text());
 
-                if (Unlock_weather_3 == true)
-                {
-                    QuizManager.New_question_text = "Would you like the weather to be Foggy? (Unlocked!)";
-                }
-                else
-                {
-                    QuizManager.New_question_text = "Would you like the weather to be Foggy? (Unlocked after completing all 3 level)";
-                }
+                //if (Unlock_weather_3 == true)
+                //{
+                //    QuizManager.New_question_text = "Would you like the weather to be Foggy? (Unlocked!)";
+                //}
+                //else
+                //{
+                //    QuizManager.New_question_text = "Would you like the weather to be Foggy? (Unlocked after completing all 3 level)";
+                //}
 
+                QuizManager.New_question_text = "Would you like the weather to be Foggy?";
 
                 Turn_off_all_images();
                 Fog_weather_image.enabled = true;
@@ -683,7 +687,7 @@ public class QuestionGenerator : MonoBehaviour
 
                 StartCoroutine(Show_question_text());
                 QuizManager.New_question_text = "Would you like to skip the personality quiz and choose a level?" +
-                                          " Not recommended for first time players";
+                                          " (Not recommended for first time players)";
 
                 Turn_off_all_images();
                 Button_pushing_tutorial.SetBool("isshow", false);
@@ -710,7 +714,7 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Show_question_text());
                 QuizManager.New_question_text = "You are trying to focus on your work in the library," +
                                            " but you can hear someone chewing loudly" +
-                                           " across the library, how irritated would you be?";
+                                           ". How irritated would you be?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "Not irritated";
@@ -728,9 +732,9 @@ public class QuestionGenerator : MonoBehaviour
                 Is_stress_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "You are stuck in a queue, there are around" +
+                QuizManager.New_question_text = "You are stuck in a queue, there are" +
                                           " 6 people in front of you and the progress of the" +
-                                          " queue seems to be moving slowly, how tempted are" +
+                                          " queue seems to be moving very slowly. How tempted are" +
                                           " you to leave?";
 
                 StartCoroutine(Fade_out_answer_texts());
@@ -772,7 +776,7 @@ public class QuestionGenerator : MonoBehaviour
                 StartCoroutine(Show_question_text());
                 QuizManager.New_question_text = "You are trying to study in your room, but" +
                                           " someone keeps texting you every" +
-                                          " few minutes, how annoyed would you be in this situation?";
+                                          " few minutes. How annoyed would you be in this situation?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "A little";
@@ -882,7 +886,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_stress_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "How often do you worry about things?";
+                QuizManager.New_question_text = "How often do you worry?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "All the time";
@@ -904,7 +908,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_depression_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Are you happy with the way things are going in your life?";
+                QuizManager.New_question_text = "Are you happy with the way things are going at the moment?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "I'm very happy";
@@ -922,7 +926,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_depression_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Do you think you have the strength to keep going in your life?";
+                QuizManager.New_question_text = "Do you agree that you have strength to keep going in your life?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "I don't think so";
@@ -959,7 +963,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_depression_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Do you blame the bad things that happen in your life on yourself?";
+                QuizManager.New_question_text = "Do you blame the bad things that happen on yourself?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "Yes, because it's all my fault";
@@ -1130,7 +1134,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_anxiety_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Do you struggle with taking a break or relaxing?";
+                QuizManager.New_question_text = "Do you struggle with relaxing, or taking a break?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "Yes, I feel unproductive";
@@ -1166,7 +1170,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_anxiety_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Are you always worried about bad things happening?";
+                QuizManager.New_question_text = "Do you always think about the worst case scenario?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "No";
@@ -1203,8 +1207,8 @@ public class QuestionGenerator : MonoBehaviour
                 Is_anxiety_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Have you been avoiding people and objects," +
-                                          " in case they bring in more things to be worried about?";
+                QuizManager.New_question_text = "Have you started to avoid people and objects," +
+                                          " in case they bring in more things to worry about?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "Sometimes";
@@ -1222,7 +1226,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_anxiety_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Do you take time off work or studying because it" +
+                QuizManager.New_question_text = "Have you taken time off work or studying because it" +
                                           " has become much more intimidating?";
 
                 StartCoroutine(Fade_out_answer_texts());
@@ -1243,7 +1247,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_anxiety_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "How often do you get pins and needles?";
+                QuizManager.New_question_text = "How often do you receive pins and needles?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "I am not sure";
@@ -1261,7 +1265,7 @@ public class QuestionGenerator : MonoBehaviour
                 Is_anxiety_question = true;
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Have you noticed yourself with a very dry mouth?";
+                QuizManager.New_question_text = "Have you ever noticed yourself with a very dry mouth?";
 
                 StartCoroutine(Fade_out_answer_texts());
                 QuizManager.New_answer_A = "No";
@@ -1315,7 +1319,7 @@ public class QuestionGenerator : MonoBehaviour
             {
 
                 StartCoroutine(Show_question_text());
-                QuizManager.New_question_text = "Thank you for your honesty, the game will adjust" +
+                QuizManager.New_question_text = "Thank you for your honesty! The game will adjust" +
                                           " based on your answers, press any button to continue";
 
                 StartCoroutine(Fade_out_answer_texts());
